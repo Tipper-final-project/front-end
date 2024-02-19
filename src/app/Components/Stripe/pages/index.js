@@ -23,6 +23,8 @@ export default function App() {
   return (
     <>
     <div id="checkout">
+      <h1>Merin's Profile</h1>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
       {clientSecret && (
         <EmbeddedCheckoutProvider
           stripe={stripePromise}

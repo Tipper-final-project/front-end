@@ -1,9 +1,11 @@
-import Image from "next/image";
-import styles from "./page.module.css";
 import Header from "./Components/Header";
+import Login from "./Components/Login";
 
 export default function Home() {
   return (
+    <>
     <Header />
+    <Login />
+    </>
   )
 }

@@ -1,0 +1,8 @@
+h2 {
+    text-align: center;
+}
+
+.login-card {
+    display: flex;
+    justify-content: center;
+}
