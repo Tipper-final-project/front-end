@@ -1,3 +1,7 @@
+import Link from "next/link";
+
+
+
 const Login = () => {
     return (
       <div className="login-card">
@@ -14,7 +18,7 @@ const Login = () => {
     <span className="input-group-text" id="basic-addon1">Password</span>
     <input type="text" className="form-control" placeholder="Password" aria-label="Username" aria-describedby="basic-addon1"/>
   </div>
-    <a href="#" className="btn btn-primary">Login</a>
+    <a href="/profilepage" className="btn btn-primary">Login</a>
   </div>
 </div>
   </div>
