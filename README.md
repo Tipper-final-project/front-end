@@ -1,36 +1,86 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<h1 align="center">Welcome to Tipper! 👋</h1>
 
-## Getting Started
+### 🏠 [Homepage]()
 
-First, run the development server:
+## Install
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+In order to use this repo and run it locally, you will need to do the following:
+
+1. Clone the repo from gitHub on your local machine
+
+```sh
+$ https://github.com/Merin-Yilmaz/tipper.git
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Install Packages & Dependencies
+   This project uses [node](http://nodejs.org) version v20.6.1 and [npm](https://npmjs.com) version 9.8.1
+   Go check them out if you don't have them locally installed.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+```sh
+$ npm install
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## ** IMPORTANT **
 
-## Learn More
+You will need to create the necessary environment variables in the top level of your folder
 
-To learn more about Next.js, take a look at the following resources:
+Please create the file:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. .env
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+add these 2 variables inside the file:
 
-## Deploy on Vercel
+NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY=
+<br>
+&
+<br>
+STRIPE_SECRET_KEY=
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+see .env.example for reference
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Run Project
+
+You can now run the project:
+
+```sh
+$ npm run dev
+```
+
+## Making a Test Payment
+
+When filling in the payment form, use a long card number such as 4242 4242 4242 4242.
+
+- Use a valid future date, such as 12/34.
+- Use any three-digit CVC (four digits for American Express cards).
+- Use any value you like for other form fields i.e. test@pay.co.uk
+
+## Checking payment on Stripe
+
+To check confirmation of Stripe payments:
+
+1. Go to Payments
+   <br>
+   ![alt text](image.png)
+2. Toggle on Test Mode
+   <br>
+   ![alt text](image-1.png)
+3. Select All Payments
+   <br>
+   ![alt text](image-2.png)
+
+## Authors
+
+- Github: [@Merin-Yilmaz](https://github.com/Merin-Yilmaz)
+- Github: [@Anna-van-Ruiten](https://github.com/avr87)
+- Github: [Amir](https://github.com/)
+- Github: [Langa](https://github.com/)
+- Github: [Eric](https://github.com/)
+- Github: [@Victor-Vancsura](https://github.com/gyozoke)
+
+## 🤝 Contributing
+
+Contributions, issues and feature requests are welcome!<br />Feel free to check [issues page](https://github.com/Merin-Yilmaz/NC-News/issues).
+
+## Show your support
+
+Give a ⭐️ if this project helped you!
