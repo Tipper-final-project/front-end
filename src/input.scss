@@ -7,6 +7,24 @@
   .profilepage {
     display: inline-block;
     margin-left: 20px;
+    width: 90%;
+    .logoutbtn {
+      background-color: blue;
+      border: solid 1px yellow;
+      color: white;
+      font-size: 16px;
+      margin: 20px;
+    }
+    div {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      background-color: green;
+    }
+    .logoutbtn:active {
+      background-color: white;
+      color: yellow;
+    }
     .username {
       font-weight: bold;
       margin-top: 10px;
