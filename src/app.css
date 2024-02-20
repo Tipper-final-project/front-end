@@ -1,14 +1,14 @@
 h2 {
-    text-align: center;
+  text-align: center;
 }
 
 .login-card {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 
 .profilepage img {
-    width: 200px;
-    height: 200px;
-    border-radius: 10px;
+  width: 200px;
+  height: 200px;
+  border-radius: 10px;
 }

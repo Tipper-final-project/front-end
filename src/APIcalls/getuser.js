@@ -1,8 +1,10 @@
 import axios from "axios";
 
-export default async function getUser(username) {
+export default async function getUser(username, setUserDetails, setIsLoggedin) {
   const response = await axios.get(
     `https://tipper-api-xzkf.onrender.com/waiter/${username}`
   );
-  console.log(response.data);
+  const { waiter } = response.data;
+  setUserDetails(waiter);
+  setIsLoggedin(true);
 }
