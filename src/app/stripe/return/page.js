@@ -1,16 +1,15 @@
+"use client";
 import React, { useEffect, useState } from 'react';
-import { redirect } from 'next/navigation';
-
+import { redirect,useSearchParams } from 'next/navigation';
+import {  } from 'next/navigation'
 export default function Return() {
   const [status, setStatus] = useState(null);
   const [customerEmail, setCustomerEmail] = useState('');
-
+  const searchParams = useSearchParams()
+  const sessionId = searchParams.get('session_id')
   useEffect(() => {
-    const queryString = window.location.search;
-    const urlParams = new URLSearchParams(queryString);
-    const sessionId = urlParams.get('session_id');
-
-    fetch(`/api/checkout_sessions?session_id=${sessionId}`, {
+    console.log(sessionId)
+    fetch(`/api?session_id=${sessionId}`, {
       method: "GET",
     })
       .then((res) => res.json())
