@@ -1,3 +1,4 @@
+"use client";
 import React, { useEffect, useState } from "react";
 import { loadStripe } from "@stripe/stripe-js";
 import {
@@ -13,7 +14,7 @@ export default function App() {
   const [clientSecret, setClientSecret] = useState("");
 
   useEffect(() => {
-    fetch("/api/checkout_sessions", {
+    fetch("/api", {
       method: "POST",
     })
       .then((res) => res.json())
