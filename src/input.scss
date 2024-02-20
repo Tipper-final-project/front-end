@@ -1,0 +1,21 @@
+@media only screen and (max-width: 450px) {
+  .login-card {
+    display: flex;
+    justify-content: center;
+  }
+
+  .profilepage {
+    display: inline-block;
+    margin-left: 20px;
+    .username {
+      font-weight: bold;
+      margin-top: 10px;
+      margin-bottom: 20px;
+      text-align: left;
+    }
+  }
+
+  body {
+    background-color: gray;
+  }
+}

@@ -6,7 +6,7 @@ import userdetailsContext from "@/context/usercontext";
 
 const Login = () => {
   const [usernameInput, setUsernameInput] = React.useState("");
-  const { setUserdetails } = useContext(userdetailsContext);
+  const { setUserDetails, setIsLoggedin } = useContext(userdetailsContext);
 
   function handleInput(event) {
     setUsernameInput(event.target.value);
@@ -14,8 +14,7 @@ const Login = () => {
 
   function handleLogin(event) {
     event.preventDefault();
-    getUser(usernameInput, setUserdetails);
-    console.log("hi");
+    getUser(usernameInput, setUserDetails, setIsLoggedin);
   }
 
   return (
