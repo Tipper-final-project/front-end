@@ -6,6 +6,8 @@ import {
   EmbeddedCheckoutProvider,
   EmbeddedCheckout,
 } from "@stripe/react-stripe-js";
+import Header from "../Components/Header";
+import "../../../src/output.css";
 
 const stripePromise = loadStripe(
   process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY
@@ -29,9 +31,19 @@ export default function App({ params }) {
 
   return (
     <>
-      <div id="checkout">
+
+      <Header />
+      <div className="checkout-profile">
+        <img
+          className="checkout-profile-pic"
+          src={userDetails.img}
+          alt="profile-picture"
+        ></img>
         <h1>{userDetails.username}'s Profile</h1>
         <p>{userDetails.bio}</p>
+      </div>
+      <div id="checkout">
+
         {clientSecret && (
           <EmbeddedCheckoutProvider
             stripe={stripePromise}

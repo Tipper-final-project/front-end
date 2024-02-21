@@ -94,6 +94,7 @@ const ProfilePage = () => {
           </button>
         )}
       </div>
+
       {editWorkplace ? (
         <Editfield
           func={setEditWorkplace}
@@ -109,6 +110,8 @@ const ProfilePage = () => {
         >
           Delete account
         </button>
+      <a href={`/${userDetails.username}/qr-code`} className="btn btn-primary">
+        Get QR-code
       </a>
       <a href={`/${userDetails.username}`} className="btn btn-primary">
         Stripe
