@@ -1,6 +1,5 @@
 import axios from "axios";
 
-
 export default async function getUser(
   username,
   setUserDetails,
@@ -14,9 +13,13 @@ export default async function getUser(
     const { waiter } = response.data;
     setUserDetails ? setUserDetails(waiter) : null;
     setIsLoggedin ? setIsLoggedin(true) : null;
+    localStorage.waiter = waiter;
+    localStorage.isLoggedin = true;
   } catch (error) {
     if (error.response.data.msg === "Not found") {
       setLoginError({ type: "username", msg: "Username does not exist" });
     }
   }
 }
+
+

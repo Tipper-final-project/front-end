@@ -31,6 +31,7 @@ export default function App({ params }) {
 
   return (
     <>
+
       <Header />
       <div className="checkout-profile">
         <img
@@ -42,6 +43,7 @@ export default function App({ params }) {
         <p>{userDetails.bio}</p>
       </div>
       <div id="checkout">
+
         {clientSecret && (
           <EmbeddedCheckoutProvider
             stripe={stripePromise}
