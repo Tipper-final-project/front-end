@@ -19,3 +19,4 @@ export default async function getUser(
       setLoginError({ type: "username", msg: "Username does not exist" });
     }
   }
+}

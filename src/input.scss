@@ -32,8 +32,33 @@
       text-align: left;
     }
   }
-
+  .qr-page {
+    text-align: center;
+    .profile-pic {
+      max-height: 200px;
+      max-width: 200px;
+      border-radius: 10px;
+    }
+    .qr-code {
+      display: flex;
+      justify-content: center;
+      width: 75%;
+      height: 75%;
+    }
+  }
+  .checkout-profile {
+    text-align: center;
+    .checkout-profile-pic {
+      width: 20%;
+      height: 20%;
+      border-radius: 10px;
+      margin-bottom: 10px;
+    }
+  }
+  .tipper {
+    display: inline-block;
+  }
   body {
-    background-color: gray;
+    background-color: white;
   }
 }
