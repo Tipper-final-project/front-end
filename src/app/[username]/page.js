@@ -1,6 +1,6 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import  getUser  from "../../APIcalls/getuser"
+import getUser from "../../APIcalls/getuser";
 import { loadStripe } from "@stripe/stripe-js";
 import {
   EmbeddedCheckoutProvider,
@@ -14,12 +14,12 @@ const stripePromise = loadStripe(
 export default function App({ params }) {
   const [clientSecret, setClientSecret] = useState("");
   const [userDetails, setUserDetails] = useState("");
- 
-  const username = params.username
+
+  const username = params.username;
   console.log(userDetails);
 
   useEffect(() => {
-    getUser(username, setUserDetails)
+    getUser(username, setUserDetails);
     fetch("/api", {
       method: "POST",
     })
@@ -29,17 +29,18 @@ export default function App({ params }) {
 
   return (
     <>
-    <div id="checkout">
-      <h1>{userDetails.username}'s Profile</h1>
-      <p>{userDetails.bio}</p>
-      {clientSecret && (
-        <EmbeddedCheckoutProvider
-          stripe={stripePromise}
-          options={{ clientSecret }}
-        >
-          <EmbeddedCheckout />
-        </EmbeddedCheckoutProvider>
-      )}
-    </div>
-  </>);
+      <div id="checkout">
+        <h1>{userDetails.username}'s Profile</h1>
+        <p>{userDetails.bio}</p>
+        {clientSecret && (
+          <EmbeddedCheckoutProvider
+            stripe={stripePromise}
+            options={{ clientSecret }}
+          >
+            <EmbeddedCheckout />
+          </EmbeddedCheckoutProvider>
+        )}
+      </div>
+    </>
+  );
 }
