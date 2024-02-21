@@ -5,6 +5,8 @@ export default async function getUser(username, setUserDetails, setIsLoggedin) {
     `https://tipper-api-xzkf.onrender.com/waiter/${username}`
   );
   const { waiter } = response.data;
-  setUserDetails(waiter);
-  setIsLoggedin(true);
+  
+  setUserDetails ? setUserDetails(waiter) : null;
+
+  setIsLoggedin ? setIsLoggedin(true) : null;
 }

@@ -20,6 +20,9 @@ const ProfilePage = () => {
       <h2>Email: {userDetails.email}</h2>
       <h2>Workplaece: {userDetails.workPlace}</h2>
       <button>Delete account</button>
+      <a href={`/${userDetails.username}`} className="btn btn-primary">
+            Stripe
+          </a>
     </main>
   );
 };
