@@ -1,24 +1,62 @@
-import { useContext } from "react";
+"use client";
+import { useContext, useState } from "react";
 import userdetailsContext from "@/context/usercontext";
+const Editfield = ({ setEditWorkplace }) => {
+  return (
+    <form>
+      <input></input>
+      <button
+        onClick={() => {
+          setEditWorkplace((prevstate) => !prevstate);
+        }}
+      >
+        Save
+      </button>
+    </form>
+  );
+};
 
 const ProfilePage = () => {
   const { userDetails } = useContext(userdetailsContext);
-  console.log(userDetails);
+  const [editWorkplace, setEditWorkplace] = useState(false);
+  console.log(editWorkplace);
 
   return (
     <main className="profilepage">
-      <a href="/" className="btn btn-primary">
-        Home
+      <a href="/">
+        <button className="logoutbtn">Log out</button>
       </a>
-      <img
-        className="rouded mx-auto d-block"
-        src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"
-      ></img>
-      <h2 className="username">Hello {userDetails.username}</h2>
-      <h2 className="bio">Bio</h2>
-      <p>{userDetails.bio}</p>
-      <h2>Email: {userDetails.email}</h2>
-      <h2>Workplaece: {userDetails.workPlace}</h2>
+      <div>
+        <img className="rouded mx-auto d-block" src={userDetails.img}></img>
+      </div>
+      <div>
+        <h2>
+          {userDetails.firstName} {userDetails.lastName}
+        </h2>
+      </div>
+      <div>
+        <h3 className="username">Hello {userDetails.username}</h3>
+      </div>
+      <h3 className="bio">Bio</h3>
+      <div>
+        <p>{userDetails.bio}</p>
+      </div>
+      <div>
+        <h5>Email: {userDetails.email}</h5>
+      </div>
+      <div>
+        <h5>Workplaece: {userDetails.workPlace}</h5>
+        {editWorkplace ? null : (
+          <button
+            onClick={() => {
+              setEditWorkplace(true);
+            }}
+          >
+            Edit
+          </button>
+        )}
+      </div>
+      {editWorkplace ? <Editfield setEditWorkplace={setEditWorkplace} /> : null}
       <button>Delete account</button>
       <a href={`/${userDetails.username}`} className="btn btn-primary">
             Stripe

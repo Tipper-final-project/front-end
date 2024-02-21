@@ -7,6 +7,7 @@ import userdetailsContext from "@/context/usercontext";
 const Login = () => {
   const [usernameInput, setUsernameInput] = React.useState("");
   const { setUserDetails, setIsLoggedin } = useContext(userdetailsContext);
+  const [loginError, setLoginError] = useState({});
 
   function handleInput(event) {
     setUsernameInput(event.target.value);
@@ -14,7 +15,7 @@ const Login = () => {
 
   function handleLogin(event) {
     event.preventDefault();
-    getUser(usernameInput, setUserDetails, setIsLoggedin);
+    getUser(usernameInput, setUserDetails, setIsLoggedin, setLoginError);
   }
 
   return (
@@ -34,6 +35,9 @@ const Login = () => {
               aria-describedby="basic-addon1"
               onChange={handleInput}
             />
+            {loginError.type === "username" ? (
+              <span>Username Does Not Exist</span>
+            ) : null}
           </div>
           <div className="input-group mb-3">
             <span className="input-group-text" id="basic-addon1">

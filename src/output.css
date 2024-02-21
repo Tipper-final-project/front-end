@@ -6,6 +6,24 @@
   .profilepage {
     display: inline-block;
     margin-left: 20px;
+    width: 90%;
+  }
+  .profilepage .logoutbtn {
+    background-color: blue;
+    border: solid 1px yellow;
+    color: white;
+    font-size: 16px;
+    margin: 20px;
+  }
+  .profilepage div {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    background-color: green;
+  }
+  .profilepage .logoutbtn:active {
+    background-color: white;
+    color: yellow;
   }
   .profilepage .username {
     font-weight: bold;
