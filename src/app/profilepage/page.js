@@ -18,7 +18,7 @@ const ProfilePage = () => {
         <button className="logoutbtn">Log out</button>
       </a>
       <div>
-        <img className="rouded mx-auto d-block" src={userDetails.img}></img>
+    <img className="rouded mx-auto d-block" src={userDetails.img}></img>
       </div>
       <div>
         <h2>
