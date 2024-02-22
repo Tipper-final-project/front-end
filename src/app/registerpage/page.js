@@ -1,8 +1,13 @@
+
 "use client";
-import postUser from "@/APIcalls/postuser";
-import { useEffect, useState } from "react";
+import { useRouter } from 'next/navigation';
+import React, { useEffect, useState } from 'react';
+import postUser from '@/APIcalls/postuser';
+
+
 
 const RegisterPage = () => {
+  const router = useRouter();
   const [image, setImage] = useState(null);
   const [information, setInformation] = useState({});
   const [isLoading, setIsLoading] = useState(false);
@@ -11,7 +16,7 @@ const RegisterPage = () => {
 
   function handleImage(event) {
     const data = new FileReader();
-    data.addEventListener("load", () => {
+    data.addEventListener('load', () => {
       setImage(data.result);
     });
     if (event.target.files[0]) {
@@ -35,31 +40,46 @@ const RegisterPage = () => {
     });
   }, [image]);
 
-  function handleSubmit(event) {
+  async function handleSubmit(event) {
+    event.preventDefault();
     setIsError(false);
     setIsLoading(true);
-    document.getElementById("submitButton").disabled = true;
-    document.getElementById("cancelUpload").disabled = true;
-
+    setPostedStatus(true)
+    document.getElementById('submitButton').disabled = true;
+    document.getElementById('cancelUpload').disabled = true;
     postUser(information, setIsLoading, setPostedStatus, setIsError);
-    event.preventDefault();
+  
+    try {
+      await postUser(information);
+      setPostedStatus(true);
+      setIsLoading(false);
+    } catch (error) {
+      setIsError(true);
+      setIsLoading(false);
+    }
   }
+
+  useEffect(() => {
+    if (postedStatus) {
+      router.push('/');
+    }
+  }, [postedStatus, router]);
 
   return (
     <>
       <a href="/" className="btn btn-primary">
         Home
       </a>
-      <h1 style={{ textAlign: "center" }}>Registration Page</h1>
+      <h1 style={{ textAlign: 'center' }}>Registration Page</h1>
       <form
         className="row g-3"
         onSubmit={handleSubmit}
-        style={{ width: "70%", margin: "auto" }}
+        style={{ width: '70%', margin: 'auto' }}
       >
         <div className="col-md-6">
-          <label htmlFor="firstName" className="form-label">
-            Firstname
-          </label>
+           <label htmlFor="firstName" className="form-label">
+             Firstname
+           </label>
           <input
             type="text"
             className="form-control"
@@ -175,24 +195,26 @@ const RegisterPage = () => {
         ) : null}
 
         <div className="col-12">
-          <button id="submitButton" type="submit" className="btn btn-primary">
-            Sign in
-          </button>
           {postedStatus ? (
-            <a
-              href={`/profilepage/${information.username}`}
-              className="btn btn-success"
-              style={{ width: "170px", marginLeft: "10px" }}
-            >
-              Go to profile page
-            </a>
+            <button
+            onClick={() => router.push('/')}
+            className="btn btn-success"
+            style={{ width: "170px", marginLeft: "10px" }}
+          >
+            Go to profile page
+          </button>
           ) : null}
         </div>
 
-        {isLoading ? (
+        <button id="submitButton" type="submit" className="btn btn-primary">
+          Sign Up
+        </button>
+        {isLoading && (
           <p>Please wait while we create your profile page</p>
-        ) : null}
-        {isError ? <p>Please wait while we create your profile page</p> : null}
+        )}
+        {isError && (
+          <p>Sorry, something went wrong. Please try again later.</p>
+        )}
       </form>
     </>
   );
