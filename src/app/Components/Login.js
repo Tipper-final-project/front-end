@@ -144,6 +144,9 @@ const Login = () => {
                 Login
               </button>
             </div>
+            <span className="register-link">
+              <a href="/registerpage">Don't have an account? Register Here</a>
+            </span>
           </div>
         </form>
       )}
