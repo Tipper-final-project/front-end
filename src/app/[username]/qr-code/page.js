@@ -4,16 +4,26 @@ import { useState, useEffect } from "react";
 import getUser from "../../../APIcalls/getuser";
 import Header from "@/app/Components/Header.js";
 import "../../../../src/output.css";
+import Loading from "@/app/Components/Loading";
+import Error from "@/app/Components/Error";
 
 const QRCode = ({ params }) => {
   const [qrImage, setQrImage] = useState("");
   const [userDetails, setUserDetails] = useState("");
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState();
 
   const username = params.username;
 
   useEffect(() => {
     getUser(username, setUserDetails);
+    setIsLoading(false);
+    setError(error);
   }, []);
+
+  if (isLoading) return <Loading />;
+
+  if (error) return <Error error={error} />;
 
   const generateQR = async (text, func) => {
     let isMounted = true;

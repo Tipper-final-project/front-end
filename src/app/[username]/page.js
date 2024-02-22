@@ -8,6 +8,8 @@ import {
 } from "@stripe/react-stripe-js";
 import Header from "../Components/Header";
 import "../../../src/output.css";
+import Loading from "../Components/Loading"
+import Error from "../Components/Error"
 
 const stripePromise = loadStripe(
   process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY
@@ -16,18 +18,25 @@ const stripePromise = loadStripe(
 export default function App({ params }) {
   const [clientSecret, setClientSecret] = useState("");
   const [userDetails, setUserDetails] = useState("");
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState();
 
   const username = params.username;
-  console.log(userDetails);
 
   useEffect(() => {
     getUser(username, setUserDetails);
+    setIsLoading(false)
+    setError(error);
     fetch("/api", {
       method: "POST",
     })
       .then((res) => res.json())
       .then((data) => setClientSecret(data.clientSecret));
   }, []);
+
+  if (isLoading) return <Loading />;
+
+  if (error) return <Error error={error} />;
 
   return (
     <>

@@ -67,16 +67,21 @@
 
 "use client";
 import React, { useState, useContext } from "react";
-import Link from "next/link";
 import getUser from "@/APIcalls/getuser";
 import userdetailsContext from "@/context/usercontext";
+
+import Loading from "./Loading";
 import RegisterPage from "../registerpage/page";
 import ProfilePage from "../profilepage/page";
+
 
 const Login = () => {
   const [usernameInput, setUsernameInput] = React.useState("");
   const { setUserDetails, setIsLoggedin } = useContext(userdetailsContext);
   const [loginError, setLoginError] = useState({});
+
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState();
   const [isLoggedin] = useState(true)
 
   function handleInput(event) {
@@ -86,7 +91,14 @@ const Login = () => {
   function handleLogin(event) {
     event.preventDefault();
     getUser(usernameInput, setUserDetails, setIsLoggedin, setLoginError);
+    setIsLoading(true);
+    setIsLoading(false)
+    setError(error);
   }
+
+  if (isLoading) return <Loading />;
+
+  if (error) return <Error error={error} />;
 
   return (
     <div>
