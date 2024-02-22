@@ -1,13 +1,15 @@
 "use client";
 import React, { useState, useContext } from "react";
-import Link from "next/link";
 import getUser from "@/APIcalls/getuser";
 import userdetailsContext from "@/context/usercontext";
+import Loading from "./Loading";
 
 const Login = () => {
   const [usernameInput, setUsernameInput] = React.useState("");
   const { setUserDetails, setIsLoggedin } = useContext(userdetailsContext);
   const [loginError, setLoginError] = useState({});
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState();
 
   function handleInput(event) {
     setUsernameInput(event.target.value);
@@ -16,7 +18,14 @@ const Login = () => {
   function handleLogin(event) {
     event.preventDefault();
     getUser(usernameInput, setUserDetails, setIsLoggedin, setLoginError);
+    setIsLoading(true);
+    setIsLoading(false)
+    setError(error);
   }
+
+  if (isLoading) return <Loading />;
+
+  if (error) return <Error error={error} />;
 
   return (
     <form className="login-card" onSubmit={handleLogin}>

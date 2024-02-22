@@ -9,7 +9,7 @@ In order to use this repo and run it locally, you will need to do the following:
 1. Clone the repo from gitHub on your local machine
 
 ```sh
-$ https://github.com/Merin-Yilmaz/tipper.git
+$ https://github.com/Tipper-final-project
 ```
 
 2. Install Packages & Dependencies
