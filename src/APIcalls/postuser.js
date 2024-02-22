@@ -1,10 +1,11 @@
 import axios from "axios";
 
-export default function postUser(
+export default async function postUser(
   information,
   setIsLoading,
   setPostedStatus,
-  setIsError
+  setIsError,
+  encryptedString
 ) {
   return axios
     .post(`https://tipper-api-xzkf.onrender.com/waiter`, {
@@ -15,6 +16,7 @@ export default function postUser(
       img: information.img,
       firstName: information.firstName,
       lastName: information.lastName,
+      password: encryptedString,
     })
     .then(() => {
       setIsLoading(false);

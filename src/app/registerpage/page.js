@@ -1,10 +1,9 @@
-
 "use client";
-import { useRouter } from 'next/navigation';
-import React, { useEffect, useState } from 'react';
-import postUser from '@/APIcalls/postuser';
-
-
+import { useRouter } from "next/navigation";
+import React, { useEffect, useState } from "react";
+import postUser from "@/APIcalls/postuser";
+import cryptr from "cryptr";
+export const Crypt = new cryptr(process.env.NEXT_PUBLIC_SECRET);
 
 const RegisterPage = () => {
   const router = useRouter();
@@ -13,10 +12,11 @@ const RegisterPage = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [postedStatus, setPostedStatus] = useState(false);
   const [isError, setIsError] = useState(false);
+  const [password, setPassword] = useState("");
 
   function handleImage(event) {
     const data = new FileReader();
-    data.addEventListener('load', () => {
+    data.addEventListener("load", () => {
       setImage(data.result);
     });
     if (event.target.files[0]) {
@@ -29,7 +29,11 @@ const RegisterPage = () => {
       const newInformation = { ...currentInformation };
       newInformation[event.target.id] = event.target.value;
       return newInformation;
+      // }
     });
+    if (event.target.id === "password") {
+      setPassword(event.target.value);
+    }
   }
 
   useEffect(() => {
@@ -41,27 +45,26 @@ const RegisterPage = () => {
   }, [image]);
 
   async function handleSubmit(event) {
+    const encryptedString = Crypt.encrypt(password);
+
     event.preventDefault();
     setIsError(false);
     setIsLoading(true);
-    setPostedStatus(true)
-    document.getElementById('submitButton').disabled = true;
-    document.getElementById('cancelUpload').disabled = true;
-    postUser(information, setIsLoading, setPostedStatus, setIsError);
-  
-    try {
-      await postUser(information);
-      setPostedStatus(true);
-      setIsLoading(false);
-    } catch (error) {
-      setIsError(true);
-      setIsLoading(false);
-    }
+    setPostedStatus(true);
+    document.getElementById("submitButton").disabled = true;
+    document.getElementById("cancelUpload").disabled = true;
+    await postUser(
+      information,
+      setIsLoading,
+      setPostedStatus,
+      setIsError,
+      encryptedString
+    );
   }
 
   useEffect(() => {
     if (postedStatus) {
-      router.push('/');
+      router.push("/");
     }
   }, [postedStatus, router]);
 
@@ -70,16 +73,16 @@ const RegisterPage = () => {
       <a href="/" className="btn btn-primary">
         Home
       </a>
-      <h1 style={{ textAlign: 'center' }}>Registration Page</h1>
+      <h1 style={{ textAlign: "center" }}>Registration Page</h1>
       <form
         className="row g-3"
         onSubmit={handleSubmit}
-        style={{ width: '70%', margin: 'auto' }}
+        style={{ width: "70%", margin: "auto" }}
       >
         <div className="col-md-6">
-           <label htmlFor="firstName" className="form-label">
-             Firstname
-           </label>
+          <label htmlFor="firstName" className="form-label">
+            Firstname
+          </label>
           <input
             type="text"
             className="form-control"
@@ -121,7 +124,7 @@ const RegisterPage = () => {
             className="form-control"
             id="password"
             onChange={handleChange}
-            // required
+            required
           />
         </div>
 
@@ -197,24 +200,20 @@ const RegisterPage = () => {
         <div className="col-12">
           {postedStatus ? (
             <button
-            onClick={() => router.push('/')}
-            className="btn btn-success"
-            style={{ width: "170px", marginLeft: "10px" }}
-          >
-            Go to profile page
-          </button>
+              onClick={() => router.push("/")}
+              className="btn btn-success"
+              style={{ width: "170px", marginLeft: "10px" }}
+            >
+              Go to profile page
+            </button>
           ) : null}
         </div>
 
         <button id="submitButton" type="submit" className="btn btn-primary">
           Sign Up
         </button>
-        {isLoading && (
-          <p>Please wait while we create your profile page</p>
-        )}
-        {isError && (
-          <p>Sorry, something went wrong. Please try again later.</p>
-        )}
+        {isLoading && <p>Please wait while we create your profile page</p>}
+        {isError && <p>Sorry, something went wrong. Please try again later.</p>}
       </form>
     </>
   );
