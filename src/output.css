@@ -2,6 +2,11 @@
   .login-card {
     display: flex;
     justify-content: center;
+    margin-top: 30%;
+  }
+  .login-card .register-link {
+    font-size: small;
+    text-align: center;
   }
   .profilepage {
     display: inline-block;
@@ -59,6 +64,9 @@
   }
   body {
     background-color: white;
+  }
+  .register-title {
+    margin-top: 5%;
   }
 }
 

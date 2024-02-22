@@ -1,18 +1,23 @@
 "use client";
 import React, { useState, useContext } from "react";
-import Link from "next/link";
 import getUser from "@/APIcalls/getuser";
 import userdetailsContext from "@/context/usercontext";
+
+import Loading from "./Loading";
 import RegisterPage from "../registerpage/page";
 import ProfilePage from "../profilepage/page";
 import cryptr from "cryptr";
+
 
 const Login = () => {
   const [usernameInput, setUsernameInput] = React.useState("");
   const { setUserDetails, setIsLoggedin } = useContext(userdetailsContext);
   const [loginError, setLoginError] = useState({});
-  const [isLoggedin] = useState(true);
   const [passwordInput, setPasswordInput] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState();
+  const [isLoggedin] = useState(true)
+  
   function handleInput(event) {
     setUsernameInput(event.target.value);
   }
@@ -26,7 +31,12 @@ const Login = () => {
       setIsLoggedin,
       setLoginError
     );
+
   }
+
+  if (isLoading) return <Loading />;
+
+  if (error) return <Error error={error} />;
 
   return (
     <div>
@@ -73,6 +83,9 @@ const Login = () => {
               </div>
               <button className="btn btn-primary">Login</button>
             </div>
+            <span className="register-link">
+              <a href="/registerpage">Don't have an account? Register Here</a>
+            </span>
           </div>
         </form>
       )}
