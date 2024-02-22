@@ -3,6 +3,8 @@
 import { useRouter } from 'next/navigation';
 import React, { useEffect, useState } from 'react';
 import postUser from '@/APIcalls/postuser';
+import Header from '../Components/Header';
+import "../../../src/output.css"
 
 
 
@@ -67,10 +69,11 @@ const RegisterPage = () => {
 
   return (
     <>
+    <Header />
       <a href="/" className="btn btn-primary">
         Home
       </a>
-      <h1 style={{ textAlign: 'center' }}>Registration Page</h1>
+      <h1 className="register-title" style={{ textAlign: 'center' }}>Registration Page</h1>
       <form
         className="row g-3"
         onSubmit={handleSubmit}

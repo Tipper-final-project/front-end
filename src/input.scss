@@ -2,6 +2,11 @@
   .login-card {
     display: flex;
     justify-content: center;
+    margin-top: 30%;
+    .register-link {
+      font-size: small;
+      text-align: center;
+    }
   }
 
   .profilepage {
@@ -32,6 +37,7 @@
       text-align: left;
     }
   }
+
   .qr-page {
     text-align: center;
     .profile-pic {
@@ -46,6 +52,7 @@
       height: 75%;
     }
   }
+
   .checkout-profile {
     text-align: center;
     .checkout-profile-pic {
@@ -55,10 +62,17 @@
       margin-bottom: 10px;
     }
   }
+
   .tipper {
     display: inline-block;
   }
+
   body {
     background-color: white;
   }
+
+  .register-title {
+    margin-top: 5%;
+  }
+  
 }
