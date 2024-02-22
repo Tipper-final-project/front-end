@@ -17,7 +17,7 @@ const ProfilePage = () => {
         <button className="logoutbtn">Log out</button>
       </a>
       <div>
-        <img className="rouded mx-auto d-block" src={userDetails.img}></img>
+    <img className="rouded mx-auto d-block" src={userDetails.img}></img>
       </div>
       <div>
         <h2>
@@ -110,6 +110,7 @@ const ProfilePage = () => {
         >
           Delete account
         </button>
+        </a>
       <a href={`/${userDetails.username}/qr-code`} className="btn btn-primary">
         Get QR-code
       </a>
