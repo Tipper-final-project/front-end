@@ -12,8 +12,11 @@ const Editfield = ({ func, value, username }) => {
     <form>
       <input onChange={handleInput} />
       <button
+        className="btn btn-outline-primary btn-sm"
         onClick={() => {
-          patchUser(username, { [value]: inputFieldData });
+          if (inputFieldData.length !== 0 && /\w/gi.test(inputFieldData)) {
+            patchUser(username, { [value]: inputFieldData });
+          }
           func((prevstate) => !prevstate);
         }}
       >
