@@ -1,24 +1,30 @@
 "use client";
-import { useContext, useState } from "react";
-import userdetailsContext from "@/context/usercontext";
+import { useEffect, useState } from "react";
 import Editfield from "@/reusable components/editfield";
 import deleteUser from "@/APIcalls/deleteUser";
+import getUser from "@/APIcalls/getuser";
 
-
-const ProfilePage = () => {
-  const { userDetails } = useContext(userdetailsContext);
+const ProfilePage = ({ params }) => {
+  const [isLoading, setIsLoading] = useState(true);
+  const [userDetails, setUserDetails] = useState(null);
   const [editWorkplace, setEditWorkplace] = useState(false);
   const [editEmail, setEditEmail] = useState(false);
   const [editBio, setEditBio] = useState(false);
   const [editUsername, setEditUsername] = useState(false);
 
-  return (
+  useEffect(() => {
+    getUser(params.username, setUserDetails, setIsLoading);
+  }, []);
+
+  return isLoading ? (
+    <p>Currently Loading</p>
+  ) : (
     <main className="profilepage">
       <a href="/">
         <button className="logoutbtn">Log out</button>
       </a>
       <div>
-    <img className="rouded mx-auto d-block" src={userDetails.img}></img>
+        <img className="rouded mx-auto d-block" src={userDetails.img}></img>
       </div>
       <div>
         <h2>
@@ -111,7 +117,7 @@ const ProfilePage = () => {
         >
           Delete account
         </button>
-        </a>
+      </a>
       <a href={`/${userDetails.username}/qr-code`} className="btn btn-primary">
         Get QR-code
       </a>
