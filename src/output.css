@@ -8,23 +8,21 @@
     font-size: small;
     text-align: center;
   }
-  .profilepage {
-    display: inline-block;
-    margin-left: 20px;
-    width: 90%;
+  .profileDiv {
+    display: flex;
+    justify-content: space-between;
   }
-  .profilepage .logoutbtn {
-    background-color: blue;
-    border: solid 1px yellow;
-    color: white;
-    font-size: 16px;
-    margin: 20px;
+  .confirmDelete {
+    display: flex;
+    justify-content: space-around;
+  }
+  .profilepage {
+    display: inline block;
   }
   .profilepage div {
     display: flex;
     justify-content: space-between;
     width: 100%;
-    background-color: green;
   }
   .profilepage .logoutbtn:active {
     background-color: white;
@@ -35,6 +33,11 @@
     margin-top: 10px;
     margin-bottom: 20px;
     text-align: left;
+  }
+  .profilepage .deleteField {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
   }
   .qr-page {
     text-align: center;

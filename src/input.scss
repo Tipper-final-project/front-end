@@ -9,22 +9,25 @@
     }
   }
 
+  .profileDiv {
+    display: flex;
+    justify-content: space-between;
+  }
+  .confirmDelete {
+    display: flex;
+    justify-content: space-around;
+  }
+
   .profilepage {
-    display: inline-block;
-    margin-left: 20px;
-    width: 90%;
-    .logoutbtn {
-      background-color: blue;
-      border: solid 1px yellow;
-      color: white;
-      font-size: 16px;
-      margin: 20px;
-    }
+    display: inline block;
+    // .logoutbtn {
+    //   display: flex;
+    //   align-content: flex-end;
+    // }
     div {
       display: flex;
       justify-content: space-between;
       width: 100%;
-      background-color: green;
     }
     .logoutbtn:active {
       background-color: white;
@@ -35,6 +38,13 @@
       margin-top: 10px;
       margin-bottom: 20px;
       text-align: left;
+    }
+    .deleteField {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      .warning {
+      }
     }
   }
 
@@ -74,5 +84,4 @@
   .register-title {
     margin-top: 5%;
   }
-  
 }
