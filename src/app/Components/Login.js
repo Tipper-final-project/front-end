@@ -19,6 +19,7 @@ const Login = () => {
   }
 
   function handleLogin(event) {
+    setIsLoading(true)
     event.preventDefault();
     if (verifyUser(usernameInput, passwordInput)) {
       router.push(`/profile/${usernameInput}`);
