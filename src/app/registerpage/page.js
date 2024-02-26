@@ -4,6 +4,8 @@ import { useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import postUser from "@/APIcalls/postuser";
 import cryptr from "cryptr";
+import Image from "next/image";
+import background from '../../../src/background.png'
 
 export const Crypt = new cryptr(process.env.NEXT_PUBLIC_SECRET);
 
@@ -74,94 +76,95 @@ const RegisterPage = () => {
   }, [postedStatus, router]);
 
   return (
-    <>
+      <div className="background" style={{ zIndex: 0, position: 'relative', width: '100%', height: '100%'}}>
+      <Image src={background} placeholder="blur" layout="fill" objectFit="cover" alt="background image"/>
       <Header />
-      <a href="/" className="btn btn-primary">
-        Home
+      <a href="/" className="btn btn-primary return-login">
+        Login
       </a>
       <h1 className="register-title" style={{ textAlign: "center" }}>
         Registration Page
       </h1>
       <form
-        className="row g-3"
+        className="register-card"
         onSubmit={handleSubmit}
-        style={{ width: "70%", margin: "auto" }}
       >
-        <div className="col-md-6">
+      <div className="card " style={{ width: 90 + "%" }}>
+      <div className="register-card-body">
+        <div className="input-group mb-3">
           <label htmlFor="firstName" className="form-label">
-            Firstname
           </label>
           <input
             type="text"
             className="form-control"
+            placeholder="First Name"
             id="firstName"
             onChange={handleChange}
             required
           />
         </div>
-        <div className="col-md-6">
+        <div className="input-group mb-3">
           <label htmlFor="lastName" className="form-label">
-            Lastname
           </label>
           <input
             type="text"
             className="form-control"
+            placeholder="Last Name"
             id="lastName"
             onChange={handleChange}
             required
           />
         </div>
-        <div className="col-md-6">
+        <div className="input-group mb-3">
           <label htmlFor="username" className="form-label">
-            Username
           </label>
           <input
             type="text"
             className="form-control"
+            placeholder="Username"
             id="username"
             onChange={handleChange}
             required
           />
         </div>
-        <div className="col-md-6">
+        <div className="input-group mb-3">
           <label htmlFor="password" className="form-label">
-            Password
           </label>
           <input
             type="text"
             className="form-control"
+            placeholder="Password"
             id="password"
             onChange={handleChange}
             required
           />
         </div>
 
-        <div className="col-md-6">
+        <div className="input-group mb-3">
           <label htmlFor="workPlace" className="form-label">
-            Workplace
           </label>
           <input
             type="text"
             className="form-control"
+            placeholder="Workplace"
             id="workPlace"
             onChange={handleChange}
             required
           />
         </div>
-        <div className="col-md-6">
+        <div className="input-group mb-3">
           <label htmlFor="email" className="form-label">
-            Email
           </label>
           <input
             type="email"
             className="form-control"
+            placeholder="Email"
             id="email"
             onChange={handleChange}
             required
           />
         </div>
         <div className="input-group">
-          <span className="input-group-text">Bio</span>
           <textarea
             id="bio"
             className="form-control"
@@ -222,8 +225,10 @@ const RegisterPage = () => {
         </button>
         {isLoading && <p>Please wait while we create your profile page</p>}
         {isError && <p>Sorry, something went wrong. Please try again later.</p>}
+      </div>
+      </div>
       </form>
-    </>
+      </div>
   );
 };
 

@@ -4,6 +4,8 @@ import Editfield from "@/reusable components/editfield";
 import deleteUser from "@/APIcalls/deleteUser";
 import getUser from "@/APIcalls/getuser";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
+import background from '../../../../src/background.png'
 
 const UsernameError = ({ setIsTime }) => {
   setTimeout(() => {
@@ -31,7 +33,8 @@ const ProfilePage = ({ params }) => {
   return isLoading ? (
     <p>Currently Loading</p>
   ) : (
-    <div>
+    <div className="background" style={{ zIndex: 0, position: 'fixed', width: '100%', height: '100%'}}>
+    <Image src={background} placeholder="blur" layout="fill" objectFit="cover" alt="background image"/>
       <div className="logoutbtn">
         <a href="/">
           <button className="btn btn-outline-primary btn-sm">Log out</button>
