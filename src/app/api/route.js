@@ -2,7 +2,8 @@ const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 import { NextResponse } from "next/server";
 
 export async function POST(req) {
-
+  
+  const data = await req.json();
   try {
     // Create Checkout Sessions from body params.
     const session = await stripe.checkout.sessions.create({

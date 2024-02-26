@@ -29,6 +29,8 @@ export default function App({ params }) {
     setError(error);
     fetch("/api", {
       method: "POST",
+      body: JSON.stringify({
+      })
     })
       .then((res) => res.json())
       .then((data) => setClientSecret(data.clientSecret));

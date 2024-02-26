@@ -23,6 +23,7 @@ const Login = () => {
   }
 
   function handleLogin(event) {
+    setIsLoading(true)
     event.preventDefault();
     getUser(
       usernameInput,
@@ -31,6 +32,7 @@ const Login = () => {
       setIsLoggedin,
       setLoginError
     );
+    setIsLoading(false)
 
   }
 
