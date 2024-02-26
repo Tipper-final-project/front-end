@@ -7,8 +7,8 @@ import cryptr from "cryptr";
 
 export const Crypt = new cryptr(process.env.NEXT_PUBLIC_SECRET);
 
-import Header from '../Components/Header';
-import "../../../src/output.css"
+import Header from "../Components/Header";
+import "../../../src/output.css";
 
 const RegisterPage = () => {
   const router = useRouter();
@@ -75,11 +75,13 @@ const RegisterPage = () => {
 
   return (
     <>
-    <Header />
+      <Header />
       <a href="/" className="btn btn-primary">
         Home
       </a>
-      <h1 className="register-title" style={{ textAlign: 'center' }}>Registration Page</h1>
+      <h1 className="register-title" style={{ textAlign: "center" }}>
+        Registration Page
+      </h1>
       <form
         className="row g-3"
         onSubmit={handleSubmit}

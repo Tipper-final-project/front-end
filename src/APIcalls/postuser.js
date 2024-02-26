@@ -13,7 +13,7 @@ export default async function postUser(
       bio: information.bio,
       workPlace: information.workPlace,
       email: information.email,
-      img: information.img,
+      img_url: information.img,
       firstName: information.firstName,
       lastName: information.lastName,
       password: encryptedString,
