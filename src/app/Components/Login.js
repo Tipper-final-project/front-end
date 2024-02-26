@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import Loading from "./Loading";
 import RegisterPage from "../registerpage/page";
 import cryptr from "cryptr";
+import background from '../../../src/background.png'
 
 const Login = () => {
   const router = useRouter();
@@ -44,14 +45,11 @@ const Login = () => {
 
   return (
     <div>
+      <h1 className="login-title">Welcome to Tipper</h1>
       <form className="login-card" onSubmit={handleLogin}>
-        <div className="card " style={{ width: 540 + "px" }}>
-          <div className="card-header">Login/Register</div>
+        <div className="card " style={{ width: 90 + "%" }}>
           <div className="card-body">
             <div className="input-group mb-3">
-              <span className="input-group-text" id="basic-addon1">
-                Username
-              </span>
               <input
                 type="text"
                 className="form-control"
@@ -68,9 +66,6 @@ const Login = () => {
             </div>
             <div>{loginError ? <p>{loginError.username}</p> : null}</div>
             <div className="input-group mb-3">
-              <span className="input-group-text" id="basic-addon1">
-                Password
-              </span>
               <input
                 type="password"
                 className="form-control"
