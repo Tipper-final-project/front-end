@@ -1,8 +1,16 @@
 "use client";
 import { useState } from "react";
 import patchUser from "@/APIcalls/patchUser";
+import { findUserName } from "@/APIcalls/getuser";
 
-const Editfield = ({ func, value, username }) => {
+const Editfield = ({
+  func,
+  func2,
+  setChangingUserName,
+  setUsernameTaken,
+  value,
+  username,
+}) => {
   const [inputFieldData, setInputFieldData] = useState("");
   function handleInput(event) {
     setInputFieldData(event.target.value);
@@ -10,12 +18,31 @@ const Editfield = ({ func, value, username }) => {
 
   return (
     <form>
-      <input onChange={handleInput} />
+      <input onChange={handleInput} minLength={4} />
       <button
         className="btn btn-outline-primary btn-sm"
         onClick={() => {
           if (inputFieldData.length !== 0 && /\w/gi.test(inputFieldData)) {
-            patchUser(username, { [value]: inputFieldData });
+            if (value === "username") {
+              if (inputFieldData.length < 4) return; // how does this even work ??
+              setChangingUserName(true);
+              findUserName(inputFieldData).then((result) => {
+                if (!result) {
+                  func2((prevState) => {
+                    prevState[value] = inputFieldData;
+                    return prevState;
+                  });
+                  patchUser(username, { [value]: inputFieldData });
+                } else setUsernameTaken(true);
+                setChangingUserName(false);
+              });
+            } else {
+              func2((prevState) => {
+                prevState[value] = inputFieldData;
+                return prevState;
+              });
+              patchUser(username, { [value]: inputFieldData });
+            }
           }
           func((prevstate) => !prevstate);
         }}
