@@ -158,9 +158,9 @@ const ProfilePage = ({ params }) => {
       </div>
       <div className="card" style={{ width: "90%", margin: "auto" }}>
         <img
-          src={userDetails.img}
+          src={userDetails.img_url}
           className="card-img-top"
-          alt={`an image of ${userDetails.img}`}
+          alt={`an image of ${userDetails.username}`}
         />
         <div className="card-body">
           <div className="profileDiv">
@@ -275,11 +275,14 @@ const ProfilePage = ({ params }) => {
           </button>
           <a
             href={`/${userDetails.username}/qr-code`}
-            className="btn btn-primary"
+            className="btn btn-outline-primary btn-sm"
           >
             Get QR-code
           </a>
-          <a href={`/${userDetails.username}`} className="btn btn-primary">
+          <a
+            href={`/${userDetails.username}`}
+            className="btn btn-outline-primary btn-sm"
+          >
             Stripe
           </a>
 
