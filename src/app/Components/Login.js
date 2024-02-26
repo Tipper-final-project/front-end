@@ -59,6 +59,7 @@ const Login = () => {
                 aria-describedby="basic-addon1"
                 onFocus={() => {
                   setLoginError(null);
+                  document.getElementById("loginbtn").disabled = false;
                 }}
                 onChange={handleInput}
               />
