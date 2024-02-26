@@ -119,9 +119,10 @@
     .card {
       border: none;
     }
-    .card-body {
-      padding-top: 30px;
+    .register-card-body {
+      padding: 10px 10px 10px 10px
     }
+
     .form-control{
       padding: 10px 0px 10px 5px;
     }
@@ -130,20 +131,6 @@
       box-shadow: 0 0 0 0.10rem #5CDB95;
     }
 }
-  // .register-card {
-  //   display: flex;
-  //   justify-content: center;
-  //   margin-top: 5%;
-  //   .card {
-  //     border: none;
-  //   }
-  //   .register-card-body {
-  //     padding-top: 30px;
-  //   }
-  //   .form-control{
-  //     padding: 10px 0px 10px 5px;
-  //   }
-  // }
 
   .return-login {
     isolation: isolate;

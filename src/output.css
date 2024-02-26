@@ -109,8 +109,8 @@
   .register-card .card {
     border: none;
   }
-  .register-card .card-body {
-    padding-top: 30px;
+  .register-card .register-card-body {
+    padding: 10px 10px 10px 10px;
   }
   .register-card .form-control {
     padding: 10px 0px 10px 5px;

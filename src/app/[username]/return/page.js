@@ -20,6 +20,9 @@ const Return = () => {
         console.log(data);
         setStatus(data.status);
         setCustomerEmail(data.customer_email);
+        if(data.status === 'complete') {
+          postPayment(sessionId)
+        }
       });
   }, []);
 
@@ -28,7 +31,6 @@ const Return = () => {
   }
 
   if (status === "complete") {
-    postPayment(sessionId)
     return (
       <section id="success">
         <img className="green-tick-pic" src={check} alt="green-tick" />

@@ -24,7 +24,7 @@ export default function App({ params }) {
   const username = params.username;
 
   useEffect(() => {
-    getUser(username, setUserDetails);
+    getUser(username, setUserDetails, setIsLoading);
     setIsLoading(false)
     setError(error);
     fetch("/api", {

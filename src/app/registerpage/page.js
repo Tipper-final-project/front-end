@@ -4,13 +4,11 @@ import { useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import postUser from "@/APIcalls/postuser";
 import cryptr from "cryptr";
-import Image from "next/image";
-import background from '../../../src/background.png'
+import Header from "../Components/Header";
+import "../../../src/output.css";
 
 export const Crypt = new cryptr(process.env.NEXT_PUBLIC_SECRET);
 
-import Header from "../Components/Header";
-import "../../../src/output.css";
 
 const RegisterPage = () => {
   const router = useRouter();
@@ -76,9 +74,7 @@ const RegisterPage = () => {
   }, [postedStatus, router]);
 
   return (
-      <div className="background" style={{ zIndex: 0, position: 'relative', width: '100%', height: '100%'}}>
-      <Image src={background} placeholder="blur" layout="fill" objectFit="cover" alt="background image"/>
-      <Header />
+      <>
       <a href="/" className="btn btn-primary return-login">
         Login
       </a>
@@ -139,7 +135,6 @@ const RegisterPage = () => {
             required
           />
         </div>
-
         <div className="input-group mb-3">
           <label htmlFor="workPlace" className="form-label">
           </label>
@@ -168,13 +163,12 @@ const RegisterPage = () => {
           <textarea
             id="bio"
             className="form-control"
-            placeholder="Tell us a bit about yourself"
+            placeholder="Tell us a bit about yourself.."
             aria-label="Bio input"
             onChange={handleChange}
             required
           ></textarea>
         </div>
-
         <div className="input-group">
           <input
             type="file"
@@ -207,7 +201,6 @@ const RegisterPage = () => {
             </button>
           </div>
         ) : null}
-
         <div className="col-12">
           {postedStatus ? (
             <button
@@ -219,7 +212,6 @@ const RegisterPage = () => {
             </button>
           ) : null}
         </div>
-
         <button id="submitButton" type="submit" className="btn btn-primary">
           Sign Up
         </button>
@@ -228,7 +220,7 @@ const RegisterPage = () => {
       </div>
       </div>
       </form>
-      </div>
+      </>
   );
 };
 

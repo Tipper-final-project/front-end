@@ -16,7 +16,7 @@ const QRCode = ({ params }) => {
   const username = params.username;
 
   useEffect(() => {
-    getUser(username, setUserDetails);
+    getUser(username, setUserDetails, setIsLoading);
     setIsLoading(false);
     setError(error);
   }, []);
