@@ -3,14 +3,18 @@
   .login-card {
     display: flex;
     justify-content: center;
-    margin-top: 10%;
+    margin-top: 5%;
   }
   .login-card .register-link {
     font-size: small;
     text-align: center;
+    padding-bottom: px;
   }
   .login-card .card {
     border: none;
+  }
+  .login-card .card-body {
+    padding-top: 30px;
   }
   .login-card .btn {
     width: 100%;
@@ -27,7 +31,8 @@
   }
   .login-title {
     text-align: center;
-    margin-top: 20%;
+    margin-top: 45%;
+    isolation: isolate;
   }
   .profileDiv {
     display: flex;
@@ -85,6 +90,7 @@
   }
   .tipper {
     display: inline-block;
+    isolation: isolate;
   }
   .register-title {
     margin-top: 5%;
@@ -95,10 +101,6 @@
   }
   a {
     color: #05386B;
-  }
-  .background {
-    width: 100%;
-    height: 100%;
   }
 }
 

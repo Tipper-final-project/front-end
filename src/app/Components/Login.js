@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 import Loading from "./Loading";
 import RegisterPage from "../registerpage/page";
 import cryptr from "cryptr";
-
+import background from '../../../src/background.png'
 
 const Login = () => {
   const router = useRouter();
@@ -33,7 +33,7 @@ const Login = () => {
 
   return (
     <div>
-      <h1 className="login-title">Welcome to TIPPER</h1>
+      <h1 className="login-title">Welcome to Tipper</h1>
       <form className="login-card" onSubmit={handleLogin}>
         <div className="card " style={{ width: 90 + "%" }}>
           <div className="card-body">
