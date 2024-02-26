@@ -5,6 +5,13 @@ import deleteUser from "@/APIcalls/deleteUser";
 import getUser from "@/APIcalls/getuser";
 import { useRouter } from "next/navigation";
 
+const UsernameError = ({ setIsTime }) => {
+  setTimeout(() => {
+    setIsTime("now");
+  }, 5000);
+  return <p>Username is taken</p>;
+};
+
 const ProfilePage = ({ params }) => {
   const route = useRouter();
   const [isLoading, setIsLoading] = useState(true);
@@ -14,6 +21,9 @@ const ProfilePage = ({ params }) => {
   const [editBio, setEditBio] = useState(false);
   const [editUsername, setEditUsername] = useState(false);
   const [deleteWarning, setDeleteWarning] = useState(false);
+  const [changingUserName, setChangingUserName] = useState(false);
+  const [usernameTaken, setUsernameTaken] = useState(false);
+  const [isTime, setIsTime] = useState(null);
   useEffect(() => {
     getUser(params.username, setUserDetails, setIsLoading);
   }, []);
@@ -21,135 +31,6 @@ const ProfilePage = ({ params }) => {
   return isLoading ? (
     <p>Currently Loading</p>
   ) : (
-    // <main className="profilepage">
-    //   <a href="/">
-    //     <button className="logoutbtn">Log out</button>
-    //   </a>
-    //   <div>
-    //     <img className="rouded mx-auto d-block" src={userDetails.img}></img>
-    //   </div>
-    //   <div>
-    //     <h2>
-    //       {userDetails.firstName} {userDetails.lastName}
-    //     </h2>
-    //   </div>
-    //   <div>
-    //     <h3 className="username">Hello {userDetails.username}</h3>
-    //     {editUsername ? null : (
-    //       <button
-    //         onClick={() => {
-    //           setEditUsername(true);
-    //         }}
-    //       >
-    //         Edit
-    //       </button>
-    //     )}
-    //   </div>
-    //   {editUsername ? (
-    //     <Editfield
-    //       func={setEditUsername}
-    //       value={"username"}
-    //       username={userDetails.username}
-    //     />
-    //   ) : null}
-    //   <h3 className="bio">Bio</h3>
-    //   <div>
-    //     <p>{userDetails.bio}</p>
-    //     {editBio ? null : (
-    //       <button
-    //         onClick={() => {
-    //           setEditBio(true);
-    //         }}
-    //       >
-    //         Edit
-    //       </button>
-    //     )}
-    //   </div>
-    //   {editBio ? (
-    //     <Editfield
-    //       func={setEditBio}
-    //       value={"bio"}
-    //       username={userDetails.username}
-    //     />
-    //   ) : null}
-    //   <div>
-    //     <h5>Email: {userDetails.email}</h5>
-    //     {editEmail ? null : (
-    //       <button
-    //         onClick={() => {
-    //           setEditEmail(true);
-    //         }}
-    //       >
-    //         Edit
-    //       </button>
-    //     )}
-    //   </div>
-    //   {editEmail ? (
-    //     <Editfield
-    //       func={setEditEmail}
-    //       value={"email"}
-    //       username={userDetails.username}
-    //     />
-    //   ) : null}
-    //   <div>
-    //     <h5>Workplaece: {userDetails.workPlace}</h5>
-    //     {editWorkplace ? null : (
-    //       <button
-    //         onClick={() => {
-    //           setEditWorkplace(true);
-    //         }}
-    //       >
-    //         Edit
-    //       </button>
-    //     )}
-    //   </div>
-
-    //   {editWorkplace ? (
-    //     <Editfield
-    //       func={setEditWorkplace}
-    //       value={"workPlace"}
-    //       username={userDetails.username}
-    //     />
-    //   ) : null}
-
-    //   <button
-    //     onClick={() => {
-    //       setDeleteWarning(true);
-    //     }}
-    //   >
-    //     Delete account
-    //   </button>
-    //   {deleteWarning ? (
-    //     <div className="deleteField">
-    //       <div>
-    //         <p>Once you delete your account it cannot be recovered</p>
-    //       </div>
-    //       <div className="warning">
-    //         <button
-    //           onClick={() => {
-    //             deleteUser(userDetails.username);
-    //             route.push("/");
-    //           }}
-    //         >
-    //           Continue
-    //         </button>
-    //         <button
-    //           onClick={() => {
-    //             setDeleteWarning(false);
-    //           }}
-    //         >
-    //           Cancel
-    //         </button>
-    //       </div>
-    //     </div>
-    //   ) : null}
-    //   <a href={`/${userDetails.username}/qr-code`} className="btn btn-primary">
-    //     Get QR-code
-    //   </a>
-    //   <a href={`/${userDetails.username}`} className="btn btn-primary">
-    //     Stripe
-    //   </a>
-    // </main>
     <div>
       <div className="logoutbtn">
         <a href="/">
@@ -169,6 +50,7 @@ const ProfilePage = ({ params }) => {
               <button
                 onClick={() => {
                   setEditUsername(true);
+                  setUsernameTaken(false);
                 }}
                 className="btn btn-outline-primary btn-sm"
               >
@@ -176,8 +58,14 @@ const ProfilePage = ({ params }) => {
               </button>
             )}
           </div>
+          {usernameTaken && !isTime ? (
+            <UsernameError setIsTime={setIsTime} />
+          ) : null}
           {editUsername ? (
             <Editfield
+              setUsernameTaken={setUsernameTaken}
+              setChangingUserName={setChangingUserName}
+              func2={setUserDetails}
               func={setEditUsername}
               value={"username"}
               username={userDetails.username}
@@ -205,6 +93,7 @@ const ProfilePage = ({ params }) => {
             </div>
             {editEmail ? (
               <Editfield
+                func2={setUserDetails}
                 func={setEditEmail}
                 value={"email"}
                 username={userDetails.username}
@@ -231,6 +120,7 @@ const ProfilePage = ({ params }) => {
               </div>
               {editBio ? (
                 <Editfield
+                  func2={setUserDetails}
                   func={setEditBio}
                   value={"bio"}
                   username={userDetails.username}
@@ -257,6 +147,7 @@ const ProfilePage = ({ params }) => {
             </div>
             {editWorkplace ? (
               <Editfield
+                func2={setUserDetails}
                 func={setEditWorkplace}
                 value={"workPlace"}
                 username={userDetails.username}
