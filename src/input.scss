@@ -1,12 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
 @media only screen and (max-width: 450px) {
   .login-card {
     display: flex;
     justify-content: center;
-    margin-top: 30%;
+    margin-top: 10%;
     .register-link {
       font-size: small;
       text-align: center;
     }
+    .card {
+      border: none;
+    }
+    .btn {
+      width: 100%;
+      background-color: #5CDB95;
+      border-color: #5CDB95;
+      color: #05386B;
+    }
+    .form-control{
+      padding: 10px 0px 10px 5px;
+    }
+    .form-control:focus {
+      border: #5CDB95;
+      box-shadow: 0 0 0 0.10rem #5CDB95;
+    }
+}
+  .login-title {
+  text-align: center;
+  margin-top: 20%;
+
   }
 
   .profileDiv {
@@ -77,11 +100,23 @@
     display: inline-block;
   }
 
-  body {
-    background-color: white;
-  }
-
   .register-title {
     margin-top: 5%;
   }
+
+  * {
+    color: #05386B;
+    font-family: "Poppins";
+
+  }
+
+  a {
+    color: #05386B;
+  }
+
+  .background{
+    width: 100%;
+    height: 100%;
+  }
+
 }
