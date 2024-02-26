@@ -4,19 +4,20 @@ import { redirect, useSearchParams } from "next/navigation";
 import {} from "next/navigation";
 import "../../../../src/output.css";
 import check from "../return/check.png";
+import postPayment from "@/APIcalls/postPayment";
 
-export default function Return() {
+const Return = () => {
   const [status, setStatus] = useState(null);
   const [customerEmail, setCustomerEmail] = useState("");
   const searchParams = useSearchParams();
   const sessionId = searchParams.get("session_id");
   useEffect(() => {
-    console.log(sessionId);
     fetch(`/api?session_id=${sessionId}`, {
       method: "GET",
     })
       .then((res) => res.json())
       .then((data) => {
+        console.log(data);
         setStatus(data.status);
         setCustomerEmail(data.customer_email);
       });
@@ -27,6 +28,7 @@ export default function Return() {
   }
 
   if (status === "complete") {
+    postPayment(sessionId)
     return (
       <section id="success">
         <img className="green-tick-pic" src={check} alt="green-tick" />
@@ -42,3 +44,5 @@ export default function Return() {
 
   return null;
 }
+
+export default Return;

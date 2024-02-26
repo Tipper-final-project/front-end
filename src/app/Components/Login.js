@@ -18,6 +18,7 @@ const Login = () => {
     setUsernameInput(event.target.value);
   }
 
+
   async function handleLogin(event) {
     try {
       event.preventDefault();
@@ -33,6 +34,7 @@ const Login = () => {
     } catch (error) {
       document.getElementById("loginbtn").disabled = true;
       setLoginError(error);
+
     }
   }
 
