@@ -6,6 +6,9 @@ import getUser from "@/APIcalls/getuser";
 import { useRouter } from "next/navigation";
 import patchUser from "@/APIcalls/patchUser";
 import LogoutButton from "../../Components/LogoutButton";
+import Loading from "@/app/Components/Loading";
+import getMessages from "@/APIcalls/messages";
+
 
 const UsernameError = ({ setIsTime }) => {
   setTimeout(() => {
@@ -23,7 +26,7 @@ const ProfilePage = ({ params }) => {
   const [editBio, setEditBio] = useState(false);
   const [editUsername, setEditUsername] = useState(false);
   const [deleteWarning, setDeleteWarning] = useState(false);
-
+  const [messages, setMessages] = useState(null);
   const [editImage, setEditImage] = useState(false);
   const [image, setImage] = useState("");
   const [imageConfirm, setImageConfirm] = useState(false);
@@ -34,6 +37,7 @@ const ProfilePage = ({ params }) => {
 
   useEffect(() => {
     getUser(params.username, setUserDetails, setIsLoading);
+    getMessages(params.username, setMessages);
   }, []);
   function handleImagePatch(event) {
     const data = new FileReader();
@@ -48,31 +52,80 @@ const ProfilePage = ({ params }) => {
   }
 
   return isLoading ? (
-    <p>Currently Loading</p>
+    <Loading />
   ) : (
+
     <>
-      <div className="logout-button">{LogoutButton()}</div>
-      <div className="profile-page-user">
-        <div className="card" style={{ width: "90%", margin: "auto" }}>
-          {" "}
-          <img
-            src={userDetails.img_url}
-            className="card-img-top"
-            alt={`an image of ${userDetails.username}`}
-          />
-          <div className="card-body">
-            <div className="profileDiv">
-              <p className="card-title">Edit image</p>
-              {editImage ? null : (
-                <button
-                  onClick={() => {
-                    setEditImage(true);
-                  }}
-                  className="btn btn-outline-primary btn-sm"
-                >
-                  Edit
-                </button>
-              )}
+     
+
+ <div className="logout-button">{LogoutButton()}</div>
+    <div className="profile-page-user">
+      <div className="card" style={{ width: "90%", margin: "auto" }}>
+        <img
+          src={userDetails.img_url}
+          className="card-img-top"
+          alt={`an image of ${userDetails.username}`}
+        />
+        <div className="card-body">
+          <div className="profileDiv">
+            <p className="card-title">Change image</p>
+            {editImage ? null : (
+              <button
+                onClick={() => {
+                  setEditImage(true);
+                }}
+                className="btn btn-sm edit-button"
+              >
+                Upload
+              </button>
+            )}
+          </div>
+          {editImage ? (
+            <div className="input-group">
+              <input
+                type="file"
+                className="form-control"
+                id="img"
+                aria-label="Upload"
+                accept=".jpg, .png"
+                onChange={handleImagePatch}
+                required
+              />
+            </div>
+          ) : null}
+          {imageConfirm ? (
+            <div>
+              <img src={image} width={"300px"} />
+              <button
+                id="approveUpload"
+                style={{ marginRight: "7px" }}
+                type="button"
+                className="btn btn-success"
+                onClick={() => {
+                  document.getElementById("approveUpload").disabled = true;
+                  patchUser(userDetails.username, { img_url: image }).then(
+                    () => {
+                      setImageConfirm(false);
+                      setEditImage(false);
+                      userDetails.img_url = image;
+                    }
+                  );
+                }}
+              >
+                Approve
+              </button>
+              <button
+                id="cancelNewUpload"
+                type="button"
+                className="btn btn-danger"
+                onClick={() => {
+                  setEditImage(false);
+                  setImageConfirm(false);
+                }}
+              >
+                Cancel
+              </button>
+
             </div>
             {editImage ? (
               <div className="input-group">

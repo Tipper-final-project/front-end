@@ -2,7 +2,6 @@ import coins from "./tipper-image/coins.png";
 
 
 const Header = () => {
- 
   return (
     <header>
       <span className="tipper">
