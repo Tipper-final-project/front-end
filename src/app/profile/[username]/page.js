@@ -33,7 +33,7 @@ const ProfilePage = ({ params }) => {
     <p>Currently Loading</p>
   ) : (
     <div className="profile-page-user">
-      <Header props={"present"} />
+      
 
       <div className="card" style={{ width: "90%", margin: "auto" }}>
         {" "}

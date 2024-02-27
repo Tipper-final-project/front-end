@@ -17,6 +17,11 @@ const RegisterPage = () => {
   const [postedStatus, setPostedStatus] = useState(false);
   const [isError, setIsError] = useState(false);
   const [password, setPassword] = useState("");
+  const [usernameError, setUsernameError] = useState(false);
+  const [passwordError, setPasswordError] = useState(false);
+  const [passwordMatchError, setPasswordMatchError] = useState(false);
+  const regexPassword =
+    /^(?=.*[a-zA-Z])(?=.*\d)(?=.*[@$!%*?&_-])[A-Za-z\d@$!%*?&_-]{6,}$/g;
 
   function handleImage(event) {
     const data = new FileReader();
@@ -29,26 +34,73 @@ const RegisterPage = () => {
   }
 
   function handleChange(event) {
+    const confirmPassword = document.getElementById("confirmPassword").value;
+    const password = document.getElementById("password").value;
     setInformation((currentInformation) => {
       const newInformation = { ...currentInformation };
       newInformation[event.target.id] = event.target.value;
+
       return newInformation;
       // }
     });
-    if (event.target.id === "password") {
+    if (
+      event.target.id === "password" &&
+      password &&
+      !regexPassword.test(password) === true
+    ) {
+      setPasswordError(true);
+      event.preventDefault();
+    } else if (
+      regexPassword.test(password) === false &&
+      event.target.id === "password"
+    ) {
       setPassword(event.target.value);
+      setPasswordError(false);
+    } else if (
+      event.target.id === "username" &&
+      event.target.value &&
+      event.target.value.length < 4
+    ) {
+      setUsernameError(true);
+      event.preventDefault();
+    } else if (
+      event.target.id === "username" &&
+      event.target.value &&
+      event.target.value.length > 3
+    ) {
+      setUsernameError(false);
+      event.preventDefault();
+    } else if (
+      confirmPassword !== password &&
+      password &&
+      confirmPassword &&
+      event.target.id === "confirmPassword"
+    ) {
+      setPasswordMatchError(true);
+      event.preventDefault();
+    } else if (
+      confirmPassword === password &&
+      password &&
+      confirmPassword &&
+      event.target.id === "confirmPassword"
+    ) {
+      setPasswordMatchError(false);
+      event.preventDefault();
     }
   }
 
   useEffect(() => {
     setInformation((currentInformation) => {
       const newInformation = { ...currentInformation };
-      newInformation.img = image;
+      newInformation.img_url = image;
       return newInformation;
     });
   }, [image]);
 
   async function handleSubmit(event) {
+    const confirmPassword = document.getElementById("confirmPassword").value;
+    const password = document.getElementById("password").value;
+
     const encryptedString = Crypt.encrypt(password);
 
     event.preventDefault();
@@ -80,9 +132,10 @@ const RegisterPage = () => {
       <h1 className="register-title" style={{ textAlign: "center" }}>
         Registration Page
       </h1>
+
       <form className="register-card" onSubmit={handleSubmit}>
         <div className="card " style={{ width: 90 + "%" }}>
-          <div className="register-card-body">
+          <div className="card-body">
             <div className="input-group mb-3">
               <label htmlFor="firstName" className="form-label"></label>
               <input
@@ -116,10 +169,17 @@ const RegisterPage = () => {
                 required
               />
             </div>
+            {usernameError ? (
+              <div>
+                <p style={{ color: "red" }}>
+                  username has to be at least four characters
+                </p>
+              </div>
+            ) : null}
             <div className="input-group mb-3">
               <label htmlFor="password" className="form-label"></label>
               <input
-                type="text"
+                type="password"
                 className="form-control"
                 placeholder="Password"
                 id="password"
@@ -127,6 +187,28 @@ const RegisterPage = () => {
                 required
               />
             </div>
+            {passwordError ? (
+              <div>
+                <p style={{ color: "red" }}>
+                  password has to be at least six characters containing a
+                  mixture of letters, numbers and special characters
+                </p>
+              </div>
+            ) : null}
+            <div className="input-group mb-3">
+              <label htmlFor="password" className="form-label"></label>
+              <input
+                type="password"
+                className="form-control"
+                placeholder="Confirm password"
+                id="confirmPassword"
+                onChange={handleChange}
+                required
+              />
+            </div>
+            {passwordMatchError ? (
+              <p style={{ color: "red" }}>the passwords do not match</p>
+            ) : null}
             <div className="input-group mb-3">
               <label htmlFor="workPlace" className="form-label"></label>
               <input

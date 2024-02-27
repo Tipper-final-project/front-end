@@ -1,6 +1,8 @@
 import coins from "./tipper-image/coins.png";
 import LogoutButton from "./LogoutButton";
-const Header = ({ props }) => {
+
+const Header = () => {
+ 
   return (
     <header>
       <span className="tipper">
@@ -14,7 +16,7 @@ const Header = ({ props }) => {
             width={18}
           />
         </h1>
-        {props === "present" ? LogoutButton() : null}
+        {LogoutButton()}
       </span>
     </header>
   );

@@ -175,12 +175,21 @@
     max-height: 200px;
     max-width: 200px;
     border-radius: 10px;
+    border: 2px solid #05386b;
   }
   .qr-page .qr-code {
     display: flex;
     justify-content: center;
+    width: 100%;
+    height: 100%;
+  }
+  .qr-page .qr-container {
+    background-color: white;
+    border: 2px solid #05386b;
+    padding: 10px 0 10px 0;
+    border-radius: 5%;
     width: 75%;
-    height: 75%;
+    margin: 10% auto;
   }
   .checkout-profile {
     text-align: center;
@@ -225,18 +234,25 @@
   .register-card .card {
     border: none;
   }
-  .register-card .register-card-body {
-    padding: 10px 10px 10px 10px;
+  .register-card .card-body {
+    padding-top: 30px;
   }
   .register-card .form-control {
     padding: 10px 0px 10px 5px;
+    color: #05386b;
+    border-color: #05386b;
+    border-radius: 0.25rem;
   }
   .register-card .form-control:focus {
     border: #5cdb95;
     box-shadow: 0 0 0 0.1rem #5cdb95;
   }
+  .register-card .form-control::placeholder {
+    color: #05386b;
+  }
   .register-title {
     margin-top: 5%;
+    color: #05386b;
   }
   * {
     color: #05386b;
