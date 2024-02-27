@@ -185,7 +185,7 @@
     }
   }
 
- .qr-page {
+  .qr-page {
     text-align: center;
     .profile-pic {
       max-height: 150px;
@@ -241,43 +241,87 @@
       color: white;
     }
   }
-
-  .register-card {
-    display: flex;
-    justify-content: center;
-    margin-top: 5%;
-    .register-link {
-      font-size: small;
-      text-align: center;
-      padding-bottom: px;
-    }
-    .card {
-      border: none;
-    }
-    .card-body {
-     padding-top: 30px;
-    }
-
-    .form-control {
-      padding: 10px 0px 10px 5px;
+  .registration-page {
+    padding-bottom: 10%;
+    .register-title {
+      margin-top: 5%;
       color: #05386b;
+    }
+    .register-card {
+      display: flex;
+      justify-content: center;
+      margin-top: 5%;
+      margin-bottom: 30%;
+      .register-link {
+        font-size: small;
+        text-align: center;
+        padding-bottom: px;
+      }
+      .card {
+        border: none;
+      }
+      .card-body {
+        padding-top: 30px;
+      }
+
+      .input-field {
+        padding: 10px 0px 10px 5px;
+        color: #05386b;
+        border-color: rgb(5, 56, 107, 0.7);
+        border-radius: 0.25rem;
+      }
+      .form-control {
+        color: rgb(5, 56, 107, 0.7);
+      }
+
+      .form-control:focus {
+        border: #5cdb95;
+        box-shadow: 0 0 0 0.1rem #5cdb95;
+      }
+      .form-control::placeholder {
+        color: rgb(5, 56, 107, 0.7);
+      }
+
+      .upload-image-form {
+        margin-top: 15px;
+        margin-bottom: 15px;
+      }
+      .bio-input {
+        border-color: rgb(5, 56, 107, 0.7);
+      }
+      .select-img {
+        border-color: rgb(5, 56, 107, 0.7);
+      }
+      .select-img::placeholder {
+        color: rgb(5, 56, 107, 0.7);
+      }
+      .submit-btn {
+        width: 100%;
+        background-color: #5cdb95;
+        border-color: #5cdb95;
+        color: #05386b;
+      }
+      .submit-btn:hover {
+        background-color: #05386b;
+        color: #5cdb95;
+        border-color: #05386b;
+      }
+      #cancelUpload {
+        margin-top: 10px;
+        margin-bottom: 10px;
+      }
+      .uploaded-img {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+      }
+    }
+    .return-login {
       border-color: #05386b;
-      border-radius: 0.25rem;
-    }
-    .form-control:focus {
-      border: #5cdb95;
-      box-shadow: 0 0 0 0.1rem #5cdb95;
-    }
-    .form-control::placeholder{
-      color:#05386b
+      background-color: #05386b;
+      color: #5cdb95;
     }
   }
-
-  .register-title {
-    margin-top: 5%;
-    color: #05386b;
-  }
-
   * {
     color: #05386b;
     font-family: "Poppins";
