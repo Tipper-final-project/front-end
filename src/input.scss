@@ -226,7 +226,30 @@
       color: white;
     }
   }
+  .register-card {
+    display: flex;
+    justify-content: center;
+    margin-top: 5%;
+    .register-link {
+      font-size: small;
+      text-align: center;
+      padding-bottom: px;
+    }
+    .card {
+      border: none;
+    }
+    .register-card-body {
+      padding: 10px 10px 10px 10px;
+    }
 
+    .form-control {
+      padding: 10px 0px 10px 5px;
+    }
+    .form-control:focus {
+      border: #5cdb95;
+      box-shadow: 0 0 0 0.1rem #5cdb95;
+    }
+  }
   .register-title {
     margin-top: 5%;
   }
@@ -244,5 +267,6 @@
     justify-content: center;
     isolation: isolation;
     z-index: auto;
+    width: 90%;
   }
 }
