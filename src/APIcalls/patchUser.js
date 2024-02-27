@@ -9,6 +9,7 @@ async function patchUser(username, newDetails) {
     );
   } catch (err) {
     console.log(err);
+    document.getElementById("approveUpload").disabled = false;
   }
 }
 
