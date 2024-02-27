@@ -1,6 +1,6 @@
 <h1 align="center">Welcome to Tipper! 👋</h1>
 
-### 🏠 [Homepage]()
+### 🏠 [Homepage](https://tipper1.netlify.app/)
 
 ## Install
 
@@ -24,19 +24,30 @@ $ npm install
 
 You will need to create the necessary environment variables in the top level of your folder
 
-Please create the file:
+Please create the files:
 
 1. .env
+2. .env.local
 
-add these 2 variables inside the file:
+---------------------------------------------------------
 
+Inside the .env file, add these 2 variables:
+
+```sh
 NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY=
-<br>
-&
-<br>
+
 STRIPE_SECRET_KEY=
+```
 
 see .env.example for reference
+
+---------------------------------------------------------
+
+Inside the .env.local file, add the following variable:
+
+```sh
+NEXT_PUBLIC_SECRET=
+```
 
 ## Run Project
 
@@ -60,26 +71,28 @@ To check confirmation of Stripe payments:
 
 1. Go to Payments
    <br>
-   ![alt text](image.png)
+   ![payments tab](../image.png)
+   <p>
 2. Toggle on Test Mode
    <br>
-   ![alt text](image-1.png)
+   ![test mode](../image-1.png)
+   <p>
 3. Select All Payments
    <br>
-   ![alt text](image-2.png)
+   ![all payments](../image-2.png)
 
 ## Authors
 
-- Github: [@Merin-Yilmaz](https://github.com/Merin-Yilmaz)
-- Github: [@Anna-van-Ruiten](https://github.com/avr87)
-- Github: [Amir](https://github.com/)
-- Github: [Langa](https://github.com/)
-- Github: [Eric](https://github.com/)
-- Github: [@Victor-Vancsura](https://github.com/gyozoke)
+- Github: [Merin Yilmaz](https://github.com/Merin-Yilmaz)
+- Github: [Anna van Ruiten](https://github.com/avr87)
+- Github: [Amir Rashidinia](https://github.com/Amir-Rsh)
+- Github: [Langa Lee](https://github.com/LangaLee)
+- Github: [Eric Nabofa](https://github.com/ericnabofa)
+- Github: [Gyozo Vancsura (Victor)](https://github.com/gyozoke)
 
 ## 🤝 Contributing
 
-Contributions, issues and feature requests are welcome!<br />Feel free to check [issues page](https://github.com/Merin-Yilmaz/NC-News/issues).
+Contributions, issues and feature requests are welcome!<br />Feel free to check [issues page](https://github.com/Tipper-final-project/front-end/issues).
 
 ## Show your support
 
