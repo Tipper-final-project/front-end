@@ -61,7 +61,7 @@ const Login = () => {
                 onChange={handleInput}
               />
             </div>
-            <div>{loginError ? <p>{loginError.username}</p> : null}</div>
+            <div>{loginError ? <p style={{ color: "red" }}>{loginError.username}</p> : null}</div>
             <div className="input-group mb-3">
               <input
                 type="password"
@@ -79,7 +79,7 @@ const Login = () => {
                 }}
               />
             </div>
-            <div>{loginError ? <p>{loginError.password}</p> : null}</div>
+            <div>{loginError ? <p style={{ color: "red" }}>{loginError.password}</p> : null}</div>
             <button id="loginbtn" className="btn btn-primary">
               Login
             </button>

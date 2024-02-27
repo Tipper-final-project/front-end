@@ -46,12 +46,10 @@ const QRCode = ({ params }) => {
   return (
     <>
       <main className="qr-page">
-        <h2>{userDetails.firstName}</h2>
-        <img
-          className="rounded mx-auto d-block profile-pic"
-          src={userDetails.img_url}
-          alt="profile picture"
-        ></img>
+
+        <h2>Hello!<br></br>I am {userDetails.firstName}</h2>
+        <img className="rounded mx-auto d-block profile-pic" src={userDetails.img_url} alt="profile picture" />
+
         <div className="qr-container">
           <img
             className="mx-auto d-block qr-code"

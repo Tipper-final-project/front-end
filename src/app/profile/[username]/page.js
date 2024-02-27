@@ -5,7 +5,9 @@ import deleteUser from "@/APIcalls/deleteUser";
 import getUser from "@/APIcalls/getuser";
 import { useRouter } from "next/navigation";
 import patchUser from "@/APIcalls/patchUser";
+import Loading from "@/app/Components/Loading";
 import getMessages from "@/APIcalls/messages";
+
 
 const UsernameError = ({ setIsTime }) => {
   setTimeout(() => {
@@ -49,11 +51,10 @@ const ProfilePage = ({ params }) => {
   }
 
   return isLoading ? (
-    <p>Currently Loading</p>
+    <Loading />
   ) : (
     <div className="profile-page-user">
       <div className="card" style={{ width: "90%", margin: "auto" }}>
-        {" "}
         <img
           src={userDetails.img_url}
           className="card-img-top"
@@ -61,15 +62,15 @@ const ProfilePage = ({ params }) => {
         />
         <div className="card-body">
           <div className="profileDiv">
-            <p className="card-title">Edit image</p>
+            <p className="card-title">Change image</p>
             {editImage ? null : (
               <button
                 onClick={() => {
                   setEditImage(true);
                 }}
-                className="btn btn-outline-primary btn-sm"
+                className="btn btn-sm edit-button"
               >
-                Edit
+                Upload
               </button>
             )}
           </div>
