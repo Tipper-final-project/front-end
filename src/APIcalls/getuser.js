@@ -15,7 +15,7 @@ export default async function getUser(username, setUserDetails, setIsLoading) {
     console.log(error);
   }
 }
-export async function verifyUser(username, password) {
+export async function verifyUser(username, password, setLoginError) {
   try {
     const response = await axios.get(
       `https://tipper-api-xzkf.onrender.com/waiter/${username}`
@@ -25,11 +25,22 @@ export async function verifyUser(username, password) {
       localStorage.pass = waiter._id;
       return true;
     } else {
-      return false; // throw error here
+      return Promise.reject({ password: "Invalid password" });
     }
   } catch (error) {
-    // if (error.response.data.msg === "Not found") {
-    //   setLoginError({ type: "username", msg: "Username does not exist" });
-    // }
+    if (error.response.data.msg === "Not found") {
+      setLoginError({ username: "Username is not valid" });
+    }
+  }
+}
+
+export async function findUserName(user) {
+  try {
+    const result = await axios.get(
+      `https://tipper-api-xzkf.onrender.com/check/${user}`
+    );
+    return result.data.userExists;
+  } catch (error) {
+    console.log(error);
   }
 }
