@@ -4,6 +4,7 @@ import Editfield from "@/reusable components/editfield";
 import deleteUser from "@/APIcalls/deleteUser";
 import getUser from "@/APIcalls/getuser";
 import { useRouter } from "next/navigation";
+import Header from "../../Components/Header";
 
 const UsernameError = ({ setIsTime }) => {
   setTimeout(() => {
@@ -31,13 +32,11 @@ const ProfilePage = ({ params }) => {
   return isLoading ? (
     <p>Currently Loading</p>
   ) : (
-    <div>
-      <div className="logoutbtn">
-        <a href="/">
-          <button className="btn btn-outline-primary btn-sm">Log out</button>
-        </a>
-      </div>
+    <div className="profile-page-user">
+      <Header props={"present"} />
+
       <div className="card" style={{ width: "90%", margin: "auto" }}>
+        {" "}
         <img
           src={userDetails.img_url}
           className="card-img-top"
@@ -45,14 +44,14 @@ const ProfilePage = ({ params }) => {
         />
         <div className="card-body">
           <div className="profileDiv">
-            <h2 className="card-title">Hello {userDetails.username}</h2>
+            <h2 className="card-greeting">Hello {userDetails.username}!</h2>
             {editUsername ? null : (
               <button
                 onClick={() => {
                   setEditUsername(true);
                   setUsernameTaken(false);
                 }}
-                className="btn btn-outline-primary btn-sm"
+                className="btn btn-sm edit-button"
               >
                 Edit
               </button>
@@ -72,11 +71,10 @@ const ProfilePage = ({ params }) => {
             />
           ) : null}
         </div>
-
         <ul className="list-group list-group-flush">
           <li className="list-group-item">
             <div>
-              <h6>Email</h6>
+              <p className="card-title">Email:</p>
             </div>
             <div className="profileDiv">
               {userDetails.email}{" "}
@@ -85,7 +83,7 @@ const ProfilePage = ({ params }) => {
                   onClick={() => {
                     setEditEmail(true);
                   }}
-                  className="btn btn-outline-primary btn-sm"
+                  className="btn edit-button btn-sm"
                 >
                   Edit
                 </button>
@@ -103,7 +101,7 @@ const ProfilePage = ({ params }) => {
           <li className="list-group-item">
             <div>
               <div>
-                <h6 className="card-title">Bio</h6>
+                <p className="card-title">Bio:</p>
               </div>
               <div className="profileDiv">
                 <p className="card-text">{userDetails.bio}</p>
@@ -112,7 +110,7 @@ const ProfilePage = ({ params }) => {
                     onClick={() => {
                       setEditBio(true);
                     }}
-                    className="btn btn-outline-primary btn-sm"
+                    className="btn edit-button btn-sm"
                   >
                     Edit
                   </button>
@@ -130,7 +128,7 @@ const ProfilePage = ({ params }) => {
           </li>
           <li className="list-group-item">
             <div>
-              <h6>Workplace</h6>
+              <p className="card-title">Workplace:</p>
             </div>
             <div className="profileDiv">
               <p> {userDetails.workPlace}</p>
@@ -139,7 +137,7 @@ const ProfilePage = ({ params }) => {
                   onClick={() => {
                     setEditWorkplace(true);
                   }}
-                  className="btn btn-outline-primary btn-sm"
+                  className="btn edit-button btn-sm"
                 >
                   Edit
                 </button>
@@ -155,28 +153,28 @@ const ProfilePage = ({ params }) => {
             ) : null}
           </li>
         </ul>
-        <div className="card-body">
+        <div className="card-body button-card">
+          {" "}
+          <a
+            href={`/${userDetails.username}/qr-code`}
+            className="btn qr-button"
+          >
+            Get QR-code
+          </a>
           <button
             onClick={() => {
               setDeleteWarning(true);
             }}
-            className="btn btn-outline-danger btn-sm"
+            className="btn btn-outline-danger btn-sm delete-btn"
           >
             Delete account
           </button>
           <a
-            href={`/${userDetails.username}/qr-code`}
-            className="btn btn-outline-primary btn-sm"
-          >
-            Get QR-code
-          </a>
-          <a
             href={`/${userDetails.username}`}
-            className="btn btn-outline-primary btn-sm"
+            className="btn btn-outline-primary btn-sm stripe-btn"
           >
             Stripe
           </a>
-
           {deleteWarning ? (
             <div className="deleteField">
               <div>
@@ -189,7 +187,7 @@ const ProfilePage = ({ params }) => {
                       deleteUser(userDetails.username);
                       route.push("/");
                     }}
-                    className="btn btn-outline-danger btn-sm"
+                    className="btn btn-outline-danger btn-sm confirmDelete-btn"
                   >
                     Continue
                   </button>
@@ -197,7 +195,7 @@ const ProfilePage = ({ params }) => {
                     onClick={() => {
                       setDeleteWarning(false);
                     }}
-                    className="btn btn-outline-danger btn-sm"
+                    className="btn btn-outline-danger btn-sm cancelDelete-btn"
                   >
                     Cancel
                   </button>
