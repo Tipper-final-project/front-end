@@ -51,7 +51,7 @@ export default function App({ params }) {
         <h1>{userDetails.username}'s Profile</h1>
         <p>{userDetails.bio}</p>
       </div>
-      <div id="checkout">
+      <div id="checkout" className="stripe-page">
         {clientSecret && (
           <EmbeddedCheckoutProvider
             stripe={stripePromise}

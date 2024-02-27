@@ -1,5 +1,5 @@
 import coins from "./tipper-image/coins.png";
-import LogoutButton from "./LogoutButton";
+
 
 const Header = () => {
  
@@ -16,7 +16,6 @@ const Header = () => {
             width={18}
           />
         </h1>
-        {LogoutButton()}
       </span>
     </header>
   );

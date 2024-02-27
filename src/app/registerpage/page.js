@@ -126,174 +126,183 @@ const RegisterPage = () => {
 
   return (
     <>
-      <a href="/" className="btn btn-primary return-login">
-        Login
-      </a>
-      <h1 className="register-title" style={{ textAlign: "center" }}>
-        Registration Page
-      </h1>
+      <div className="registration-page">
+        <a href="/" className="btn btn-primary return-login">
+          Login
+        </a>
+        <h1 className="register-title" style={{ textAlign: "center" }}>
+          Registration Page
+        </h1>
 
-      <form className="register-card" onSubmit={handleSubmit}>
-        <div className="card " style={{ width: 90 + "%" }}>
-          <div className="card-body">
-            <div className="input-group mb-3">
-              <label htmlFor="firstName" className="form-label"></label>
-              <input
-                type="text"
-                className="form-control"
-                placeholder="First Name"
-                id="firstName"
-                onChange={handleChange}
-                required
-              />
-            </div>
-            <div className="input-group mb-3">
-              <label htmlFor="lastName" className="form-label"></label>
-              <input
-                type="text"
-                className="form-control"
-                placeholder="Last Name"
-                id="lastName"
-                onChange={handleChange}
-                required
-              />
-            </div>
-            <div className="input-group mb-3">
-              <label htmlFor="username" className="form-label"></label>
-              <input
-                type="text"
-                className="form-control"
-                placeholder="Username"
-                id="username"
-                onChange={handleChange}
-                required
-              />
-            </div>
-            {usernameError ? (
-              <div>
-                <p style={{ color: "red" }}>
-                  username has to be at least four characters
-                </p>
-              </div>
-            ) : null}
-            <div className="input-group mb-3">
-              <label htmlFor="password" className="form-label"></label>
-              <input
-                type="password"
-                className="form-control"
-                placeholder="Password"
-                id="password"
-                onChange={handleChange}
-                required
-              />
-            </div>
-            {passwordError ? (
-              <div>
-                <p style={{ color: "red" }}>
-                  password has to be at least six characters containing a
-                  mixture of letters, numbers and special characters
-                </p>
-              </div>
-            ) : null}
-            <div className="input-group mb-3">
-              <label htmlFor="password" className="form-label"></label>
-              <input
-                type="password"
-                className="form-control"
-                placeholder="Confirm password"
-                id="confirmPassword"
-                onChange={handleChange}
-                required
-              />
-            </div>
-            {passwordMatchError ? (
-              <p style={{ color: "red" }}>the passwords do not match</p>
-            ) : null}
-            <div className="input-group mb-3">
-              <label htmlFor="workPlace" className="form-label"></label>
-              <input
-                type="text"
-                className="form-control"
-                placeholder="Workplace"
-                id="workPlace"
-                onChange={handleChange}
-                required
-              />
-            </div>
-            <div className="input-group mb-3">
-              <label htmlFor="email" className="form-label"></label>
-              <input
-                type="email"
-                className="form-control"
-                placeholder="Email"
-                id="email"
-                onChange={handleChange}
-                required
-              />
-            </div>
-            <div className="input-group">
-              <textarea
-                id="bio"
-                className="form-control"
-                placeholder="Tell us a bit about yourself.."
-                aria-label="Bio input"
-                onChange={handleChange}
-                required
-              ></textarea>
-            </div>
-            <div className="input-group">
-              <input
-                type="file"
-                className="form-control"
-                id="img"
-                aria-label="Upload"
-                accept=".jpg, .png"
-                onChange={handleImage}
-                required
-              />
-            </div>
-            {image ? (
-              <div>
-                <img
-                  src={image}
-                  style={{
-                    width: "300px",
-                    height: "300px",
-                  }}
+        <form className="register-card" onSubmit={handleSubmit}>
+          <div className="card " style={{ width: 90 + "%" }}>
+            <div className="card-body">
+              <div className="input-group mb-3">
+                {/* <label htmlFor="firstName" className="form-label"></label> */}
+                <input
+                  type="text"
+                  className="form-control input-field"
+                  placeholder="First Name"
+                  id="firstName"
+                  onChange={handleChange}
+                  required
                 />
-                <button
-                  id="cancelUpload"
-                  type="button"
-                  className="btn btn-danger"
-                  onClick={() => {
-                    setImage(null);
-                  }}
-                >
-                  Cancel upload
-                </button>
               </div>
-            ) : null}
-            <div className="col-12">
-              {postedStatus ? (
-                <button
-                  onClick={() => router.push("/")}
-                  className="btn btn-success"
-                  style={{ width: "170px", marginLeft: "10px" }}
-                >
-                  Go to profile page
-                </button>
+              <div className="input-group mb-3">
+                {/* <label htmlFor="lastName" className="form-label"></label> */}
+                <input
+                  type="text"
+                  className="form-control input-field"
+                  placeholder="Last Name"
+                  id="lastName"
+                  onChange={handleChange}
+                  required
+                />
+              </div>
+              <div className="input-group mb-3">
+                {/* <label htmlFor="username" className="form-label"></label> */}
+                <input
+                  type="text"
+                  className="form-control input-field"
+                  placeholder="Username"
+                  id="username"
+                  onChange={handleChange}
+                  required
+                />
+              </div>
+              {usernameError ? (
+                <div>
+                  <p style={{ color: "red" }}>
+                    username has to be at least four characters
+                  </p>
+                </div>
               ) : null}
+              <div className="input-group mb-3">
+                {/* <label htmlFor="password" className="form-label"></label> */}
+                <input
+                  type="password"
+                  className="form-control input-field"
+                  placeholder="Password"
+                  id="password"
+                  onChange={handleChange}
+                  required
+                />
+              </div>
+              {passwordError ? (
+                <div>
+                  <p style={{ color: "red" }}>
+                    password has to be at least six characters containing a
+                    mixture of letters, numbers and special characters
+                  </p>
+                </div>
+              ) : null}
+              <div className="input-group mb-3">
+                {/* <label htmlFor="password" className="form-label"></label> */}
+                <input
+                  type="password"
+                  className="form-control input-field"
+                  placeholder="Confirm password"
+                  id="confirmPassword"
+                  onChange={handleChange}
+                  required
+                />
+              </div>
+              {passwordMatchError ? (
+                <p style={{ color: "red" }}>the passwords do not match</p>
+              ) : null}
+              <div className="input-group mb-3">
+                {/* <label htmlFor="workPlace" className="form-label"></label> */}
+                <input
+                  type="text"
+                  className="form-control input-field"
+                  placeholder="Workplace"
+                  id="workPlace"
+                  onChange={handleChange}
+                  required
+                />
+              </div>
+              <div className="input-group mb-3">
+                {/* <label htmlFor="email" className="form-label"></label> */}
+                <input
+                  type="email"
+                  className="form-control input-field"
+                  placeholder="Email"
+                  id="email"
+                  onChange={handleChange}
+                  required
+                />
+              </div>
+              <div className="input-group">
+                <textarea
+                  id="bio"
+                  className="form-control bio-input"
+                  placeholder="Tell us a bit about yourself.."
+                  aria-label="Bio input"
+                  onChange={handleChange}
+                  required
+                ></textarea>
+              </div>
+              <div className="input-group upload-image-form">
+                <input
+                  type="file"
+                  className="form-control select-img"
+                  id="img"
+                  aria-label="Upload"
+                  accept=".jpg, .png"
+                  onChange={handleImage}
+                  required
+                />
+              </div>
+              {image ? (
+                <div>
+                  <img
+                    src={image}
+                    className="uploaded-img"
+                    // style={{
+                    //   width: "300px",
+                    //   height: "300px",
+                    // }}
+                  />
+                  <button
+                    id="cancelUpload"
+                    type="button"
+                    className="btn btn-danger btn-sm cancel-uploaded-img"
+                    onClick={() => {
+                      setImage(null);
+                    }}
+                  >
+                    Cancel upload
+                  </button>
+                </div>
+              ) : null}
+              <div className="col-12">
+                {postedStatus ? (
+                  <button
+                    onClick={() => router.push("/")}
+                    className="btn btn-success"
+                    style={{ width: "170px", marginLeft: "10px" }}
+                  >
+                    Go to profile page
+                  </button>
+                ) : null}
+              </div>
+              <button
+                id="submitButton"
+                type="submit"
+                className="btn submit-btn"
+              >
+                Sign Up
+              </button>
+              {isLoading && (
+                <p>Please wait while we create your profile page</p>
+              )}
+              {isError && (
+                <p>Sorry, something went wrong. Please try again later.</p>
+              )}
             </div>
-            <button id="submitButton" type="submit" className="btn btn-primary">
-              Sign Up
-            </button>
-            {isLoading && <p>Please wait while we create your profile page</p>}
-            {isError && (
-              <p>Sorry, something went wrong. Please try again later.</p>
-            )}
           </div>
-        </div>
-      </form>
+        </form>
+      </div>
     </>
   );
 };

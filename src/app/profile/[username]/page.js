@@ -5,6 +5,7 @@ import deleteUser from "@/APIcalls/deleteUser";
 import getUser from "@/APIcalls/getuser";
 import { useRouter } from "next/navigation";
 import patchUser from "@/APIcalls/patchUser";
+import LogoutButton from "../../Components/LogoutButton";
 
 const UsernameError = ({ setIsTime }) => {
   setTimeout(() => {
@@ -12,7 +13,6 @@ const UsernameError = ({ setIsTime }) => {
   }, 5000);
   return <p>Username is taken</p>;
 };
-
 
 const ProfilePage = ({ params }) => {
   const route = useRouter();
@@ -50,146 +50,118 @@ const ProfilePage = ({ params }) => {
   return isLoading ? (
     <p>Currently Loading</p>
   ) : (
-    <div className="profile-page-user">
-      
-
-      <div className="card" style={{ width: "90%", margin: "auto" }}>
-        {" "}
-        <img
-          src={userDetails.img_url}
-          className="card-img-top"
-          alt={`an image of ${userDetails.username}`}
-        />
-        <div className="card-body">
-          <div className="profileDiv">
-
-            <p className="card-title">Edit image</p>
-            {editImage ? null : (
-              <button
-                onClick={() => {
-                  setEditImage(true);
-                }}
-                className="btn btn-outline-primary btn-sm"
-              >
-                Edit
-              </button>
-            )}
-          </div>
-          {editImage ? (
-            <div className="input-group">
-              <input
-                type="file"
-                className="form-control"
-                id="img"
-                aria-label="Upload"
-                accept=".jpg, .png"
-                onChange={handleImagePatch}
-                required
-              />
-            </div>
-          ) : null}
-          {imageConfirm ? (
-            <div>
-              <img src={image} width={"300px"} />
-              <button
-                id="approveUpload"
-                style={{ marginRight: "7px" }}
-                type="button"
-                className="btn btn-success"
-                onClick={() => {
-                  document.getElementById("approveUpload").disabled = true;
-                  patchUser(userDetails.username, { img_url: image }).then(
-                    () => {
-                      setImageConfirm(false);
-                      setEditImage(false);
-                      userDetails.img_url = image;
-                    }
-                  );
-                }}
-              >
-                Approve
-              </button>
-              <button
-                id="cancelNewUpload"
-                type="button"
-                className="btn btn-danger"
-                onClick={() => {
-                  setEditImage(false);
-                  setImageConfirm(false);
-                }}
-              >
-                Cancel
-              </button>
-            </div>
-          ) : null}
-        </div>
-        <div className="card-body">
-          <div className="profileDiv">
-            <h2 className="card-greeting">Hello {userDetails.username}!</h2>
-            {editUsername ? null : (
-              <button
-                onClick={() => {
-                  setEditUsername(true);
-                  setUsernameTaken(false);
-                }}
-                className="btn btn-sm edit-button"
-              >
-                Edit
-              </button>
-            )}
-          </div>
-          {usernameTaken && !isTime ? (
-            <UsernameError setIsTime={setIsTime} />
-          ) : null}
-          {editUsername ? (
-            <Editfield
-              setUsernameTaken={setUsernameTaken}
-              setChangingUserName={setChangingUserName}
-              func2={setUserDetails}
-              func={setEditUsername}
-              value={"username"}
-              username={userDetails.username}
-            />
-          ) : null}
-        </div>
-        <ul className="list-group list-group-flush">
-          <li className="list-group-item">
-            <div>
-              <p className="card-title">Email:</p>
-            </div>
+    <>
+      <div className="logout-button">{LogoutButton()}</div>
+      <div className="profile-page-user">
+        <div className="card" style={{ width: "90%", margin: "auto" }}>
+          {" "}
+          <img
+            src={userDetails.img_url}
+            className="card-img-top"
+            alt={`an image of ${userDetails.username}`}
+          />
+          <div className="card-body">
             <div className="profileDiv">
-              {userDetails.email}{" "}
-              {editEmail ? null : (
+              <p className="card-title">Edit image</p>
+              {editImage ? null : (
                 <button
                   onClick={() => {
-                    setEditEmail(true);
+                    setEditImage(true);
                   }}
-                  className="btn edit-button btn-sm"
+                  className="btn btn-outline-primary btn-sm"
                 >
                   Edit
                 </button>
               )}
             </div>
-            {editEmail ? (
+            {editImage ? (
+              <div className="input-group">
+                <input
+                  type="file"
+                  className="form-control"
+                  id="img"
+                  aria-label="Upload"
+                  accept=".jpg, .png"
+                  onChange={handleImagePatch}
+                  required
+                />
+              </div>
+            ) : null}
+            {imageConfirm ? (
+              <div>
+                <img src={image} width={"300px"} />
+                <button
+                  id="approveUpload"
+                  style={{ marginRight: "7px" }}
+                  type="button"
+                  className="btn btn-success"
+                  onClick={() => {
+                    document.getElementById("approveUpload").disabled = true;
+                    patchUser(userDetails.username, { img_url: image }).then(
+                      () => {
+                        setImageConfirm(false);
+                        setEditImage(false);
+                        userDetails.img_url = image;
+                      }
+                    );
+                  }}
+                >
+                  Approve
+                </button>
+                <button
+                  id="cancelNewUpload"
+                  type="button"
+                  className="btn btn-danger"
+                  onClick={() => {
+                    setEditImage(false);
+                    setImageConfirm(false);
+                  }}
+                >
+                  Cancel
+                </button>
+              </div>
+            ) : null}
+          </div>
+          <div className="card-body">
+            <div className="profileDiv">
+              <h2 className="card-greeting">Hello {userDetails.username}!</h2>
+              {editUsername ? null : (
+                <button
+                  onClick={() => {
+                    setEditUsername(true);
+                    setUsernameTaken(false);
+                  }}
+                  className="btn btn-sm edit-button"
+                >
+                  Edit
+                </button>
+              )}
+            </div>
+            {usernameTaken && !isTime ? (
+              <UsernameError setIsTime={setIsTime} />
+            ) : null}
+            {editUsername ? (
               <Editfield
+                setUsernameTaken={setUsernameTaken}
+                setChangingUserName={setChangingUserName}
                 func2={setUserDetails}
-                func={setEditEmail}
-                value={"email"}
+                func={setEditUsername}
+                value={"username"}
                 username={userDetails.username}
               />
             ) : null}
-          </li>
-          <li className="list-group-item">
-            <div>
+          </div>
+          <ul className="list-group list-group-flush">
+            <li className="list-group-item">
               <div>
-                <p className="card-title">Bio:</p>
+                <p className="card-title">Email:</p>
               </div>
               <div className="profileDiv">
-                <p className="card-text">{userDetails.bio}</p>
-                {editBio ? null : (
+                {userDetails.email}{" "}
+                {editEmail ? null : (
                   <button
                     onClick={() => {
-                      setEditBio(true);
+                      setEditEmail(true);
                     }}
                     className="btn edit-button btn-sm"
                   >
@@ -197,96 +169,124 @@ const ProfilePage = ({ params }) => {
                   </button>
                 )}
               </div>
-              {editBio ? (
+              {editEmail ? (
                 <Editfield
                   func2={setUserDetails}
-                  func={setEditBio}
-                  value={"bio"}
+                  func={setEditEmail}
+                  value={"email"}
                   username={userDetails.username}
                 />
               ) : null}
-            </div>
-          </li>
-          <li className="list-group-item">
-            <div>
-              <p className="card-title">Workplace:</p>
-            </div>
-            <div className="profileDiv">
-              <p> {userDetails.workPlace}</p>
-              {editWorkplace ? null : (
-                <button
-                  onClick={() => {
-                    setEditWorkplace(true);
-                  }}
-                  className="btn edit-button btn-sm"
-                >
-                  Edit
-                </button>
-              )}
-            </div>
-            {editWorkplace ? (
-              <Editfield
-                func2={setUserDetails}
-                func={setEditWorkplace}
-                value={"workPlace"}
-                username={userDetails.username}
-              />
-            ) : null}
-          </li>
-        </ul>
-        <div className="card-body button-card">
-          {" "}
-          <a
-            href={`/${userDetails.username}/qr-code`}
-            className="btn qr-button"
-          >
-            Get QR-code
-          </a>
-          <button
-            onClick={() => {
-              setDeleteWarning(true);
-            }}
-            className="btn btn-outline-danger btn-sm delete-btn"
-          >
-            Delete account
-          </button>
-          <a
-            href={`/${userDetails.username}`}
-            className="btn btn-outline-primary btn-sm stripe-btn"
-          >
-            Stripe
-          </a>
-          {deleteWarning ? (
-            <div className="deleteField">
+            </li>
+            <li className="list-group-item">
               <div>
-                <p>Once you delete your account it cannot be recovered</p>
+                <div>
+                  <p className="card-title">Bio:</p>
+                </div>
+                <div className="profileDiv">
+                  <p className="card-text">{userDetails.bio}</p>
+                  {editBio ? null : (
+                    <button
+                      onClick={() => {
+                        setEditBio(true);
+                      }}
+                      className="btn edit-button btn-sm"
+                    >
+                      Edit
+                    </button>
+                  )}
+                </div>
+                {editBio ? (
+                  <Editfield
+                    func2={setUserDetails}
+                    func={setEditBio}
+                    value={"bio"}
+                    username={userDetails.username}
+                  />
+                ) : null}
               </div>
-              <div className="warning">
-                <div className="confirmDelete">
+            </li>
+            <li className="list-group-item">
+              <div>
+                <p className="card-title">Workplace:</p>
+              </div>
+              <div className="profileDiv">
+                <p> {userDetails.workPlace}</p>
+                {editWorkplace ? null : (
                   <button
                     onClick={() => {
-                      deleteUser(userDetails.username);
-                      route.push("/");
+                      setEditWorkplace(true);
                     }}
-                    className="btn btn-outline-danger btn-sm confirmDelete-btn"
+                    className="btn edit-button btn-sm"
                   >
-                    Continue
+                    Edit
                   </button>
-                  <button
-                    onClick={() => {
-                      setDeleteWarning(false);
-                    }}
-                    className="btn btn-outline-danger btn-sm cancelDelete-btn"
-                  >
-                    Cancel
-                  </button>
+                )}
+              </div>
+              {editWorkplace ? (
+                <Editfield
+                  func2={setUserDetails}
+                  func={setEditWorkplace}
+                  value={"workPlace"}
+                  username={userDetails.username}
+                />
+              ) : null}
+            </li>
+          </ul>
+          <div className="card-body button-card">
+            {" "}
+            <a
+              href={`/${userDetails.username}/qr-code`}
+              className="btn qr-button"
+            >
+              Get QR-code
+            </a>
+            <button
+              onClick={() => {
+                setDeleteWarning(true);
+              }}
+              className="btn btn-outline-danger btn-sm delete-btn"
+            >
+              Delete account
+            </button>
+            <a
+              href={`/${userDetails.username}`}
+              className="btn btn-outline-primary btn-sm stripe-btn"
+            >
+              Stripe
+            </a>
+            {deleteWarning ? (
+              <div className="deleteField">
+                <div>
+                  <p>Once you delete your account it cannot be recovered</p>
+                </div>
+                <div className="warning">
+                  <div className="confirmDelete">
+                    <button
+                      onClick={() => {
+                        deleteUser(userDetails.username);
+                        route.push("/");
+                      }}
+                      className="btn btn-outline-danger btn-sm confirmDelete-btn"
+                    >
+                      Continue
+                    </button>
+                    <button
+                      onClick={() => {
+                        setDeleteWarning(false);
+                      }}
+                      className="btn btn-outline-danger btn-sm cancelDelete-btn"
+                    >
+                      Cancel
+                    </button>
+                  </div>
                 </div>
               </div>
-            </div>
-          ) : null}
+            ) : null}
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

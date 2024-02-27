@@ -6,6 +6,7 @@ import "../../../../src/output.css";
 import Loading from "@/app/Components/Loading";
 import Error from "@/app/Components/Error";
 
+
 const QRCode = ({ params }) => {
   const [qrImage, setQrImage] = useState("");
   const [userDetails, setUserDetails] = useState("");
