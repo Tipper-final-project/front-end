@@ -3,9 +3,6 @@ import React, { useState } from "react";
 import { verifyUser } from "@/APIcalls/getuser";
 import { useRouter } from "next/navigation";
 import Loading from "./Loading";
-import RegisterPage from "../registerpage/page";
-import cryptr from "cryptr";
-import background from '../../../src/background.png'
 
 const Login = () => {
   const router = useRouter();
