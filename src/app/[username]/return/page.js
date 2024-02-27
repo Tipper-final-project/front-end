@@ -5,7 +5,7 @@ import {} from "next/navigation";
 import "../../../../src/output.css";
 import check from "../return/check.png";
 import postPayment from "@/APIcalls/postPayment";
-
+import { postMessage } from "@/APIcalls/messages";
 const Return = () => {
   const [status, setStatus] = useState(null);
   const [customerEmail, setCustomerEmail] = useState("");
@@ -18,6 +18,8 @@ const Return = () => {
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
+        postMessage("eileen");
+        postPayment(sessionId, setStatus);
         setStatus(data.status);
         setCustomerEmail(data.customer_email);
       });
@@ -26,9 +28,8 @@ const Return = () => {
   if (status === "open") {
     return redirect("/");
   }
-
+  console.log("hi");
   if (status === "complete") {
-    postPayment(sessionId)
     return (
       <section id="success">
         <img className="green-tick-pic" src={check} alt="green-tick" />
@@ -43,6 +44,6 @@ const Return = () => {
   }
 
   return null;
-}
+};
 
 export default Return;

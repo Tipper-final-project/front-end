@@ -1,14 +1,11 @@
 import axios from "axios";
 
-export default function postPayment(sessionid, setStatus) {
-    return axios
+export default function postPayment(sessionid) {
+  return axios
     .post(`https://tipper-api-xzkf.onrender.com/payments`, {
-        sessionID: sessionid})
-    .then((res) => {
-        console.log(res);
-        setStatus(null)
+      sessionID: sessionid,
     })
     .catch((err) => {
-        console.log(err);
-    })
+      console.log(err);
+    });
 }

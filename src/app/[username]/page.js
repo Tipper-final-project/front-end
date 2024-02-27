@@ -45,7 +45,7 @@ export default function App({ params }) {
       <div className="checkout-profile">
         <img
           className="checkout-profile-pic"
-          src={userDetails.img}
+          src={userDetails.img_url}
           alt="profile-picture"
         ></img>
         <h1>{userDetails.username}'s Profile</h1>
