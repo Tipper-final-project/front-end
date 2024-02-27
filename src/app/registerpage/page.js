@@ -135,7 +135,7 @@ const RegisterPage = () => {
 
       <form className="register-card" onSubmit={handleSubmit}>
         <div className="card " style={{ width: 90 + "%" }}>
-          <div className="register-card-body">
+          <div className="card-body">
             <div className="input-group mb-3">
               <label htmlFor="firstName" className="form-label"></label>
               <input
@@ -169,13 +169,13 @@ const RegisterPage = () => {
                 required
               />
             </div>
-          {usernameError ? (
-          <div>
-            <p style={{ color: "red" }}>
-              username has to be at least four characters
-            </p>
-          </div>
-        ) : null}
+            {usernameError ? (
+              <div>
+                <p style={{ color: "red" }}>
+                  username has to be at least four characters
+                </p>
+              </div>
+            ) : null}
             <div className="input-group mb-3">
               <label htmlFor="password" className="form-label"></label>
               <input
@@ -187,29 +187,28 @@ const RegisterPage = () => {
                 required
               />
             </div>
-          {passwordError ? (
-          <div>
-            <p style={{ color: "red" }}>
-              password has to be at least six characters containing a mixture of
-              letters, numbers and special characters
-            </p>
-          </div>
-        ) : null}
-        <div className="col-md-6">
-          <label htmlFor="password" className="form-label">
-            Confirm password
-          </label>
-          <input
-            type="password"
-            className="form-control"
-            id="confirmPassword"
-            onChange={handleChange}
-            required
-          />
-        </div>
-        {passwordMatchError ? (
-          <p style={{ color: "red" }}>the passwords do not match</p>
-        ) : null}
+            {passwordError ? (
+              <div>
+                <p style={{ color: "red" }}>
+                  password has to be at least six characters containing a
+                  mixture of letters, numbers and special characters
+                </p>
+              </div>
+            ) : null}
+            <div className="input-group mb-3">
+              <label htmlFor="password" className="form-label"></label>
+              <input
+                type="password"
+                className="form-control"
+                placeholder="Confirm password"
+                id="confirmPassword"
+                onChange={handleChange}
+                required
+              />
+            </div>
+            {passwordMatchError ? (
+              <p style={{ color: "red" }}>the passwords do not match</p>
+            ) : null}
             <div className="input-group mb-3">
               <label htmlFor="workPlace" className="form-label"></label>
               <input
@@ -293,7 +292,7 @@ const RegisterPage = () => {
               <p>Sorry, something went wrong. Please try again later.</p>
             )}
           </div>
-
+        </div>
       </form>
     </>
   );
