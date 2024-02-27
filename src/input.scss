@@ -35,11 +35,13 @@
       color: #05386b;
     }
   }
+
   .login-title {
     text-align: center;
-    margin-top: 30%;
+    margin-top: 50%;
     isolation: isolate;
   }
+
   .profile-page-user {
     .card {
       padding: 10px 5px 10px 5px;
@@ -129,8 +131,6 @@
       text-align: center;
       margin-top: 20px;
       font-size: 12px;
-      // .warning {
-      // }
     }
     .confirmDelete {
       display: flex;
@@ -160,10 +160,6 @@
 
   .profilepage {
     display: inline block;
-    // .logoutbtn {
-    //   display: flex;
-    //   align-content: flex-end;
-    // }
     div {
       display: flex;
       justify-content: space-between;
@@ -187,12 +183,21 @@
       max-height: 200px;
       max-width: 200px;
       border-radius: 10px;
+      border: 2px solid #05386b;
     }
     .qr-code {
       display: flex;
       justify-content: center;
+      width: 100%;
+      height: 100%;
+    }
+    .qr-container {
+      background-color: white;
+      border: 2px solid #05386b;
+      padding: 10px 0 10px 0;
+      border-radius: 5%;
       width: 75%;
-      height: 75%;
+      margin: 10% auto;
     }
   }
 
@@ -205,9 +210,11 @@
       margin-bottom: 10px;
     }
   }
+
   .logoutbtn {
     height: 30px;
   }
+
   .tipper {
     display: flex;
     justify-content: space-between;
@@ -226,6 +233,7 @@
       color: white;
     }
   }
+
   .register-card {
     display: flex;
     justify-content: center;
@@ -250,6 +258,7 @@
       box-shadow: 0 0 0 0.1rem #5cdb95;
     }
   }
+
   .register-title {
     margin-top: 5%;
   }
@@ -262,6 +271,7 @@
   a {
     color: #05386b;
   }
+
   .stripe-page {
     display: flex;
     justify-content: center;
