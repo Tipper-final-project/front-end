@@ -6,6 +6,8 @@ import getUser from "@/APIcalls/getuser";
 import { useRouter } from "next/navigation";
 import patchUser from "@/APIcalls/patchUser";
 import Loading from "@/app/Components/Loading";
+import getMessages from "@/APIcalls/messages";
+
 
 const UsernameError = ({ setIsTime }) => {
   setTimeout(() => {
@@ -13,7 +15,6 @@ const UsernameError = ({ setIsTime }) => {
   }, 5000);
   return <p>Username is taken</p>;
 };
-
 
 const ProfilePage = ({ params }) => {
   const route = useRouter();
@@ -24,7 +25,7 @@ const ProfilePage = ({ params }) => {
   const [editBio, setEditBio] = useState(false);
   const [editUsername, setEditUsername] = useState(false);
   const [deleteWarning, setDeleteWarning] = useState(false);
-
+  const [messages, setMessages] = useState(null);
   const [editImage, setEditImage] = useState(false);
   const [image, setImage] = useState("");
   const [imageConfirm, setImageConfirm] = useState(false);
@@ -35,6 +36,7 @@ const ProfilePage = ({ params }) => {
 
   useEffect(() => {
     getUser(params.username, setUserDetails, setIsLoading);
+    getMessages(params.username, setMessages);
   }, []);
   function handleImagePatch(event) {
     const data = new FileReader();
