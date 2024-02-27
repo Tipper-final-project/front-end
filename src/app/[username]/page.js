@@ -6,7 +6,6 @@ import {
   EmbeddedCheckoutProvider,
   EmbeddedCheckout,
 } from "@stripe/react-stripe-js";
-import Header from "../Components/Header";
 import "../../../src/output.css";
 import Loading from "../Components/Loading";
 import Error from "../Components/Error";
@@ -41,17 +40,16 @@ export default function App({ params }) {
 
   return (
     <>
-      <Header />
       <div className="checkout-profile">
         <img
           className="checkout-profile-pic"
-          src={userDetails.img}
+          src={userDetails.img_url}
           alt="profile-picture"
         ></img>
-        <h1>{userDetails.username}'s Profile</h1>
+        <h1>{userDetails.username}</h1>
         <p>{userDetails.bio}</p>
       </div>
-      <div id="checkout">
+      <div id="checkout" className="stripe-page">
         {clientSecret && (
           <EmbeddedCheckoutProvider
             stripe={stripePromise}
