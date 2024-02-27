@@ -6,6 +6,7 @@ import "../../../../src/output.css";
 import Loading from "@/app/Components/Loading";
 import Error from "@/app/Components/Error";
 
+
 const QRCode = ({ params }) => {
   const [qrImage, setQrImage] = useState("");
   const [userDetails, setUserDetails] = useState("");
@@ -38,19 +39,25 @@ const QRCode = ({ params }) => {
       console.error(err);
     }
   };
-  
-  generateQR(`/${userDetails.username}`, setQrImage);
+
+  generateQR(
+    `/https://tipper1.netlify.app/${userDetails.username}`,
+    setQrImage
+  );
   return (
     <>
       <main className="qr-page">
-        <h2>{userDetails.firstName}</h2>
-        <img className="rounded mx-auto d-block profile-pic" src={userDetails.img} alt="profile picture"></img>
+
+        <h2>Hello!<br></br>I am {userDetails.firstName}</h2>
+        <img className="rounded mx-auto d-block profile-pic" src={userDetails.img_url} alt="profile picture" />
+
         <div className="qr-container">
           <img
             className="mx-auto d-block qr-code"
             src={qrImage}
-            alt="qr code"/>
-            <h3>Scan Me!</h3>
+            alt="qr code"
+          />
+          <h3>Scan Me!</h3>
         </div>
       </main>
     </>

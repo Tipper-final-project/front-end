@@ -1,8 +1,7 @@
 import coins from "./tipper-image/coins.png";
-import LogoutButton from "./LogoutButton";
+
 
 const Header = () => {
- 
   return (
     <header>
       <span className="tipper">
@@ -16,7 +15,6 @@ const Header = () => {
             width={18}
           />
         </h1>
-        {LogoutButton()}
       </span>
     </header>
   );
