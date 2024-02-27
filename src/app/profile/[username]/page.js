@@ -4,7 +4,7 @@ import Editfield from "@/reusable components/editfield";
 import deleteUser from "@/APIcalls/deleteUser";
 import getUser from "@/APIcalls/getuser";
 import { useRouter } from "next/navigation";
-import Header from "../../Components/Header";
+import patchUser from "@/APIcalls/patchUser";
 
 const UsernameError = ({ setIsTime }) => {
   setTimeout(() => {
@@ -12,6 +12,7 @@ const UsernameError = ({ setIsTime }) => {
   }, 5000);
   return <p>Username is taken</p>;
 };
+
 
 const ProfilePage = ({ params }) => {
   const route = useRouter();
@@ -22,12 +23,29 @@ const ProfilePage = ({ params }) => {
   const [editBio, setEditBio] = useState(false);
   const [editUsername, setEditUsername] = useState(false);
   const [deleteWarning, setDeleteWarning] = useState(false);
+
+  const [editImage, setEditImage] = useState(false);
+  const [image, setImage] = useState("");
+  const [imageConfirm, setImageConfirm] = useState(false);
+
   const [changingUserName, setChangingUserName] = useState(false);
   const [usernameTaken, setUsernameTaken] = useState(false);
   const [isTime, setIsTime] = useState(null);
+
   useEffect(() => {
     getUser(params.username, setUserDetails, setIsLoading);
   }, []);
+  function handleImagePatch(event) {
+    const data = new FileReader();
+    data.addEventListener("load", () => {
+      setImage(data.result);
+    });
+    if (event.target.files[0]) {
+      data.readAsDataURL(event.target.files[0]);
+    }
+    setImageConfirm(true);
+    // patchUser(userDetails.username, { img_url: image });
+  }
 
   return isLoading ? (
     <p>Currently Loading</p>
@@ -42,6 +60,69 @@ const ProfilePage = ({ params }) => {
           className="card-img-top"
           alt={`an image of ${userDetails.username}`}
         />
+        <div className="card-body">
+          <div className="profileDiv">
+
+            <p className="card-title">Edit image</p>
+            {editImage ? null : (
+              <button
+                onClick={() => {
+                  setEditImage(true);
+                }}
+                className="btn btn-outline-primary btn-sm"
+              >
+                Edit
+              </button>
+            )}
+          </div>
+          {editImage ? (
+            <div className="input-group">
+              <input
+                type="file"
+                className="form-control"
+                id="img"
+                aria-label="Upload"
+                accept=".jpg, .png"
+                onChange={handleImagePatch}
+                required
+              />
+            </div>
+          ) : null}
+          {imageConfirm ? (
+            <div>
+              <img src={image} width={"300px"} />
+              <button
+                id="approveUpload"
+                style={{ marginRight: "7px" }}
+                type="button"
+                className="btn btn-success"
+                onClick={() => {
+                  document.getElementById("approveUpload").disabled = true;
+                  patchUser(userDetails.username, { img_url: image }).then(
+                    () => {
+                      setImageConfirm(false);
+                      setEditImage(false);
+                      userDetails.img_url = image;
+                    }
+                  );
+                }}
+              >
+                Approve
+              </button>
+              <button
+                id="cancelNewUpload"
+                type="button"
+                className="btn btn-danger"
+                onClick={() => {
+                  setEditImage(false);
+                  setImageConfirm(false);
+                }}
+              >
+                Cancel
+              </button>
+            </div>
+          ) : null}
+        </div>
         <div className="card-body">
           <div className="profileDiv">
             <h2 className="card-greeting">Hello {userDetails.username}!</h2>

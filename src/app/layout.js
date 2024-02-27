@@ -2,7 +2,7 @@ import { Inter } from "next/font/google";
 import "bootstrap/dist/css/bootstrap.css";
 import "@/app.css";
 import background from "../../src/background.png";
-import Header from "../app/Components/Header";
+import Header from "./Components/Header";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -18,7 +18,6 @@ export default function RootLayout({ children }) {
           width: "100vw",
         }}
       >
-        {" "}
         <Header />
         {children}
       </body>

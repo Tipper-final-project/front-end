@@ -13,7 +13,7 @@ export default async function postUser(
       bio: information.bio,
       workPlace: information.workPlace,
       email: information.email,
-      img_url: information.img,
+      img_url: information.img_url,
       firstName: information.firstName,
       lastName: information.lastName,
       password: encryptedString,
@@ -23,7 +23,6 @@ export default async function postUser(
       setPostedStatus(true);
     })
     .catch((err) => {
-      document.getElementById("submitButton").disabled = false;
       document.getElementById("cancelUpload").disabled = false;
       setIsLoading(false);
       setPostedStatus(false);
