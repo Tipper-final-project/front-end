@@ -18,37 +18,39 @@ const Editfield = ({
 
   return (
     <form>
-      <input onChange={handleInput} minLength={4} />
-      <button
-        className="btn btn-outline-primary btn-sm"
-        onClick={() => {
-          if (inputFieldData.length !== 0 && /\w/gi.test(inputFieldData)) {
-            if (value === "username") {
-              if (inputFieldData.length < 4) return; // how does this even work ??
-              setChangingUserName(true);
-              findUserName(inputFieldData).then((result) => {
-                if (!result) {
-                  func2((prevState) => {
-                    prevState[value] = inputFieldData;
-                    return prevState;
-                  });
-                  patchUser(username, { [value]: inputFieldData });
-                } else setUsernameTaken(true);
-                setChangingUserName(false);
-              });
-            } else {
-              func2((prevState) => {
-                prevState[value] = inputFieldData;
-                return prevState;
-              });
-              patchUser(username, { [value]: inputFieldData });
+      <div className="edit-field">
+        <input onChange={handleInput} minLength={4} className="input-field"/>
+        <button
+          className="btn btn-outline-primary btn-sm"
+          onClick={() => {
+            if (inputFieldData.length !== 0 && /\w/gi.test(inputFieldData)) {
+              if (value === "username") {
+                if (inputFieldData.length < 4) return; // how does this even work ??
+                setChangingUserName(true);
+                findUserName(inputFieldData).then((result) => {
+                  if (!result) {
+                    func2((prevState) => {
+                      prevState[value] = inputFieldData;
+                      return prevState;
+                    });
+                    patchUser(username, { [value]: inputFieldData });
+                  } else setUsernameTaken(true);
+                  setChangingUserName(false);
+                });
+              } else {
+                func2((prevState) => {
+                  prevState[value] = inputFieldData;
+                  return prevState;
+                });
+                patchUser(username, { [value]: inputFieldData });
+              }
             }
-          }
-          func((prevstate) => !prevstate);
-        }}
-      >
-        Save
-      </button>
+            func((prevstate) => !prevstate);
+          }}
+        >
+          Save
+        </button>
+      </div>
     </form>
   );
 };

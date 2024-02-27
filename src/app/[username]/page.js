@@ -8,8 +8,8 @@ import {
 } from "@stripe/react-stripe-js";
 import Header from "../Components/Header";
 import "../../../src/output.css";
-import Loading from "../Components/Loading"
-import Error from "../Components/Error"
+import Loading from "../Components/Loading";
+import Error from "../Components/Error";
 
 const stripePromise = loadStripe(
   process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY
@@ -25,12 +25,11 @@ export default function App({ params }) {
 
   useEffect(() => {
     getUser(username, setUserDetails);
-    setIsLoading(false)
+    setIsLoading(false);
     setError(error);
     fetch("/api", {
       method: "POST",
-      body: JSON.stringify({
-      })
+      body: JSON.stringify({}),
     })
       .then((res) => res.json())
       .then((data) => setClientSecret(data.clientSecret));
@@ -42,7 +41,6 @@ export default function App({ params }) {
 
   return (
     <>
-
       <Header />
       <div className="checkout-profile">
         <img
@@ -54,7 +52,6 @@ export default function App({ params }) {
         <p>{userDetails.bio}</p>
       </div>
       <div id="checkout">
-
         {clientSecret && (
           <EmbeddedCheckoutProvider
             stripe={stripePromise}
