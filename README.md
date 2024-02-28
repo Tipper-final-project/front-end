@@ -57,11 +57,15 @@ You can now run the project:
 $ npm run dev
 ```
 
+## To use the App
+
+Firstly, you will need to register an account and fill in the required fields.
+
 ## Making a Test Payment
 
-When filling in the payment form, use a long card number such as 4242 4242 4242 4242.
+You will be taken to the payment page after scanning the QR Code. When filling in the payment form, use the long card number 4242 4242 4242 4242.
 
-- Use a valid future date, such as 12/34.
+- Use a valid future date, such as 12/75.
 - Use any three-digit CVC (four digits for American Express cards).
 - Use any value you like for other form fields i.e. test@pay.co.uk
 
@@ -87,7 +91,7 @@ To check confirmation of Stripe payments:
 - Github: [Anna van Ruiten](https://github.com/avr87)
 - Github: [Amir Rashidinia](https://github.com/Amir-Rsh)
 - Github: [Langa Lee](https://github.com/LangaLee)
-- Github: [Eric Nabofa](https://github.com/ericnabofa)
+- Github: [Oghenevwegba Nabofa](https://github.com/ericnabofa)
 - Github: [Gyozo Vancsura (Victor)](https://github.com/gyozoke)
 
 ## 🤝 Contributing
