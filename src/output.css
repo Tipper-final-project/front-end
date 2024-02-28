@@ -302,38 +302,41 @@
     justify-content: center;
     width: 100%;
   }
-  .registration-page .return-login {
+  .registration-page .form-control::placeholder {
+    color: #05386b;
+  }
+  .registration-page .form-control::placeholder .return-login {
     border-color: #05386b;
     background-color: #05386b;
     color: #5cdb95;
   }
-  * {
+  .registration-page * {
     color: #05386b;
     font-family: "Poppins";
   }
-  a {
+  .registration-page a {
     color: #05386b;
   }
-  .stripe-page {
+  .registration-page .stripe-page {
     display: flex;
     justify-content: center;
     isolation: isolation;
     z-index: auto;
     width: 100%;
   }
-  .loading-container {
+  .registration-page .loading-container {
     text-align: center;
     margin-top: 60%;
     font-weight: bold;
     font-size: larger;
   }
-  .error-display {
+  .registration-page .error-display {
     text-align: center;
     margin-top: 60%;
     font-weight: bold;
     font-size: larger;
   }
-  .success-container {
+  .registration-page .success-container {
     text-align: center;
     background-color: white;
     border: 2px solid #05386b;
@@ -342,16 +345,16 @@
     margin: 35% auto;
     padding: 10px;
   }
-  .success-container .success-img {
+  .registration-page .success-container .success-img {
     width: 30%;
     height: 30%;
     padding-top: 15px;
   }
-  .success-container .success-msg {
+  .registration-page .success-container .success-msg {
     margin: 15% auto;
   }
 }
-@media only screen and (max-width: 1200px) {
+@media only screen and (min-width: 451px) {
   .login-card {
     display: flex;
     justify-content: center;
