@@ -15,8 +15,10 @@ export async function POST(req) {
           quantity: 1,
         },
       ],
-      mode: "payment",
-      return_url: `http://localhost:3000/stripe/return?session_id={CHECKOUT_SESSION_ID}`,
+      payment_method_types: ['paypal', 'card'],
+      mode: 'payment',
+      return_url:
+        `http://localhost:3000/stripe/return?session_id={CHECKOUT_SESSION_ID}`,
     });
 
     return NextResponse.json({ clientSecret: session.client_secret });
