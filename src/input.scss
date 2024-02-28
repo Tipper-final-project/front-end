@@ -7,6 +7,7 @@
 a {
   color: #05386b;
 }
+
 .messageCard {
   width: 90%;
   margin: 5%;
@@ -36,11 +37,17 @@ a {
   .login-card {
     display: flex;
     justify-content: center;
-    margin-top: 5%;
     .register-link {
       font-size: small;
       text-align: center;
-      padding-bottom: px;
+      padding-bottom: 5px;
+
+      a {
+        color: #05386b;
+      }
+      a:hover {
+        color: #5cdb95;
+      }
     }
     .card {
       border: none;
@@ -53,6 +60,11 @@ a {
       background-color: #5cdb95;
       border-color: #5cdb95;
       color: #05386b;
+    }
+    .btn:hover {
+      background-color: #05386b;
+      border-color: #05386b;
+      color: #5cdb95;
     }
     .form-control {
       padding: 10px 0px 10px 5px;
@@ -70,7 +82,7 @@ a {
 
   .login-title {
     text-align: center;
-    margin-top: 50%;
+    margin-top: 40%;
     isolation: isolate;
   }
 
@@ -225,6 +237,7 @@ a {
       border: 2px solid #05386b;
       background-color: white;
     }
+    
     .qr-code {
       display: flex;
       justify-content: center;
@@ -252,6 +265,9 @@ a {
       height: 30%;
       border-radius: 10px;
       margin-bottom: 10px;
+      background-color: white;
+      padding: 5px;
+      border: 2px solid #05386b;
     }
   }
 
@@ -306,6 +322,18 @@ a {
       margin-top: 5%;
       color: #05386b;
     }
+    .return-login {
+      background-color: #05386b;
+      border-color: #05386b;
+      color: #5cdb95;
+      position: absolute;
+      top: 8px;
+      right: 8px;
+    }
+    .return-login:hover {
+      background-color: #5cdb95;
+      color: #05386b;
+    }
     .register-card {
       display: flex;
       justify-content: center;
@@ -316,13 +344,20 @@ a {
         text-align: center;
         padding-bottom: px;
       }
+      p {
+        font-size: 12px;
+        margin-bottom: 0px;
+        text-align: center;
+      }
       .card {
         border: none;
       }
       .card-body {
-        padding-top: 30px;
+        padding-top: 20px;
       }
-
+      .input-div {
+        line-height: 0.8;
+      }
       .input-field {
         padding: 10px 0px 10px 5px;
         color: #05386b;
@@ -385,11 +420,22 @@ a {
     }
   }
 
+
   .stripe-page {
     display: flex;
     justify-content: center;
     width: 100%;
   }
+
+  .whitebox {
+    background-color: #5cdb95;
+    color: #5cdb95;
+    position: absolute;
+    top: 290px;
+    left: 63px;
+    width: 300px;
+   }
+
 
   .loading-container {
     text-align: center;
