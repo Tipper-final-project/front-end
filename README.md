@@ -1,5 +1,7 @@
 <h1 align="center">Welcome to Tipper! 👋</h1>
 
+Our cashless tipping web-app! Through Tipper, service providers such as waiters, are able to be tipped directly in to their bank accounts. Upon scanning a QR Code linked to the service provider's registered Tipper account, the tippee can complete a payment authenticated by Stripe.
+
 ### 🏠 [Homepage](https://tipper1.netlify.app/)
 
 ## Install
@@ -15,6 +17,7 @@ $ https://github.com/Tipper-final-project
 2. Install Packages & Dependencies
    This project uses [node](http://nodejs.org) version v20.6.1 and [npm](https://npmjs.com) version 9.8.1
    Go check them out if you don't have them locally installed.
+   You can run the command below to install all the necessary packages.
 
 ```sh
 $ npm install

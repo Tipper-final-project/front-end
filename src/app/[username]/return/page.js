@@ -3,7 +3,6 @@ import React, { useEffect, useState } from "react";
 import { redirect, useSearchParams } from "next/navigation";
 import {} from "next/navigation";
 import "../../../../src/output.css";
-
 import check from '../return/check.png'
 import postPayment from "@/APIcalls/postPayment";
 import { postMessage } from "@/APIcalls/messages";
@@ -19,7 +18,6 @@ const Return = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         postMessage("eileen");
         postPayment(sessionId, setStatus);
         setStatus(data.status);
@@ -30,7 +28,6 @@ const Return = () => {
   if (status === "open") {
     return redirect("/");
   }
-  console.log("hi");
   if (status === "complete") {
     return (
       <section id="success" className="success-container">
