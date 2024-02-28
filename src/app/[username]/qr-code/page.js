@@ -46,9 +46,9 @@ const QRCode = ({ params }) => {
   return (
     <>
       <main className="qr-page">
-        <h2>
+        <h1 className="qr-name">
           Hello!<br></br>I am {userDetails.firstName}
-        </h2>
+        </h1>
         <img
           className="rounded mx-auto d-block profile-pic"
           src={userDetails.img_url}

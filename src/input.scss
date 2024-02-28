@@ -1,5 +1,14 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
+* {
+  color: #05386b;
+  font-family: "Poppins";
+}
+
+a {
+  color: #05386b;
+}
+
 @media only screen and (max-width: 450px) {
   .login-card {
     display: flex;
@@ -191,6 +200,7 @@
       max-width: 150px;
       border-radius: 10px;
       border: 2px solid #05386b;
+      background-color: white;
     }
     .qr-code {
       display: flex;
@@ -205,6 +215,10 @@
       border-radius: 5%;
       width: 70%;
       margin: 15% auto;
+    }
+    .qr-name {
+      background-color: #5cdb95;
+      display: inline-block;
     }
   }
 
@@ -240,6 +254,7 @@
       color: white;
     }
   }
+
   .registration-page {
     padding-bottom: 10%;
     .register-title {
@@ -323,56 +338,47 @@
         color: #5cdb95;
       }
     }
-    * {
-      color: #05386b;
-      font-family: "Poppins";
-    }
+  }
 
-    a {
-      color: #05386b;
-    }
+  .stripe-page {
+   display: flex;
+   justify-content: center;
+   width: 100%;
+  }
 
-    .stripe-page {
-      display: flex;
-      justify-content: center;
-      isolation: isolation;
-      z-index: auto;
-      width: 100%;
-    }
+  .loading-container {
+    text-align: center;
+    margin-top: 60%;
+    font-weight: bold;
+    font-size: larger;
+  }
 
-    .loading-container {
+  .error-display {
       text-align: center;
       margin-top: 60%;
       font-weight: bold;
       font-size: larger;
-    }
+  }
 
-    .error-display {
-      text-align: center;
-      margin-top: 60%;
-      font-weight: bold;
-      font-size: larger;
-    }
-
-    .success-container {
-      text-align: center;
-      background-color: white;
-      border: 2px solid #05386b;
-      border-radius: 5%;
-      width: 80%;
-      margin: 35% auto;
-      padding: 10px;
-      .success-img {
-        width: 30%;
-        height: 30%;
-        padding-top: 15px;
-      }
-      .success-msg {
-        margin: 15% auto;
-      }
+  .success-container {
+    text-align: center;
+    background-color: white;
+    border: 2px solid #05386b;
+    border-radius: 5%;
+    width: 80%;
+    margin: 35% auto;
+    padding: 10px;
+   .success-img {
+    width: 30%;
+    height: 30%;
+    padding-top: 15px;
+   }
+   .success-msg {
+    margin: 15% auto;
     }
   }
 }
+
 
 @media only screen and (min-width: 451px) {
   .login-card {
