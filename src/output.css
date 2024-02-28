@@ -229,38 +229,83 @@
     border-color: #05386b;
     color: white;
   }
-  .register-card {
+  .registration-page {
+    padding-bottom: 10%;
+  }
+  .registration-page .register-title {
+    margin-top: 5%;
+    color: #05386b;
+  }
+  .registration-page .register-card {
     display: flex;
     justify-content: center;
     margin-top: 5%;
+    margin-bottom: 30%;
   }
-  .register-card .register-link {
+  .registration-page .register-card .register-link {
     font-size: small;
     text-align: center;
     padding-bottom: px;
   }
-  .register-card .card {
+  .registration-page .register-card .card {
     border: none;
   }
-  .register-card .card-body {
+  .registration-page .register-card .card-body {
     padding-top: 30px;
   }
-  .register-card .form-control {
+  .registration-page .register-card .input-field {
     padding: 10px 0px 10px 5px;
     color: #05386b;
-    border-color: #05386b;
+    border-color: rgba(5, 56, 107, 0.7);
     border-radius: 0.25rem;
   }
-  .register-card .form-control:focus {
+  .registration-page .register-card .form-control {
+    color: rgba(5, 56, 107, 0.7);
+  }
+  .registration-page .register-card .form-control:focus {
     border: #5cdb95;
     box-shadow: 0 0 0 0.1rem #5cdb95;
   }
-  .register-card .form-control::placeholder {
+  .registration-page .register-card .form-control::placeholder {
+    color: rgba(5, 56, 107, 0.7);
+  }
+  .registration-page .register-card .upload-image-form {
+    margin-top: 15px;
+    margin-bottom: 15px;
+  }
+  .registration-page .register-card .bio-input {
+    border-color: rgba(5, 56, 107, 0.7);
+  }
+  .registration-page .register-card .select-img {
+    border-color: rgba(5, 56, 107, 0.7);
+  }
+  .registration-page .register-card .select-img::placeholder {
+    color: rgba(5, 56, 107, 0.7);
+  }
+  .registration-page .register-card .submit-btn {
+    width: 100%;
+    background-color: #5cdb95;
+    border-color: #5cdb95;
     color: #05386b;
   }
-  .register-title {
-    margin-top: 5%;
-    color: #05386b;
+  .registration-page .register-card .submit-btn:hover {
+    background-color: #05386b;
+    color: #5cdb95;
+    border-color: #05386b;
+  }
+  .registration-page .register-card #cancelUpload {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+  .registration-page .register-card .uploaded-img {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+  .registration-page .return-login {
+    border-color: #05386b;
+    background-color: #05386b;
+    color: #5cdb95;
   }
   * {
     color: #05386b;
