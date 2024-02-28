@@ -56,9 +56,7 @@ const ProfilePage = ({ params }) => {
   ) : (
 
     <>
-     
-
- <div className="logout-button">{LogoutButton()}</div>
+     <div className="logout-button">{LogoutButton()}</div>
     <div className="profile-page-user">
       <div className="card" style={{ width: "90%", margin: "auto" }}>
         <img
@@ -80,53 +78,6 @@ const ProfilePage = ({ params }) => {
               </button>
             )}
           </div>
-          {editImage ? (
-            <div className="input-group">
-              <input
-                type="file"
-                className="form-control"
-                id="img"
-                aria-label="Upload"
-                accept=".jpg, .png"
-                onChange={handleImagePatch}
-                required
-              />
-            </div>
-          ) : null}
-          {imageConfirm ? (
-            <div>
-              <img src={image} width={"300px"} />
-              <button
-                id="approveUpload"
-                style={{ marginRight: "7px" }}
-                type="button"
-                className="btn btn-success"
-                onClick={() => {
-                  document.getElementById("approveUpload").disabled = true;
-                  patchUser(userDetails.username, { img_url: image }).then(
-                    () => {
-                      setImageConfirm(false);
-                      setEditImage(false);
-                      userDetails.img_url = image;
-                    }
-                  );
-                }}
-              >
-                Approve
-              </button>
-              <button
-                id="cancelNewUpload"
-                type="button"
-                className="btn btn-danger"
-                onClick={() => {
-                  setEditImage(false);
-                  setImageConfirm(false);
-                }}
-              >
-                Cancel
-              </button>
-
-            </div>
             {editImage ? (
               <div className="input-group">
                 <input
