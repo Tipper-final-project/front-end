@@ -126,15 +126,15 @@ const ProfilePage = ({ params }) => {
           />
           <div className="card-body">
             <div className="profileDiv">
-              <p className="card-title">Change image</p>
+              {/* <p className="card-title">Change image</p> */}
               {editImage ? null : (
                 <button
                   onClick={() => {
                     setEditImage(true);
                   }}
-                  className="btn btn-sm edit-button"
+                  className="btn btn-sm edit-img-button"
                 >
-                  Upload
+                  Edit image
                 </button>
               )}
             </div>
@@ -153,7 +153,7 @@ const ProfilePage = ({ params }) => {
             ) : null}
             {imageConfirm ? (
               <div>
-                <img src={image} width={"300px"} />
+                <img src={image} width={"300px"} className="uploaded-img" />
                 <button
                   id="approveUpload"
                   style={{ marginRight: "7px" }}

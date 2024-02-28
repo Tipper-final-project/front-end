@@ -149,6 +149,18 @@ a {
     border: 2px solid #05386b;
     display: flex;
     justify-content: center;
+    margin: 8px 0 0 12px;
+  }
+  .profile-page-user .edit-img-button {
+    border: none;
+    background-color: inherit;
+    padding: 0px;
+    font-size: 16px;
+    text-decoration: underline;
+    cursor: pointer;
+  }
+  .profile-page-user .edit-img-button:hover {
+    background: #eee;
   }
   .profile-page-user .delete-btn {
     margin-top: 20px;
@@ -555,8 +567,193 @@ a {
   .register-card .form-control::placeholder {
     color: #05386b;
   }
+  .register-card .upload-image-form {
+    margin-top: 15px;
+    margin-bottom: 15px;
+  }
+  .register-card .bio-input {
+    border-color: rgba(5, 56, 107, 0.7);
+  }
+  .register-card .select-img {
+    border-color: rgba(5, 56, 107, 0.7);
+  }
+  .register-card .select-img::placeholder {
+    color: rgba(5, 56, 107, 0.7);
+  }
+  .register-card .submit-btn {
+    width: 100%;
+    background-color: #5cdb95;
+    border-color: #5cdb95;
+    color: #05386b;
+  }
+  .register-card .submit-btn:hover {
+    background-color: #05386b;
+    color: #5cdb95;
+    border-color: #05386b;
+  }
+  .register-card #cancelUpload {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+  .register-card .uploaded-img {
+    display: flex;
+    justify-content: center;
+    width: 300px;
+    height: 200px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
   .register-title {
     color: #05386b;
+  }
+  .profile-page-user {
+    width: 65%;
+    margin: 0 auto 0 auto;
+    padding-bottom: 48px;
+  }
+  .profile-page-user .card {
+    padding: 10px 5px 10px 5px;
+    border-color: white;
+  }
+  .profile-page-user .profileDiv {
+    display: flex;
+    justify-content: space-between;
+  }
+  .profile-page-user .edit-img-button {
+    border: none;
+    background-color: inherit;
+    padding: 1px;
+    font-size: 18px;
+    text-decoration: underline;
+    cursor: pointer;
+  }
+  .profile-page-user .edit-img-button:hover {
+    background: #eee;
+  }
+  .profile-page-user .edit-button {
+    border-color: #8ee4af;
+    color: #05386b;
+    background-color: #8ee4af;
+    height: 30px;
+    width: 72px;
+    font-size: 15px;
+    padding: 5px 5px 5px 5px;
+    line-height: 1px;
+  }
+  .profile-page-user .edit-button:hover {
+    background-color: #05386b;
+    color: #8ee4af;
+    border-color: #05386b;
+  }
+  .profile-page-user .list-group-item {
+    border-color: white;
+  }
+  .profile-page-user .qr-button {
+    width: 100%;
+    background-color: #5cdb95;
+    color: #05386b;
+    border-color: #5cdb95;
+  }
+  .profile-page-user .qr-button:hover {
+    background-color: #05386b;
+    color: #5cdb95;
+    border-color: #05386b;
+  }
+  .profile-page-user .edit-field {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+  }
+  .profile-page-user .edit-field .input-field {
+    width: 90%;
+    border-style: solid;
+    border-width: 0.5px;
+    border-color: #05386b;
+    border-radius: 0.25rem;
+  }
+  .profile-page-user .edit-field .btn {
+    border-color: #05386b;
+    background-color: #05386b;
+    color: #5cdb95;
+    margin-left: 5px;
+    height: 30px;
+    font-size: 15px;
+    padding: 5px 5px 5px 5px;
+    line-height: 1px;
+  }
+  .profile-page-user .card-img-top {
+    max-height: 200px;
+    max-width: 200px;
+    border-radius: 10px;
+    border: 2px solid #05386b;
+    display: flex;
+    justify-content: center;
+    margin: 10px 0 0 10px;
+  }
+  .profile-page-user .delete-btn {
+    margin-top: 20px;
+    height: 30px;
+    font-size: 12px;
+    padding: 5px 5px 5px 5px;
+    line-height: 1px;
+    width: 132px;
+  }
+  .profile-page-user .stripe-btn {
+    margin-top: 20px;
+    height: 30px;
+    font-size: 12px;
+    color: #8ee4af;
+    border-color: #8ee4af;
+    text-align: center;
+  }
+  .profile-page-user .stripe-btn:hover {
+    border-color: #05386b;
+    color: #05386b;
+    background-color: white;
+  }
+  .profile-page-user .deleteField {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: center;
+    margin-top: 20px;
+    font-size: 12px;
+  }
+  .profile-page-user .confirmDelete {
+    display: flex;
+    justify-content: space-around;
+  }
+  .profile-page-user .confirmDelete-btn {
+    height: 30px;
+    font-size: 12px;
+    padding: 5px 5px 5px 5px;
+    line-height: 1px;
+    width: 72px;
+  }
+  .profile-page-user .cancelDelete-btn {
+    height: 30px;
+    font-size: 12px;
+    padding: 5px 5px 5px 5px;
+    line-height: 1px;
+    color: #05386b;
+    background-color: #5cdb95;
+    border-color: #5cdb95;
+    width: 72px;
+  }
+  .profile-page-user .cancelDelete-btn:hover {
+    color: #5cdb95;
+    background-color: #05386b;
+    border-color: #05386b;
+  }
+  .profile-page-user .uploaded-img {
+    display: flex;
+    justify-content: center;
+    width: 250px;
+    height: 200px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    margin: 16px 0 16px 0;
   }
 }
 
