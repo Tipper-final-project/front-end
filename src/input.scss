@@ -212,6 +212,7 @@ a {
       border: 2px solid #05386b;
       background-color: white;
     }
+    
     .qr-code {
       display: flex;
       justify-content: center;
@@ -239,6 +240,9 @@ a {
       height: 30%;
       border-radius: 10px;
       margin-bottom: 10px;
+      background-color: white;
+      padding: 5px;
+      border: 2px solid #05386b;
     }
   }
 
@@ -375,6 +379,16 @@ a {
    justify-content: center;
    width: 100%;
   }
+
+  .whitebox {
+    background-color: #5cdb95;
+    color: #5cdb95;
+    position: absolute;
+    top: 290px;
+    left: 63px;
+    width: 300px;
+   }
+
 
   .loading-container {
     text-align: center;

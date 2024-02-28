@@ -29,11 +29,10 @@ const ProfilePage = ({ params }) => {
   const [editImage, setEditImage] = useState(false);
   const [image, setImage] = useState("");
   const [imageConfirm, setImageConfirm] = useState(false);
-
   const [changingUserName, setChangingUserName] = useState(false);
   const [usernameTaken, setUsernameTaken] = useState(false);
   const [isTime, setIsTime] = useState(null);
-  console.log(messages);
+  
   useEffect(() => {
     getUser(params.username, setUserDetails, setIsLoading);
     getMessages(params.username, setMessages);
