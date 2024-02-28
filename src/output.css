@@ -755,6 +755,110 @@ a {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     margin: 16px 0 16px 0;
   }
+  .checkout-profile {
+    text-align: center;
+    position: absolute;
+    left: 10%;
+  }
+  .checkout-profile .checkout-profile-pic {
+    width: 80%;
+    height: 80%;
+    border-radius: 10px;
+    margin-top: 15%;
+    margin-bottom: 5%;
+    background-color: white;
+    padding: 5px;
+    border: 2px solid #05386b;
+  }
+  .stripe-page {
+    position: absolute;
+    left: 50%;
+    top: 0%;
+    width: 50%;
+  }
+  .whitebox {
+    background-color: #05386b;
+    color: white;
+    position: absolute;
+    top: 0%;
+    left: 40%;
+    width: 300px;
+  }
+  .loading-container {
+    text-align: center;
+    font-weight: bold;
+    font-size: larger;
+    margin: 10% auto;
+  }
+  .error-display {
+    text-align: center;
+    margin-top: 60%;
+    font-weight: bold;
+    font-size: larger;
+  }
+  .success-container {
+    text-align: center;
+    background-color: white;
+    border: 2px solid #05386b;
+    border-radius: 5%;
+    width: 80%;
+    margin: 35% auto;
+    padding: 10px;
+  }
+  .success-container .success-img {
+    width: 30%;
+    height: 30%;
+    padding-top: 15px;
+  }
+  .success-container .success-msg {
+    margin: 15% auto;
+  }
+  .qr-page {
+    text-align: center;
+  }
+  .qr-page .profile-pic {
+    width: 25%;
+    border-radius: 10px;
+    border: 2px solid #05386b;
+    background-color: white;
+    position: absolute;
+    right: 60%;
+    margin: 8% auto;
+  }
+  .qr-page .qr-code {
+    display: flex;
+    justify-content: center;
+    width: 90%;
+    height: 90%;
+  }
+  .qr-page .qr-container {
+    position: absolute;
+    left: 55%;
+    background-color: white;
+    border: 2px solid #05386b;
+    padding: 10px 0 10px 0;
+    border-radius: 5%;
+    width: 25%;
+    margin: 8% auto;
+  }
+  .qr-page .qr-name {
+    position: absolute;
+    right: 67%;
+  }
+  .qr-page .logoutbtn {
+    background-color: #05386b;
+    border-color: #05386b;
+    color: #5cdb95;
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    width: 100px;
+    height: 50px;
+  }
+  .qr-page .logoutbtn:hover {
+    background-color: #5cdb95;
+    color: #05386b;
+  }
 }
 
 /*# sourceMappingURL=output.css.map */
