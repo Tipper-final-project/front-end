@@ -275,17 +275,6 @@ const RegisterPage = () => {
                   </button>
                 </div>
               ) : null}
-              <div className="col-12">
-                {postedStatus ? (
-                  <button
-                    onClick={() => router.push("/")}
-                    className="btn btn-success"
-                    style={{ width: "170px", marginLeft: "10px" }}
-                  >
-                    Go to profile page
-                  </button>
-                ) : null}
-              </div>
               <button
                 id="submitButton"
                 type="submit"
