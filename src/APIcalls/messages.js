@@ -23,7 +23,7 @@ export const postMessage = async (username) => {
   try {
     await axios.post(
       `https://tipper-api-xzkf.onrender.com/messages/${username}`,
-      { recieved: 70, date: new Date() }
+      { recieved: 5, date: new Date() }
     );
   } catch (error) {
     console.log(error);

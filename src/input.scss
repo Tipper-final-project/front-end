@@ -4,20 +4,50 @@
   color: #05386b;
   font-family: "Poppins";
 }
-
 a {
   color: #05386b;
+}
+
+.messageCard {
+  width: 90%;
+  margin: 5%;
+  .messageButton {
+    display: flex;
+    justify-content: flex-end;
+    button {
+      width: 30%;
+    }
+  }
+  .closeMessagesDiv {
+    display: flex;
+    justify-content: flex-end;
+  }
+  .closeMessages {
+    width: 30%;
+    border-color: #05386b;
+    background-color: #05386b;
+    color: #5cdb95;
+  }
+  .card {
+    width: 100% !important;
+  }
 }
 
 @media only screen and (max-width: 450px) {
   .login-card {
     display: flex;
     justify-content: center;
-    margin-top: 5%;
     .register-link {
       font-size: small;
       text-align: center;
-      padding-bottom: px;
+      padding-bottom: 5px;
+
+      a {
+        color: #05386b;
+      }
+      a:hover {
+        color: #5cdb95;
+      }
     }
     .card {
       border: none;
@@ -30,6 +60,11 @@ a {
       background-color: #5cdb95;
       border-color: #5cdb95;
       color: #05386b;
+    }
+    .btn:hover {
+      background-color: #05386b;
+      border-color: #05386b;
+      color: #5cdb95;
     }
     .form-control {
       padding: 10px 0px 10px 5px;
@@ -47,7 +82,7 @@ a {
 
   .login-title {
     text-align: center;
-    margin-top: 50%;
+    margin-top: 40%;
     isolation: isolate;
   }
 
@@ -214,6 +249,7 @@ a {
       border: 2px solid #05386b;
       background-color: white;
     }
+    
     .qr-code {
       display: flex;
       justify-content: center;
@@ -232,6 +268,18 @@ a {
       background-color: #5cdb95;
       display: inline-block;
     }
+    .logoutbtn {
+      background-color: #05386b;
+      border-color: #05386b;
+      color: #5cdb95;
+      position: absolute;
+      top: 8px;
+      right: 8px;
+    }
+    .logoutbtn:hover {
+      background-color: #5cdb95;
+      color: #05386b;
+    }
   }
 
   .checkout-profile {
@@ -241,11 +289,36 @@ a {
       height: 30%;
       border-radius: 10px;
       margin-bottom: 10px;
+      background-color: white;
+      padding: 5px;
+      border: 2px solid #05386b;
     }
   }
 
   .logoutbtn {
     height: 30px;
+    background-color: #05386b;
+    border-color: #05386b;
+    color: #5cdb95;
+    position: absolute;
+    top: 8px;
+    right: 8px;
+  }
+
+  .showMessages {
+    height: 30px;
+    background-color: #05386b;
+    border-color: #05386b;
+    color: #5cdb95;
+    position: absolute;
+    top: 8px;
+    right: 80px;
+  }
+
+  .showMessages:hover {
+    background-color: #05386b;
+    border-color: #05386b;
+    color: #5cdb95;
   }
 
   .tipper {
@@ -272,6 +345,22 @@ a {
     .register-title {
       margin-top: 5%;
       color: #05386b;
+      background-color: #5cdb95;
+      max-width: 280px;
+      display: block;
+      margin: 0 auto;
+    }
+    .return-login {
+      background-color: #05386b;
+      border-color: #05386b;
+      color: #5cdb95;
+      position: absolute;
+      top: 8px;
+      right: 8px;
+    }
+    .return-login:hover {
+      background-color: #5cdb95;
+      color: #05386b;
     }
     .register-card {
       display: flex;
@@ -283,13 +372,24 @@ a {
         text-align: center;
         padding-bottom: px;
       }
+      h6 {
+        color: #05386b;
+        text-align: center;
+      }
+      p {
+        font-size: 12px;
+        margin-bottom: 0px;
+        text-align: center;
+      }
       .card {
         border: none;
       }
       .card-body {
-        padding-top: 30px;
+        padding-top: 20px;
       }
-
+      .input-div {
+        line-height: 0.8;
+      }
       .input-field {
         padding: 10px 0px 10px 5px;
         color: #05386b;
@@ -352,11 +452,22 @@ a {
     }
   }
 
+
   .stripe-page {
     display: flex;
     justify-content: center;
     width: 100%;
   }
+
+  .whitebox {
+    background-color: #5cdb95;
+    color: #5cdb95;
+    position: absolute;
+    top: 290px;
+    left: 63px;
+    width: 300px;
+   }
+
 
   .loading-container {
     text-align: center;
