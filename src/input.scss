@@ -231,6 +231,18 @@ a {
       background-color: #5cdb95;
       display: inline-block;
     }
+    .logoutbtn {
+      background-color: #05386b;
+      border-color: #05386b;
+      color: #5cdb95;
+      position: absolute;
+      top: 8px;
+      right: 8px;
+    }
+    .logoutbtn:hover {
+      background-color: #5cdb95;
+      color: #05386b;
+    }
   }
 
   .checkout-profile {
@@ -274,6 +286,10 @@ a {
     .register-title {
       margin-top: 5%;
       color: #05386b;
+      background-color: #5cdb95;
+      max-width: 280px;
+      display: block;
+      margin: 0 auto;
     }
     .return-login {
       background-color: #05386b;
@@ -296,6 +312,10 @@ a {
         font-size: small;
         text-align: center;
         padding-bottom: px;
+      }
+      h6 {
+        color: #05386b;
+        text-align: center;
       }
       p {
         font-size: 12px;

@@ -5,6 +5,7 @@ import getUser from "../../../APIcalls/getuser";
 import "../../../../src/output.css";
 import Loading from "@/app/Components/Loading";
 import Error from "@/app/Components/Error";
+import LogoutButton from "@/app/Components/LogoutButton";
 
 const QRCode = ({ params }) => {
   const [qrImage, setQrImage] = useState("");
@@ -46,6 +47,7 @@ const QRCode = ({ params }) => {
   return (
     <>
       <main className="qr-page">
+        <LogoutButton />
         <h1 className="qr-name">
           Hello!<br></br>I am {userDetails.firstName}
         </h1>
