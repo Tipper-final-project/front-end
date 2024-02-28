@@ -40,7 +40,7 @@ const QRCode = ({ params }) => {
   };
 
   generateQR(
-    `https://tipper3-eg9sr74ls-langalees-projects.vercel.app/${userDetails.username}`,
+    `https://tipper3-langalees-projects.vercel.app/${userDetails.username}`,
     setQrImage
   );
   return (

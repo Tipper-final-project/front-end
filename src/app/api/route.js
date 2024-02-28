@@ -17,7 +17,7 @@ export async function POST(req) {
       ],
       payment_method_types: ["paypal", "card"],
       mode: "payment",
-      return_url: `https://tipper3-eg9sr74ls-langalees-projects.vercel.app/stripe/return?session_id={CHECKOUT_SESSION_ID}`,
+      return_url: `https://tipper3-langalees-projects.vercel.app/stripe/return?session_id={CHECKOUT_SESSION_ID}`,
     });
 
     return NextResponse.json({ clientSecret: session.client_secret });
