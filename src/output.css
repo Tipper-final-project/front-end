@@ -3,6 +3,7 @@
   color: #05386b;
   font-family: "Poppins";
 }
+
 a {
   color: #05386b;
 }
@@ -247,6 +248,18 @@ a {
     background-color: #5cdb95;
     display: inline-block;
   }
+  .qr-page .logoutbtn {
+    background-color: #05386b;
+    border-color: #05386b;
+    color: #5cdb95;
+    position: absolute;
+    top: 8px;
+    right: 8px;
+  }
+  .qr-page .logoutbtn:hover {
+    background-color: #5cdb95;
+    color: #05386b;
+  }
   .checkout-profile {
     text-align: center;
   }
@@ -306,6 +319,10 @@ a {
   .registration-page .register-title {
     margin-top: 5%;
     color: #05386b;
+    background-color: #5cdb95;
+    max-width: 280px;
+    display: block;
+    margin: 0 auto;
   }
   .registration-page .return-login {
     background-color: #05386b;
@@ -329,6 +346,10 @@ a {
     font-size: small;
     text-align: center;
     padding-bottom: px;
+  }
+  .registration-page .register-card h6 {
+    color: #05386b;
+    text-align: center;
   }
   .registration-page .register-card p {
     font-size: 12px;
@@ -401,14 +422,7 @@ a {
     background-color: #05386b;
     color: #5cdb95;
   }
-
-  .registration-page a {
-    color: #05386b;
-  }
-  .registration-page .stripe-page {
-
   .stripe-page {
-
     display: flex;
     justify-content: center;
     width: 100%;
@@ -451,8 +465,7 @@ a {
     margin: 15% auto;
   }
 }
-
-  @media only screen and (min-width: 451px) {
+@media only screen and (min-width: 451px) {
   .login-card {
     display: flex;
     justify-content: center;
@@ -493,6 +506,10 @@ a {
     text-align: center;
     margin-top: 2%;
     isolation: isolate;
+  }
+  * {
+    color: #05386b;
+    font-family: "Poppins";
   }
   .tipper {
     display: flex;

@@ -137,6 +137,7 @@ const RegisterPage = () => {
         <form className="register-card" onSubmit={handleSubmit}>
           <div className="card " style={{ width: 90 + "%" }}>
             <div className="card-body">
+              <h6>Please fill in the form below</h6>
               <div className="input-div">
                 <label htmlFor="firstName" className="form-label"></label>
                 <input
