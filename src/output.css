@@ -3,7 +3,6 @@
   color: #05386b;
   font-family: "Poppins";
 }
-
 a {
   color: #05386b;
 }
@@ -12,12 +11,17 @@ a {
   .login-card {
     display: flex;
     justify-content: center;
-    margin-top: 5%;
   }
   .login-card .register-link {
     font-size: small;
     text-align: center;
-    padding-bottom: px;
+    padding-bottom: 5px;
+  }
+  .login-card .register-link a {
+    color: #05386b;
+  }
+  .login-card .register-link a:hover {
+    color: #5cdb95;
   }
   .login-card .card {
     border: none;
@@ -30,6 +34,11 @@ a {
     background-color: #5cdb95;
     border-color: #5cdb95;
     color: #05386b;
+  }
+  .login-card .btn:hover {
+    background-color: #05386b;
+    border-color: #05386b;
+    color: #5cdb95;
   }
   .login-card .form-control {
     padding: 10px 0px 10px 5px;
@@ -45,7 +54,7 @@ a {
   }
   .login-title {
     text-align: center;
-    margin-top: 50%;
+    margin-top: 40%;
     isolation: isolate;
   }
   .profile-page-user .card {
@@ -253,6 +262,18 @@ a {
     margin-top: 5%;
     color: #05386b;
   }
+  .registration-page .return-login {
+    background-color: #05386b;
+    border-color: #05386b;
+    color: #5cdb95;
+    position: absolute;
+    top: 8px;
+    right: 8px;
+  }
+  .registration-page .return-login:hover {
+    background-color: #5cdb95;
+    color: #05386b;
+  }
   .registration-page .register-card {
     display: flex;
     justify-content: center;
@@ -264,11 +285,19 @@ a {
     text-align: center;
     padding-bottom: px;
   }
+  .registration-page .register-card p {
+    font-size: 12px;
+    margin-bottom: 0px;
+    text-align: center;
+  }
   .registration-page .register-card .card {
     border: none;
   }
   .registration-page .register-card .card-body {
-    padding-top: 30px;
+    padding-top: 20px;
+  }
+  .registration-page .register-card .input-div {
+    line-height: 0.8;
   }
   .registration-page .register-card .input-field {
     padding: 10px 0px 10px 5px;
@@ -327,7 +356,14 @@ a {
     background-color: #05386b;
     color: #5cdb95;
   }
+
+  .registration-page a {
+    color: #05386b;
+  }
+  .registration-page .stripe-page {
+
   .stripe-page {
+
     display: flex;
     justify-content: center;
     width: 100%;
@@ -370,7 +406,8 @@ a {
     margin: 15% auto;
   }
 }
-@media only screen and (min-width: 451px) {
+
+  @media only screen and (min-width: 451px) {
   .login-card {
     display: flex;
     justify-content: center;
@@ -411,10 +448,6 @@ a {
     text-align: center;
     margin-top: 2%;
     isolation: isolate;
-  }
-  * {
-    color: #05386b;
-    font-family: "Poppins";
   }
   .tipper {
     display: flex;
