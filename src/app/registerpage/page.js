@@ -137,8 +137,8 @@ const RegisterPage = () => {
         <form className="register-card" onSubmit={handleSubmit}>
           <div className="card " style={{ width: 90 + "%" }}>
             <div className="card-body">
-              <div className="input-group mb-3">
-                {/* <label htmlFor="firstName" className="form-label"></label> */}
+              <div className="input-div">
+                <label htmlFor="firstName" className="form-label"></label>
                 <input
                   type="text"
                   className="form-control input-field"
@@ -148,8 +148,8 @@ const RegisterPage = () => {
                   required
                 />
               </div>
-              <div className="input-group mb-3">
-                {/* <label htmlFor="lastName" className="form-label"></label> */}
+              <div className="input-div">
+                <label htmlFor="lastName" className="form-label"></label>
                 <input
                   type="text"
                   className="form-control input-field"
@@ -159,8 +159,8 @@ const RegisterPage = () => {
                   required
                 />
               </div>
-              <div className="input-group mb-3">
-                {/* <label htmlFor="username" className="form-label"></label> */}
+              <div className="input-div">
+                <label htmlFor="username" className="form-label"></label>
                 <input
                   type="text"
                   className="form-control input-field"
@@ -177,8 +177,8 @@ const RegisterPage = () => {
                   </p>
                 </div>
               ) : null}
-              <div className="input-group mb-3">
-                {/* <label htmlFor="password" className="form-label"></label> */}
+              <div className="input-div">
+                <label htmlFor="password" className="form-label"></label>
                 <input
                   type="password"
                   className="form-control input-field"
@@ -196,8 +196,8 @@ const RegisterPage = () => {
                   </p>
                 </div>
               ) : null}
-              <div className="input-group mb-3">
-                {/* <label htmlFor="password" className="form-label"></label> */}
+              <div className="input-div">
+                <label htmlFor="password" className="form-label"></label>
                 <input
                   type="password"
                   className="form-control input-field"
@@ -210,8 +210,8 @@ const RegisterPage = () => {
               {passwordMatchError ? (
                 <p style={{ color: "red" }}>the passwords do not match</p>
               ) : null}
-              <div className="input-group mb-3">
-                {/* <label htmlFor="workPlace" className="form-label"></label> */}
+              <div className="input-div">
+                <label htmlFor="workPlace" className="form-label"></label>
                 <input
                   type="text"
                   className="form-control input-field"
@@ -221,8 +221,8 @@ const RegisterPage = () => {
                   required
                 />
               </div>
-              <div className="input-group mb-3">
-                {/* <label htmlFor="email" className="form-label"></label> */}
+              <div className="mb-3 input-div">
+                <label htmlFor="email" className="form-label"></label>
                 <input
                   type="email"
                   className="form-control input-field"
@@ -255,14 +255,7 @@ const RegisterPage = () => {
               </div>
               {image ? (
                 <div>
-                  <img
-                    src={image}
-                    className="uploaded-img"
-                    // style={{
-                    //   width: "300px",
-                    //   height: "300px",
-                    // }}
-                  />
+                  <img src={image} className="uploaded-img" />
                   <button
                     id="cancelUpload"
                     type="button"
