@@ -9,7 +9,7 @@ export default async function getUser(username, setUserDetails, setIsLoading) {
     const { waiter } = response.data;
     if (waiter._id === localStorage.pass) {
       setUserDetails(waiter);
-      setIsLoading(false);
+      setIsLoading ? setIsLoading(false) : null;
     }
   } catch (error) {
     console.log(error);
