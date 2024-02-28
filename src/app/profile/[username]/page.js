@@ -8,8 +8,7 @@ import patchUser from "@/APIcalls/patchUser";
 import LogoutButton from "../../Components/LogoutButton";
 import Loading from "@/app/Components/Loading";
 import getMessages from "@/APIcalls/messages";
-
-
+import Card from "react-bootstrap/Card";
 const UsernameError = ({ setIsTime }) => {
   setTimeout(() => {
     setIsTime("now");
@@ -34,7 +33,7 @@ const ProfilePage = ({ params }) => {
   const [changingUserName, setChangingUserName] = useState(false);
   const [usernameTaken, setUsernameTaken] = useState(false);
   const [isTime, setIsTime] = useState(null);
-
+  console.log(messages);
   useEffect(() => {
     getUser(params.username, setUserDetails, setIsLoading);
     getMessages(params.username, setMessages);
@@ -50,7 +49,6 @@ const ProfilePage = ({ params }) => {
     setImageConfirm(true);
     // patchUser(userDetails.username, { img_url: image });
   }
-
   return isLoading ? (
     <Loading />
   ) : (
@@ -58,6 +56,21 @@ const ProfilePage = ({ params }) => {
     <>
      <div className="logout-button">{LogoutButton()}</div>
     <div className="profile-page-user">
+      <div>
+        {messages
+          ? messages.slice(0, 1).map((message) => (
+              <Card style={{ width: "18rem" }}>
+                <Card.Body>
+                  <Card.Title>Recent message</Card.Title>
+                  <Card.Text>
+                    recieved ${message.recieved}.00 on{" "}
+                    {message.date.slice(0, 10)} {message.date.slice(11, 16)}
+                  </Card.Text>
+                </Card.Body>
+              </Card>
+            ))
+          : null}
+      </div>
       <div className="card" style={{ width: "90%", margin: "auto" }}>
         <img
           src={userDetails.img_url}

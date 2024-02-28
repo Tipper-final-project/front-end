@@ -1,13 +1,17 @@
 import axios from "axios";
 import getSecondM from "../../utils/getSecondM";
 
-const getMessages = async (username) => {
+const getMessages = async (username, setMessages) => {
   try {
     const response = await axios.get(
       `https://tipper-api-xzkf.onrender.com/messages/${username}`
     );
     const messages = getSecondM(response.data.messages);
-    console.log(messages);
+    const sortParameter = "date";
+    const sortedMessages = messages.sort((a, b) =>
+      b[sortParameter].localeCompare(a[sortParameter])
+    );
+    setMessages(sortedMessages);
   } catch (error) {
     console.log(error);
   }
