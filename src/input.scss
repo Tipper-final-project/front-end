@@ -5,8 +5,33 @@
   font-family: "Poppins";
 }
 a {
-      color: #05386b;
+  color: #05386b;
+}
+
+.messageCard {
+  width: 90%;
+  margin: 5%;
+  .messageButton {
+    display: flex;
+    justify-content: flex-end;
+    button {
+      width: 30%;
     }
+  }
+  .closeMessagesDiv {
+    display: flex;
+    justify-content: flex-end;
+  }
+  .closeMessages {
+    width: 30%;
+    border-color: #05386b;
+    background-color: #05386b;
+    color: #5cdb95;
+  }
+  .card {
+    width: 100% !important;
+  }
+}
 
 @media only screen and (max-width: 450px) {
   .login-card {
@@ -248,6 +273,28 @@ a {
 
   .logoutbtn {
     height: 30px;
+    background-color: #05386b;
+    border-color: #05386b;
+    color: #5cdb95;
+    position: absolute;
+    top: 8px;
+    right: 8px;
+  }
+
+  .showMessages {
+    height: 30px;
+    background-color: #05386b;
+    border-color: #05386b;
+    color: #5cdb95;
+    position: absolute;
+    top: 8px;
+    right: 80px;
+  }
+
+  .showMessages:hover {
+    background-color: #05386b;
+    border-color: #05386b;
+    color: #5cdb95;
   }
 
   .tipper {
@@ -375,9 +422,9 @@ a {
 
 
   .stripe-page {
-   display: flex;
-   justify-content: center;
-   width: 100%;
+    display: flex;
+    justify-content: center;
+    width: 100%;
   }
 
   .whitebox {
@@ -398,10 +445,10 @@ a {
   }
 
   .error-display {
-      text-align: center;
-      margin-top: 60%;
-      font-weight: bold;
-      font-size: larger;
+    text-align: center;
+    margin-top: 60%;
+    font-weight: bold;
+    font-size: larger;
   }
 
   .success-container {
@@ -412,18 +459,16 @@ a {
     width: 80%;
     margin: 35% auto;
     padding: 10px;
-   .success-img {
-    width: 30%;
-    height: 30%;
-    padding-top: 15px;
-   }
-   .success-msg {
-    margin: 15% auto;
+    .success-img {
+      width: 30%;
+      height: 30%;
+      padding-top: 15px;
+    }
+    .success-msg {
+      margin: 15% auto;
     }
   }
 }
-
-
 
 @media only screen and (min-width: 451px) {
   .login-card {
@@ -525,4 +570,3 @@ a {
     color: #05386b;
   }
 }
-
