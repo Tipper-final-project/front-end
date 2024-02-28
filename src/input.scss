@@ -4,101 +4,9 @@
   color: #05386b;
   font-family: "Poppins";
 }
-@media only screen and (min-width: 451px) {
-  .login-card {
-    display: flex;
-    justify-content: center;
-    margin: 2% auto 5% auto;
-    width: 50%;
-    text-align: center;
-    .register-link {
-      font-size: small;
-      text-align: left;
-      margin: 0 0 4px 16px;
-    }
-    .card {
-      border: none;
-    }
-    .card-body {
-      padding-top: 16px;
-    }
-    .btn {
-      width: 100%;
-      background-color: #5cdb95;
-      border-color: #5cdb95;
+a {
       color: #05386b;
     }
-    .form-control {
-      padding: 10px 0px 10px 5px;
-      border-color: #05386b;
-      color: #05386b;
-    }
-    .form-control:focus {
-      border: #5cdb95;
-      box-shadow: 0 0 0 0.1rem #5cdb95;
-    }
-    .form-control::placeholder {
-      color: #05386b;
-    }
-  }
-
-  .login-title {
-    text-align: center;
-    margin-top: 2%;
-    isolation: isolate;
-  }
-
-  .tipper {
-    display: flex;
-    justify-content: space-between;
-    isolation: isolate;
-    margin: 12px 0 0 12px;
-    .logout-btn {
-      display: flex;
-      justify-content: flex-end;
-      margin-top: 6px;
-    }
-    .logoutbtn {
-      isolation: isolate;
-      background-color: #05386b;
-      border-color: #05386b;
-      color: white;
-    }
-  }
-
-  .register-card {
-    display: flex;
-    justify-content: center;
-    margin: 0 auto 0 auto;
-    padding: 8px 0 48px 0;
-    width: 65%;
-    .card {
-      border: none;
-    }
-    .card-body {
-      padding: 16px;
-    }
-
-    .form-control {
-      padding: 10px 0px 10px 5px;
-      color: #05386b;
-      border-color: #05386b;
-      border-radius: 0.25rem;
-      margin: 0 0 8px 0;
-    }
-    .form-control:focus {
-      border: #5cdb95;
-      box-shadow: 0 0 0 0.1rem #5cdb95;
-    }
-    .form-control::placeholder {
-      color: #05386b;
-    }
-  }
-
-  .register-title {
-    color: #05386b;
-  }
-}
 
 @media only screen and (max-width: 450px) {
   .login-card {
@@ -302,6 +210,7 @@
       max-width: 150px;
       border-radius: 10px;
       border: 2px solid #05386b;
+      background-color: white;
     }
     .qr-code {
       display: flex;
@@ -316,6 +225,10 @@
       border-radius: 5%;
       width: 70%;
       margin: 15% auto;
+    }
+    .qr-name {
+      background-color: #5cdb95;
+      display: inline-block;
     }
   }
 
@@ -351,6 +264,7 @@
       color: white;
     }
   }
+
   .registration-page {
     padding-bottom: 10%;
     .register-title {
@@ -453,49 +367,148 @@
         color: #5cdb95;
       }
     }
+  }
 
-    a {
-      color: #05386b;
-    }
 
-    .stripe-page {
-      display: flex;
-      justify-content: center;
-      isolation: isolation;
-      z-index: auto;
-      width: 100%;
-    }
+  .stripe-page {
+   display: flex;
+   justify-content: center;
+   width: 100%;
+  }
 
-    .loading-container {
+  .loading-container {
+    text-align: center;
+    margin-top: 60%;
+    font-weight: bold;
+    font-size: larger;
+  }
+
+  .error-display {
       text-align: center;
       margin-top: 60%;
       font-weight: bold;
       font-size: larger;
-    }
+  }
 
-    .error-display {
-      text-align: center;
-      margin-top: 60%;
-      font-weight: bold;
-      font-size: larger;
-    }
-
-    .success-container {
-      text-align: center;
-      background-color: white;
-      border: 2px solid #05386b;
-      border-radius: 5%;
-      width: 80%;
-      margin: 35% auto;
-      padding: 10px;
-      .success-img {
-        width: 30%;
-        height: 30%;
-        padding-top: 15px;
-      }
-      .success-msg {
-        margin: 15% auto;
-      }
+  .success-container {
+    text-align: center;
+    background-color: white;
+    border: 2px solid #05386b;
+    border-radius: 5%;
+    width: 80%;
+    margin: 35% auto;
+    padding: 10px;
+   .success-img {
+    width: 30%;
+    height: 30%;
+    padding-top: 15px;
+   }
+   .success-msg {
+    margin: 15% auto;
     }
   }
 }
+
+
+
+@media only screen and (min-width: 451px) {
+  .login-card {
+    display: flex;
+    justify-content: center;
+    margin: 2% auto 5% auto;
+    width: 50%;
+    text-align: center;
+    .register-link {
+      font-size: small;
+      text-align: left;
+      margin: 0 0 4px 16px;
+    }
+    .card {
+      border: none;
+    }
+    .card-body {
+      padding-top: 16px;
+    }
+    .btn {
+      width: 100%;
+      background-color: #5cdb95;
+      border-color: #5cdb95;
+      color: #05386b;
+    }
+    .form-control {
+      padding: 10px 0px 10px 5px;
+      border-color: #05386b;
+      color: #05386b;
+    }
+    .form-control:focus {
+      border: #5cdb95;
+      box-shadow: 0 0 0 0.1rem #5cdb95;
+    }
+    .form-control::placeholder {
+      color: #05386b;
+    }
+  }
+
+  .login-title {
+    text-align: center;
+    margin-top: 2%;
+    isolation: isolate;
+  }
+
+  * {
+    color: #05386b;
+    font-family: "Poppins";
+  }
+
+  .tipper {
+    display: flex;
+    justify-content: space-between;
+    isolation: isolate;
+    margin: 12px 0 0 12px;
+    .logout-btn {
+      display: flex;
+      justify-content: flex-end;
+      margin-top: 6px;
+    }
+    .logoutbtn {
+      isolation: isolate;
+      background-color: #05386b;
+      border-color: #05386b;
+      color: white;
+    }
+  }
+
+  .register-card {
+    display: flex;
+    justify-content: center;
+    margin: 0 auto 0 auto;
+    padding: 8px 0 48px 0;
+    width: 65%;
+    .card {
+      border: none;
+    }
+    .card-body {
+      padding: 16px;
+    }
+
+    .form-control {
+      padding: 10px 0px 10px 5px;
+      color: #05386b;
+      border-color: #05386b;
+      border-radius: 0.25rem;
+      margin: 0 0 8px 0;
+    }
+    .form-control:focus {
+      border: #5cdb95;
+      box-shadow: 0 0 0 0.1rem #5cdb95;
+    }
+    .form-control::placeholder {
+      color: #05386b;
+    }
+  }
+
+  .register-title {
+    color: #05386b;
+  }
+}
+
