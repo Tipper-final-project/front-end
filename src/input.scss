@@ -111,7 +111,6 @@
       justify-content: center;
     }
 
-
     .delete-btn {
       margin-top: 20px;
       height: 30px;
@@ -318,64 +317,64 @@
     }
     .form-control::placeholder {
       color: #05386b;
-    .return-login {
-      border-color: #05386b;
-      background-color: #05386b;
-      color: #5cdb95;
+      .return-login {
+        border-color: #05386b;
+        background-color: #05386b;
+        color: #5cdb95;
+      }
+    }
+    * {
+      color: #05386b;
+      font-family: "Poppins";
+    }
+
+    a {
+      color: #05386b;
+    }
+
+    .stripe-page {
+      display: flex;
+      justify-content: center;
+      isolation: isolation;
+      z-index: auto;
+      width: 100%;
+    }
+
+    .loading-container {
+      text-align: center;
+      margin-top: 60%;
+      font-weight: bold;
+      font-size: larger;
+    }
+
+    .error-display {
+      text-align: center;
+      margin-top: 60%;
+      font-weight: bold;
+      font-size: larger;
+    }
+
+    .success-container {
+      text-align: center;
+      background-color: white;
+      border: 2px solid #05386b;
+      border-radius: 5%;
+      width: 80%;
+      margin: 35% auto;
+      padding: 10px;
+      .success-img {
+        width: 30%;
+        height: 30%;
+        padding-top: 15px;
+      }
+      .success-msg {
+        margin: 15% auto;
+      }
     }
   }
-  * {
-    color: #05386b;
-    font-family: "Poppins";
-  }
-
-  a {
-    color: #05386b;
-  }
-
-  .stripe-page {
-    display: flex;
-    justify-content: center;
-    isolation: isolation;
-    z-index: auto;
-    width: 100%;
-   }
-
-   .loading-container {
-    text-align: center;
-    margin-top: 60%;
-    font-weight: bold;
-    font-size: larger;
-   }
-
-   .error-display {
-    text-align: center;
-    margin-top: 60%;
-    font-weight: bold;
-    font-size: larger;
-   }
-
-   .success-container {
-    text-align: center;
-    background-color: white;
-    border: 2px solid #05386b;
-    border-radius: 5%;
-    width: 80%;
-    margin: 35% auto;
-    padding: 10px;   
-    .success-img {
-      width: 30%;
-      height: 30%;
-      padding-top: 15px
-    }
-    .success-msg {
-      margin: 15% auto;
-    }
-   }
-
 }
 
-@media only screen and (max-width: 1200px) {
+@media only screen and (min-width: 451px) {
   .login-card {
     display: flex;
     justify-content: center;

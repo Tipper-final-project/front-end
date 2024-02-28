@@ -52,109 +52,44 @@ const ProfilePage = ({ params }) => {
   return isLoading ? (
     <Loading />
   ) : (
-
     <>
-     <div className="logout-button">{LogoutButton()}</div>
-    <div className="profile-page-user">
-      <div>
-        {messages
-          ? messages.slice(0, 1).map((message) => (
-              <Card style={{ width: "18rem" }}>
-                <Card.Body>
-                  <Card.Title>Recent message</Card.Title>
-                  <Card.Text>
-                    recieved ${message.recieved}.00 on{" "}
-                    {message.date.slice(0, 10)} {message.date.slice(11, 16)}
-                  </Card.Text>
-                </Card.Body>
-              </Card>
-            ))
-          : null}
-      </div>
-      <div className="card" style={{ width: "90%", margin: "auto" }}>
-        <img
-          src={userDetails.img_url}
-          className="card-img-top"
-          alt={`an image of ${userDetails.username}`}
-        />
-        <div className="card-body">
-          <div className="profileDiv">
-            <p className="card-title">Change image</p>
-            {editImage ? null : (
-              <button
-                onClick={() => {
-                  setEditImage(true);
-                }}
-                className="btn btn-sm edit-button"
-              >
-                Upload
-              </button>
-            )}
-          </div>
-          {editImage ? (
-            <div className="input-group">
-              <input
-                type="file"
-                className="form-control"
-                id="img"
-                aria-label="Upload"
-                accept=".jpg, .png"
-                onChange={handleImagePatch}
-                required
-              />
-            </div>
-          ) : null}
-          {imageConfirm ? (
-            <div>
-              <img src={image} width={"300px"} />
-              <button
-                id="approveUpload"
-                style={{ marginRight: "7px" }}
-                type="button"
-                className="btn btn-success"
-                onClick={() => {
-                  document.getElementById("approveUpload").disabled = true;
-                  patchUser(userDetails.username, { img_url: image }).then(
-                    () => {
-                      setImageConfirm(false);
-                      setEditImage(false);
-                      userDetails.img_url = image;
-                    }
-                  );
-                }}
-              >
-                Approve
-              </button>
-              <button
-                id="cancelNewUpload"
-                type="button"
-                className="btn btn-danger"
-                onClick={() => {
-                  setEditImage(false);
-                  setImageConfirm(false);
-                }}
-              >
-                Cancel
-              </button>
-            </div>
-          ) : null}
+      <div className="logout-button">{LogoutButton()}</div>
+      <div className="profile-page-user">
+        <div>
+          {messages
+            ? messages.slice(0, 1).map((message) => (
+                <Card style={{ width: "18rem" }}>
+                  <Card.Body>
+                    <Card.Title>Recent message</Card.Title>
+                    <Card.Text>
+                      recieved ${message.recieved}.00 on{" "}
+                      {message.date.slice(0, 10)} {message.date.slice(11, 16)}
+                    </Card.Text>
+                  </Card.Body>
+                </Card>
+              ))
+            : null}
         </div>
-        <div className="card-body">
-          <div className="profileDiv">
-            <h2 className="card-greeting">Hello {userDetails.username}!</h2>
-            {editUsername ? null : (
-              <button
-                onClick={() => {
-                  setEditUsername(true);
-                  setUsernameTaken(false);
-                }}
-
-                className="btn btn-sm edit-button"
-              >
-                Upload
-              </button>
-            )}
-          </div>
+        <div className="card" style={{ width: "90%", margin: "auto" }}>
+          <img
+            src={userDetails.img_url}
+            className="card-img-top"
+            alt={`an image of ${userDetails.username}`}
+          />
+          <div className="card-body">
+            <div className="profileDiv">
+              <p className="card-title">Change image</p>
+              {editImage ? null : (
+                <button
+                  onClick={() => {
+                    setEditImage(true);
+                  }}
+                  className="btn btn-sm edit-button"
+                >
+                  Upload
+                </button>
+              )}
+            </div>
             {editImage ? (
               <div className="input-group">
                 <input
