@@ -13,7 +13,7 @@
     "@stripe/react-stripe-js": "^2.5.0",
     "@stripe/stripe-js": "^3.0.3",
     "axios": "^1.6.7",
-    "bootstrap": "^5.3.2",
+    "bootstrap": "^5.3.3",
     "cryptr": "^6.3.0",
     "micro": "^10.0.1",
     "micro-cors": "^0.1.1",
@@ -21,6 +21,7 @@
     "node": "^21.6.2",
     "qrcode": "^1.5.3",
     "react": "^18",
+    "react-bootstrap": "^2.10.1",
     "react-dom": "^18",
     "sass": "^1.71.0",
     "stripe": "^14.17.0"
