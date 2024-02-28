@@ -8,6 +8,31 @@ a {
   color: #05386b;
 }
 
+.messageCard {
+  width: 90%;
+  margin: 5%;
+}
+.messageCard .messageButton {
+  display: flex;
+  justify-content: flex-end;
+}
+.messageCard .messageButton button {
+  width: 30%;
+}
+.messageCard .closeMessagesDiv {
+  display: flex;
+  justify-content: flex-end;
+}
+.messageCard .closeMessages {
+  width: 30%;
+  border-color: #05386b;
+  background-color: #05386b;
+  color: #5cdb95;
+}
+.messageCard .card {
+  width: 100% !important;
+}
+
 @media only screen and (max-width: 450px) {
   .login-card {
     display: flex;
@@ -249,6 +274,26 @@ a {
   }
   .logoutbtn {
     height: 30px;
+    background-color: #05386b;
+    border-color: #05386b;
+    color: #5cdb95;
+    position: absolute;
+    top: 8px;
+    right: 8px;
+  }
+  .showMessages {
+    height: 30px;
+    background-color: #05386b;
+    border-color: #05386b;
+    color: #5cdb95;
+    position: absolute;
+    top: 8px;
+    right: 80px;
+  }
+  .showMessages:hover {
+    background-color: #05386b;
+    border-color: #05386b;
+    color: #5cdb95;
   }
   .tipper {
     display: flex;

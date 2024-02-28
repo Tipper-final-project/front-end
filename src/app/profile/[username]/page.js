@@ -9,6 +9,7 @@ import LogoutButton from "../../Components/LogoutButton";
 import Loading from "@/app/Components/Loading";
 import getMessages from "@/APIcalls/messages";
 import Card from "react-bootstrap/Card";
+import ListGroup from "react-bootstrap/ListGroup";
 const UsernameError = ({ setIsTime }) => {
   setTimeout(() => {
     setIsTime("now");
@@ -29,10 +30,12 @@ const ProfilePage = ({ params }) => {
   const [editImage, setEditImage] = useState(false);
   const [image, setImage] = useState("");
   const [imageConfirm, setImageConfirm] = useState(false);
+  const [hideMessagePreview, setHideMessagePreview] = useState(false);
+  const [openMessages, setOpenMessages] = useState(false);
   const [changingUserName, setChangingUserName] = useState(false);
   const [usernameTaken, setUsernameTaken] = useState(false);
   const [isTime, setIsTime] = useState(null);
-  
+
   useEffect(() => {
     getUser(params.username, setUserDetails, setIsLoading);
     getMessages(params.username, setMessages);
@@ -52,14 +55,60 @@ const ProfilePage = ({ params }) => {
     <Loading />
   ) : (
     <>
-      <div className="logout-button">{LogoutButton()}</div>
+      <div className="logout-button">
+        {hideMessagePreview && !openMessages ? (
+          <button
+            className="btn btn-sm showMessages"
+            onClick={() => {
+              setOpenMessages(true);
+            }}
+          >
+            Messages
+          </button>
+        ) : null}
+        <LogoutButton />
+      </div>
       <div className="profile-page-user">
-        <div>
-          {messages
-            ? messages.slice(0, 1).map((message) => (
-                <Card style={{ width: "18rem" }}>
+        <div className="messageCard">
+          {messages && openMessages ? (
+            <Card style={{ width: "18rem" }}>
+              <div className="closeMessagesDiv">
+                <button
+                  className="btn closeMessages"
+                  onClick={() => {
+                    setOpenMessages(false);
+                  }}
+                >
+                  Close
+                </button>
+              </div>
+              <ListGroup variant="flush">
+                {messages.slice(0, 5).map((message, index) => {
+                  return (
+                    <ListGroup.Item key={index}>
+                      Recieved ${message.recieved}.00 at{" "}
+                      {message.date.slice(0, 10)} {message.date.slice(11, 16)}
+                    </ListGroup.Item>
+                  );
+                })}
+              </ListGroup>
+            </Card>
+          ) : null}
+          {messages && !hideMessagePreview
+            ? messages.slice(0, 1).map((message, index) => (
+                <Card style={{ width: "18rem" }} key={index}>
                   <Card.Body>
-                    <Card.Title>Recent message</Card.Title>
+                    <div className="messageButton">
+                      <button
+                        className="btn btn-sm edit-button"
+                        onClick={() => {
+                          setHideMessagePreview(true);
+                        }}
+                      >
+                        Hide
+                      </button>
+                    </div>
+                    <Card.Title>Recent payment</Card.Title>
                     <Card.Text>
                       recieved ${message.recieved}.00 on{" "}
                       {message.date.slice(0, 10)} {message.date.slice(11, 16)}
