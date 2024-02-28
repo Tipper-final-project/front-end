@@ -2,6 +2,7 @@ import axios from "axios";
 import getSecondM from "../../utils/getSecondM";
 
 const getMessages = async (username, setMessages) => {
+
   try {
     const response = await axios.get(
       `https://tipper-api-xzkf.onrender.com/messages/${username}`
