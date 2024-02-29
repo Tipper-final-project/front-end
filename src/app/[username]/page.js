@@ -23,8 +23,7 @@ export default function App({ params }) {
   const username = params.username;
 
   useEffect(() => {
-    getUser(username, setUserDetails);
-    setIsLoading(false);
+    getUser(username, setUserDetails, setIsLoading);;
     setError(error);
     fetch("/api", {
       method: "POST",
@@ -34,32 +33,29 @@ export default function App({ params }) {
       .then((data) => setClientSecret(data.clientSecret));
   }, []);
 
-  if (isLoading) return <Loading />;
-
+  
   if (error) return <Error error={error} />;
-
-  return (
-    <>
-      <div className="checkout-profile">
-        <img
-          className="checkout-profile-pic"
-          src={userDetails.img_url}
-          alt="profile-picture"
-        ></img>
-        <h1>{userDetails.username}</h1>
-        <p>{userDetails.bio}</p>
-      </div>  
-       <div className="whitebox">Hello</div>
-      <div id="checkout" className="stripe-page">
-        {clientSecret && (
-          <EmbeddedCheckoutProvider
-            stripe={stripePromise}
-            options={{ clientSecret }}
-          >
-            <EmbeddedCheckout />
-          </EmbeddedCheckoutProvider>
-        )}
-      </div>
-    </>
-  );
+  
+  return isLoading ? <Loading /> : <>
+    <div className="checkout-profile">
+      <img
+        className="checkout-profile-pic"
+        src={userDetails.img_url}
+        alt="profile-picture"
+      ></img>
+      <h1>{userDetails.username}</h1>
+      <p>{userDetails.bio}</p>
+    </div>  
+     <div className="whitebox">Hello</div>
+    <div id="checkout" className="stripe-page">
+      {clientSecret && (
+        <EmbeddedCheckoutProvider
+          stripe={stripePromise}
+          options={{ clientSecret }}
+        >
+          <EmbeddedCheckout />
+        </EmbeddedCheckoutProvider>
+      )}
+    </div>
+  </>
 }

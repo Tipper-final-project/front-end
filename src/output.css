@@ -69,6 +69,18 @@ a {
 .messageCard .card {
   width: 100% !important;
 }
+.messageCard .card-title.h5 {
+  color: #05386b;
+}
+
+.whitebox {
+  background-color: #5cdb95;
+  color: #5cdb95;
+  position: absolute;
+  margin-top: -2px;
+  height: 20px;
+  width: 100%;
+}
 
 @media only screen and (max-width: 450px) {
   .login-card {
@@ -171,6 +183,9 @@ a {
     border-width: 0.5px;
     border-color: #05386b;
     border-radius: 0.25rem;
+  }
+  .profile-page-user .edit-field .input-field::placeholder {
+    color: rgba(5, 56, 107, 0.7);
   }
   .profile-page-user .edit-field .btn {
     border-color: #05386b;
@@ -491,10 +506,9 @@ a {
     background-color: #5cdb95;
     color: #5cdb95;
     position: absolute;
-    top: 266px;
-    left: 27px;
-    width: 350px;
-    line-height: 2;
+    margin-top: -2px;
+    height: 20px;
+    width: 100%;
   }
   .loading-container {
     text-align: center;
