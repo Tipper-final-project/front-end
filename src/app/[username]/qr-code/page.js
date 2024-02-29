@@ -16,15 +16,15 @@ const QRCode = ({ params }) => {
   const username = params.username;
 
   useEffect(() => {
-    getUser(username, setUserDetails, setIsLoading).then(()=> {
-          generateQR(
+    getUser(username, setUserDetails, setIsLoading)
+    setError(error);
+  }, []);
+  useEffect(() => {
+         generateQR(
       `https://front-end-eight-eta-57.vercel.app/${userDetails.username}`,
       setQrImage
     );
-    })
-    setError(error);
-  }, []);
-
+  }, [userDetails])
   if (error) return <Error error={error} />;
 
   const generateQR = async (text, func) => {
