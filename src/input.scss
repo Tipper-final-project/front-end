@@ -20,6 +20,21 @@ a {
   background-color: #5cdb95;
   border-color: #05386b;
 }
+  .showMessages {
+    height: 30px;
+    background-color: #05386b;
+    border-color: #05386b;
+    color: #5cdb95;
+    position: absolute;
+    top: 13px;
+    right: 90px;
+  }
+
+  .showMessages:hover {
+    background-color: #05386b;
+    border-color: #05386b;
+    color: #5cdb95;
+  }
 .return-login {
   position: absolute;
   top: 13px;
