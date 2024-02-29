@@ -18,7 +18,7 @@ const Return = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        postMessage("eileen");
+        postMessage("Anna");
         postPayment(sessionId, setStatus);
         setStatus(data.status);
         setCustomerEmail(data.customer_email);
