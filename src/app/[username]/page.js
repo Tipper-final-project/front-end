@@ -48,8 +48,8 @@ export default function App({ params }) {
         ></img>
         <h1>{userDetails.username}</h1>
         <p>{userDetails.bio}</p>
-      </div>
-        <div className="whitebox">Hello</div>
+      </div>  
+       <div className="whitebox">Hello</div>
       <div id="checkout" className="stripe-page">
         {clientSecret && (
           <EmbeddedCheckoutProvider
