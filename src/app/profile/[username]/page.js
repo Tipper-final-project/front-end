@@ -152,37 +152,49 @@ const ProfilePage = ({ params }) => {
               </div>
             ) : null}
             {imageConfirm ? (
-              <div>
-                <img src={image} width={"300px"} className="uploaded-img" />
-                <button
-                  id="approveUpload"
-                  style={{ marginRight: "7px" }}
-                  type="button"
-                  className="btn btn-success"
-                  onClick={() => {
-                    document.getElementById("approveUpload").disabled = true;
-                    patchUser(userDetails.username, { img_url: image }).then(
-                      () => {
-                        setImageConfirm(false);
-                        setEditImage(false);
-                        userDetails.img_url = image;
-                      }
-                    );
+              <div className="new-selected-image" style={{}}>
+                <img
+                  src={image}
+                  style={{
+                    width: 60 + "%",
+                    paddingTop: 15 + "px",
+                    paddingBottom: 15 + "px",
+                    
                   }}
-                >
-                  Approve
-                </button>
-                <button
-                  id="cancelNewUpload"
-                  type="button"
-                  className="btn btn-danger"
-                  onClick={() => {
-                    setEditImage(false);
-                    setImageConfirm(false);
-                  }}
-                >
-                  Cancel
-                </button>
+                  className="uploaded-img"
+                  id="uploaded-img-id"
+                />
+                <div className="button-section">
+                  <button
+                    id="approveUpload"
+                    style={{ marginRight: "7px" }}
+                    type="button"
+                    className="btn btn-success btn-sm approve-new-image"
+                    onClick={() => {
+                      document.getElementById("approveUpload").disabled = true;
+                      patchUser(userDetails.username, { img_url: image }).then(
+                        () => {
+                          setImageConfirm(false);
+                          setEditImage(false);
+                          userDetails.img_url = image;
+                        }
+                      );
+                    }}
+                  >
+                    Approve
+                  </button>
+                  <button
+                    id="cancelNewUpload"
+                    type="button"
+                    className="btn btn-danger btn-sm cancel-new-image"
+                    onClick={() => {
+                      setEditImage(false);
+                      setImageConfirm(false);
+                    }}
+                  >
+                    Cancel
+                  </button>
+                </div>
               </div>
             ) : null}
           </div>
