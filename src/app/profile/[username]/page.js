@@ -110,7 +110,7 @@ const ProfilePage = ({ params }) => {
                     </div>
                     <Card.Title>Recent payment</Card.Title>
                     <Card.Text>
-                      recieved ${message.recieved}.00 on{" "}
+                      recieved £{message.recieved}.00 on{" "}
                       {message.date.slice(0, 10)} {message.date.slice(11, 16)}
                     </Card.Text>
                   </Card.Body>
