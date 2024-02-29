@@ -70,6 +70,15 @@ a {
   width: 100% !important;
 }
 
+.whitebox {
+  background-color: #5cdb95;
+  color: #5cdb95;
+  position: absolute;
+  margin-top: -2px;
+  height: 20px;
+  width: 100%;
+}
+
 @media only screen and (max-width: 450px) {
   .login-card {
     display: flex;
@@ -491,10 +500,9 @@ a {
     background-color: #5cdb95;
     color: #5cdb95;
     position: absolute;
-    top: 266px;
-    left: 27px;
-    width: 350px;
-    line-height: 2;
+    margin-top: -2px;
+    height: 20px;
+    width: 100%;
   }
   .loading-container {
     text-align: center;

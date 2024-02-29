@@ -16,35 +16,28 @@ const QRCode = ({ params }) => {
   const username = params.username;
 
   useEffect(() => {
-    getUser(username, setUserDetails);
-    setIsLoading(false);
+    getUser(username, setUserDetails, setIsLoading);
     setError(error);
+    generateQR(
+      `https://front-end-eight-eta-57.vercel.app/${userDetails.username}`,
+      setQrImage
+    );
   }, []);
-
-  if (isLoading) return <Loading />;
 
   if (error) return <Error error={error} />;
 
   const generateQR = async (text, func) => {
-    let isMounted = true;
     try {
       const img = await qr.toDataURL(text);
-      if (isMounted) {
-        func(img);
-      }
-      return () => {
-        isMounted = false;
-      };
+
+      func(img);
     } catch (err) {
       console.error(err);
     }
   };
 
-  generateQR(
-    `https://front-end-eight-eta-57.vercel.app/${userDetails.username}`,
-    setQrImage
-  );
-  return (
+ 
+  return isLoading ? <Loading /> :
     <>
       <main className="qr-page">
         <LogoutButton />
@@ -67,7 +60,6 @@ const QRCode = ({ params }) => {
         </div>
       </main>
     </>
-  );
 };
 
 export default QRCode;
