@@ -13,6 +13,7 @@ export default async function getUser(username, setUserDetails, setIsLoading) {
     } else {
       setUserDetais({username: waiter.username, img_url: waiter.img_url, bio : waiter.bio});
       setIsLoading ? setIsLoading(false) : null;
+    }
   } catch (error) {
     console.log(error);
   }
