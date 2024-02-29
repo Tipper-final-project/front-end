@@ -74,7 +74,7 @@ const ProfilePage = ({ params }) => {
             <Card style={{ width: "18rem" }}>
               <div className="closeMessagesDiv">
                 <button
-                  className="btn closeMessages"
+                  className="btn btn-sm closeMessages"
                   onClick={() => {
                     setOpenMessages(false);
                   }}
@@ -126,7 +126,6 @@ const ProfilePage = ({ params }) => {
           />
           <div className="card-body">
             <div className="profileDiv">
-              {/* <p className="card-title">Change image</p> */}
               {editImage ? null : (
                 <button
                   onClick={() => {
@@ -325,12 +324,6 @@ const ProfilePage = ({ params }) => {
             >
               Delete account
             </button>
-            <a
-              href={`/${userDetails.username}`}
-              className="btn btn-outline-primary btn-sm stripe-btn"
-            >
-              Stripe
-            </a>
             {deleteWarning ? (
               <div className="deleteField">
                 <div>

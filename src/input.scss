@@ -64,6 +64,9 @@ a {
   .card {
     width: 100% !important;
   }
+  .card-title.h5 {
+    color: #05386b;
+  }
 }
 
   .whitebox {
@@ -177,6 +180,9 @@ a {
         border-width: 0.5px;
         border-color: #05386b;
         border-radius: 0.25rem;
+      }
+      .input-field::placeholder {
+        color: rgb(5, 56, 107, 0.7);
       }
       .btn {
         border-color: #05386b;

@@ -19,13 +19,13 @@ const Editfield = ({
   return (
     <form>
       <div className="edit-field">
-        <input onChange={handleInput} minLength={4} className="input-field"/>
+        <input onChange={handleInput} minLength={4} className="input-field" placeholder={value}/>
         <button
           className="btn btn-outline-primary btn-sm"
           onClick={() => {
             if (inputFieldData.length !== 0 && /\w/gi.test(inputFieldData)) {
               if (value === "username") {
-                if (inputFieldData.length < 4) return; // how does this even work ??
+                if (inputFieldData.length < 4) return;
                 setChangingUserName(true);
                 findUserName(inputFieldData).then((result) => {
                   if (!result) {

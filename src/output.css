@@ -69,6 +69,9 @@ a {
 .messageCard .card {
   width: 100% !important;
 }
+.messageCard .card-title.h5 {
+  color: #05386b;
+}
 
 .whitebox {
   background-color: #5cdb95;
@@ -180,6 +183,9 @@ a {
     border-width: 0.5px;
     border-color: #05386b;
     border-radius: 0.25rem;
+  }
+  .profile-page-user .edit-field .input-field::placeholder {
+    color: rgba(5, 56, 107, 0.7);
   }
   .profile-page-user .edit-field .btn {
     border-color: #05386b;
