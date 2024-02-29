@@ -86,7 +86,7 @@ const ProfilePage = ({ params }) => {
                 {messages.slice(0, 5).map((message, index) => {
                   return (
                     <ListGroup.Item key={index}>
-                      Recieved ${message.recieved}.00 at{" "}
+                      Recieved £{message.recieved}.00 at{" "}
                       {message.date.slice(0, 10)} {message.date.slice(11, 16)}
                     </ListGroup.Item>
                   );
