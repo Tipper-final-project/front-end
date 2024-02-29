@@ -8,6 +8,43 @@ a {
   color: #05386b;
 }
 
+.logoutbtn {
+  position: absolute;
+  top: 13px;
+  right: 14px;
+  background-color: #05386b;
+  color: #5cdb95;
+}
+
+.logoutbtn:hover {
+  color: #05386b;
+  background-color: #5cdb95;
+  border-color: #05386b;
+}
+
+.return-login {
+  position: absolute;
+  top: 13px;
+  right: 14px;
+  background-color: #05386b;
+  border-color: #05386b;
+  color: #5cdb95;
+}
+
+.return-login:hover {
+  background-color: #5cdb95;
+  border-color: #05386b;
+  color: #05386b;
+}
+
+.registration-page h6 {
+  color: #05386b;
+  text-align: center;
+  background-color: rgba(142, 228, 175, 0.5);
+  border-radius: 5px;
+  line-height: 3;
+}
+
 .messageCard {
   width: 90%;
   margin: 5%;
@@ -83,6 +120,9 @@ a {
     margin-top: 40%;
     isolation: isolate;
   }
+  .profile-page-user {
+    padding-bottom: 20%;
+  }
   .profile-page-user .card {
     padding: 10px 5px 10px 5px;
     border-color: white;
@@ -153,6 +193,7 @@ a {
   }
   .profile-page-user .edit-img-button {
     border: none;
+    color: #05386b;
     background-color: inherit;
     padding: 0px;
     font-size: 16px;
@@ -160,7 +201,29 @@ a {
     cursor: pointer;
   }
   .profile-page-user .edit-img-button:hover {
-    background: #eee;
+    background-color: white;
+    color: #5cdb95;
+  }
+  .profile-page-user .approve-new-image {
+    background-color: #05386b;
+    color: #5cdb95;
+    border-color: #05386b;
+  }
+  .profile-page-user .approve-new-image:hover {
+    background-color: #5cdb95;
+    color: #05386b;
+    border-color: #5cdb95;
+  }
+  .profile-page-user .form-control {
+    color: rgba(5, 56, 107, 0.7);
+    border-color: rgba(5, 56, 107, 0.7);
+  }
+  .profile-page-user .form-control:focus {
+    border: #5cdb95;
+    box-shadow: 0 0 0 0.1rem #5cdb95;
+  }
+  .profile-page-user .form-control::placeholder {
+    color: rgba(5, 56, 107, 0.7);
   }
   .profile-page-user .delete-btn {
     margin-top: 20px;
@@ -214,26 +277,9 @@ a {
     background-color: #05386b;
     border-color: #05386b;
   }
-  .profilepage {
-    display: inline block;
-  }
-  .profilepage div {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-  }
-  .profilepage .logoutbtn:active {
-    background-color: white;
-    color: yellow;
-  }
-  .profilepage .username {
-    font-weight: bold;
-    margin-top: 10px;
-    margin-bottom: 20px;
-    text-align: left;
-  }
   .qr-page {
     text-align: center;
+    padding-bottom: 10%;
   }
   .qr-page .profile-pic {
     max-height: 150px;
@@ -362,6 +408,9 @@ a {
   .registration-page .register-card h6 {
     color: #05386b;
     text-align: center;
+    background-color: rgba(142, 228, 175, 0.5);
+    border-radius: 5px;
+    line-height: 3;
   }
   .registration-page .register-card p {
     font-size: 12px;
@@ -421,10 +470,8 @@ a {
     margin-top: 10px;
     margin-bottom: 10px;
   }
-  .registration-page .register-card .uploaded-img {
-    display: flex;
-    justify-content: center;
-    width: 100%;
+  .registration-page .register-card .new-selected-image {
+    width: 90%;
   }
   .registration-page .form-control::placeholder {
     color: #05386b;
@@ -438,14 +485,16 @@ a {
     display: flex;
     justify-content: center;
     width: 100%;
+    padding-bottom: 20%;
   }
   .whitebox {
     background-color: #5cdb95;
     color: #5cdb95;
     position: absolute;
-    top: 290px;
-    left: 63px;
-    width: 300px;
+    top: 266px;
+    left: 27px;
+    width: 350px;
+    line-height: 2;
   }
   .loading-container {
     text-align: center;
