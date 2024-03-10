@@ -4,7 +4,7 @@ import axios from "axios";
 export default async function getUser(username, setUserDetails, setIsLoading) {
   try {
     const response = await axios.get(
-      `https://tipper-api-xzkf.onrender.com/waiter/${username}`
+      `https://backend-j38q.onrender.com/waiter/${username}`
     );
     const { waiter } = response.data;
     if (waiter._id === localStorage.pass) {
@@ -21,7 +21,7 @@ export default async function getUser(username, setUserDetails, setIsLoading) {
 export async function verifyUser(username, password, setLoginError) {
   try {
     const response = await axios.get(
-      `https://tipper-api-xzkf.onrender.com/waiter/${username}`
+      `https://backend-j38q.onrender.com/waiter/${username}`
     );
     const { waiter } = response.data;
     if (Crypt.decrypt(waiter.password) === password) {
@@ -40,7 +40,7 @@ export async function verifyUser(username, password, setLoginError) {
 export async function findUserName(user) {
   try {
     const result = await axios.get(
-      `https://tipper-api-xzkf.onrender.com/check/${user}`
+      `https://backend-j38q.onrender.com/check/${user}`
     );
     return result.data.userExists;
   } catch (error) {

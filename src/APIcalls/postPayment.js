@@ -2,7 +2,7 @@ import axios from "axios";
 
 export default function postPayment(sessionid) {
   return axios
-    .post(`https://tipper-api-xzkf.onrender.com/payments`, {
+    .post(`https://backend-j38q.onrender.com/payments`, {
       sessionID: sessionid,
     })
     .catch((err) => {

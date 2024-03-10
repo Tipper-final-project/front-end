@@ -4,7 +4,7 @@ async function deleteUser(username) {
   try {
     console.log("hi")
     await axios.delete(
-      `https://tipper-api-xzkf.onrender.com/waiter/${username}`
+      `https://backend-j38q.onrender.com/waiter/${username}`
     );
   } catch (err) {
     console.log(err);

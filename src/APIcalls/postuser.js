@@ -8,7 +8,7 @@ export default async function postUser(
   encryptedString
 ) {
   return axios
-    .post(`https://tipper-api-xzkf.onrender.com/waiter`, {
+    .post(`https://backend-j38q.onrender.com/waiter`, {
       username: information.username,
       bio: information.bio,
       workPlace: information.workPlace,

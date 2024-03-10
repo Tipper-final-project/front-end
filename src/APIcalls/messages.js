@@ -4,7 +4,7 @@ import getSecondM from "../../utils/getSecondM";
 const getMessages = async (username, setMessages) => {
   try {
     const response = await axios.get(
-      `https://tipper-api-xzkf.onrender.com/messages/${username}`
+      `https://backend-j38q.onrender.com/messages/${username}`
     );
     const messages = getSecondM(response.data.messages);
     const sortParameter = "date";
@@ -22,7 +22,7 @@ export default getMessages;
 export const postMessage = async (username) => {
   try {
     await axios.post(
-      `https://tipper-api-xzkf.onrender.com/messages/${username}`,
+      `https://backend-j38q.onrender.com/messages/${username}`,
       { recieved: 5, date: new Date() }
     );
   } catch (error) {

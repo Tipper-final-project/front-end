@@ -4,7 +4,7 @@ async function patchUser(username, newDetails) {
   try {
     // console.log(username, newDetails);
     const response = await axios.patch(
-      `https://tipper-api-xzkf.onrender.com/waiter/${username}`,
+      `https://backend-j38q.onrender.com/waiter/${username}`,
       newDetails
     );
   } catch (err) {
