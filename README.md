@@ -2,7 +2,7 @@
 
 Our cashless tipping web-app! Through Tipper, service providers such as waiters, are able to be tipped directly in to their bank accounts. Upon scanning a QR Code linked to the service provider's registered Tipper account, the tippee can complete a payment authenticated by Stripe.
 
-### 🏠 [Homepage](https://tipper1.netlify.app/)
+### 🏠 [Homepage](https://tipper.merin-yilmaz.co.uk/)
 
 ## Install
 

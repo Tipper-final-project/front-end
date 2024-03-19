@@ -27,7 +27,8 @@ const Login = () => {
         setLoginError
       ).then((response) => {
         if(response) {
-          router.push(`/profile/${usernameInput}`);
+          console.log('here');
+          console.log(router.push(`/profile/${usernameInput}`));
           document.getElementById("loginbtn").disabled = false;
         }
       });
