@@ -3,7 +3,7 @@ import axios from "axios";
 
 export default async function getUser(username, setUserDetails, setIsLoading) {
   try {
-    await axios.get(
+    return await axios.get(
       `https://backend-j38q.onrender.com/waiter/${username}`
     ).then((response) => {
       if(response) {
@@ -23,7 +23,7 @@ export default async function getUser(username, setUserDetails, setIsLoading) {
 }
 export async function verifyUser(username, password, setLoginError) {
   try {
-    await axios.get(
+    return await axios.get(
       `https://backend-j38q.onrender.com/waiter/${username}`
     ).then((response) => {
       if(response) {
@@ -45,7 +45,7 @@ export async function verifyUser(username, password, setLoginError) {
 
 export async function findUserName(user) {
   try {
-    await axios.get(
+    return await axios.get(
       `https://backend-j38q.onrender.com/check/${user}`
     ).then((result) => {
       return result.data.userExists;
