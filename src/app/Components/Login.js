@@ -19,6 +19,7 @@ const Login = () => {
 
   async function handleLogin(event) {
     try {
+      console.log('ehere')
       document.getElementById("loginbtn").disabled = true;
       event.preventDefault();
       await verifyUser(
