@@ -19,20 +19,21 @@ const Login = () => {
 
   async function handleLogin(event) {
     try {
+      document.getElementById("loginbtn").disabled = true;
       event.preventDefault();
-      const isSuccesfull = await verifyUser(
+      await verifyUser(
         usernameInput,
         passwordInput,
         setLoginError
-      );
-      if (isSuccesfull) {
-        router.push(`/profile/${usernameInput}`);
-      }
-      document.getElementById("loginbtn").disabled = true;
+      ).then((response) => {
+        if(response) {
+          router.push(`/profile/${usernameInput}`);
+          document.getElementById("loginbtn").disabled = false;
+        }
+      });
     } catch (error) {
-      document.getElementById("loginbtn").disabled = true;
+      document.getElementById("loginbtn").disabled = false;
       setLoginError(error);
-
     }
   }
 
