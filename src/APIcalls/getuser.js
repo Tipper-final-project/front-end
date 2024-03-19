@@ -23,16 +23,19 @@ export default async function getUser(username, setUserDetails, setIsLoading) {
 }
 export async function verifyUser(username, password, setLoginError) {
   try {
-    const response = await axios.get(
+    await axios.get(
       `https://backend-j38q.onrender.com/waiter/${username}`
-    );
-    const { waiter } = response.data;
-    if (Crypt.decrypt(waiter.password) === password) {
-      localStorage.pass = waiter._id;
-      return true;
-    } else {
-      return Promise.reject({ password: "Invalid password" });
-    }
+    ).then((response) => {
+      if(response) {
+        const { waiter } = response.data;
+        if (Crypt.decrypt(waiter.password) === password) {
+          localStorage.pass = waiter._id;
+          return true;
+        } else {
+          return Promise.reject({ password: "Invalid password" });
+        }
+      }
+    });
   } catch (error) {
     if (error.response.data.msg === "Not found") {
       setLoginError({ username: "Username is not valid" });
