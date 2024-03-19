@@ -27,7 +27,7 @@ const Login = () => {
         setLoginError
       ).then((response) => {
         if(response) {
-          document.location.href = `/profile/${usernameInput}`
+          window.location.href = `/profile/${usernameInput}`
           document.getElementById("loginbtn").disabled = false;
         }
       });
