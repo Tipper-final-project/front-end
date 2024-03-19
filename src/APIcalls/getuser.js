@@ -45,10 +45,11 @@ export async function verifyUser(username, password, setLoginError) {
 
 export async function findUserName(user) {
   try {
-    const result = await axios.get(
+    await axios.get(
       `https://backend-j38q.onrender.com/check/${user}`
-    );
-    return result.data.userExists;
+    ).then((result) => {
+      return result.data.userExists;
+    });
   } catch (error) {
     console.log(error);
   }
