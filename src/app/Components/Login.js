@@ -19,7 +19,6 @@ const Login = () => {
 
   async function handleLogin(event) {
     try {
-      console.log('ehere')
       document.getElementById("loginbtn").disabled = true;
       event.preventDefault();
       await verifyUser(
@@ -27,14 +26,11 @@ const Login = () => {
         passwordInput,
         setLoginError
       ).then((response) => {
-        console.log('ehere2')
-        console.log(response)
         if(response) {
-          window.location.href = `/profile/${usernameInput}`
+          router.push(`/profile/${usernameInput}`)
           document.getElementById("loginbtn").disabled = false;
         }
       });
-      console.log('ehere3')
     } catch (error) {
       console.log(error)
       document.getElementById("loginbtn").disabled = false;

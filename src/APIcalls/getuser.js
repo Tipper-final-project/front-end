@@ -3,17 +3,20 @@ import axios from "axios";
 
 export default async function getUser(username, setUserDetails, setIsLoading) {
   try {
-    const response = await axios.get(
+    await axios.get(
       `https://backend-j38q.onrender.com/waiter/${username}`
-    );
-    const { waiter } = response.data;
-    if (waiter._id === localStorage.pass) {
-      setUserDetails(waiter);
-      setIsLoading ? setIsLoading(false) : null;
-    } else {
-      setUserDetails({username: waiter.username, img_url: waiter.img_url, bio : waiter.bio});
-      setIsLoading ? setIsLoading(false) : null;
-    }
+    ).then((response) => {
+      if(response) {
+        const { waiter } = response.data;
+        if (waiter._id === localStorage.pass) {
+          setUserDetails(waiter);
+          setIsLoading ? setIsLoading(false) : null;
+        } else {
+          setUserDetails({username: waiter.username, img_url: waiter.img_url, bio : waiter.bio});
+          setIsLoading ? setIsLoading(false) : null;
+        }
+      }
+    });
   } catch (error) {
     console.log(error);
   }
