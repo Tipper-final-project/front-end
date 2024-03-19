@@ -21,7 +21,7 @@ const QRCode = ({ params }) => {
   }, []);
   useEffect(() => {
          generateQR(
-      `https://front-end-eight-eta-57.vercel.app/${userDetails.username}`,
+      `https://tipper.merin-yilmaz.co.uk/${userDetails.username}`,
       setQrImage
     );
   }, [userDetails])
